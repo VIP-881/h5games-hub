@@ -1,0 +1,15 @@
+# Cloudflare Pages 生产部署配置
+# 部署命令：npx wrangler pages deploy . --project-name=h5games-hub
+# 本地预览：npx wrangler pages dev .
+
+name = "h5games-hub"
+pages_build_output_dir = "."
+
+# 兼容性日期（按需调整）
+compatibility_date = "2025-01-01"
+
+# 若需绑定已存在的 R2 桶（游戏素材 h5-game-assets），取消注释并填写：
+# [[r2_buckets]]
+# binding = "GAMES_ASSETS"
+# bucket_name = "h5-game-assets"
+# preview_bucket_name = "h5-game-assets"
