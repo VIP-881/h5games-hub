@@ -1,1 +1,170 @@
-IyBINSBHYW1lcyBIdWIg4oCUIOi9u+mHj+e6p+mdmeaAgea4uOaIj+WQiOmbhgoK57qvIEhUTUwgLyBDU1MgLyBKYXZhU2NyaXB0IOaehOW7uueahOi9u+mHj+e6p+e9kemhteWwj+a4uOaIj+WQiOmbhu+8jOaXoOWQjuerr+OAgeWNs+eCueWNs+eOqe+8jOmDqOe9suS6jiBDbG91ZGZsYXJlIFBhZ2Vz44CCCuacrOS7k+W6k+WQjOaXtuaYr+S4gOWllyoq5Y+v5aSN55So6YOo572y5rWB56iLKirkuI4qKlNFTyAvIEdFTyDkvJjljJbmoLfmnb8qKuOAggoKIyMg57q/5LiK5Zyw5Z2ACnwg57G75Z6LIHwg5Zyw5Z2AIHwg54q25oCBIHwKfC0tLS0tLXwtLS0tLS18LS0tLS0tfAp8IOeUn+S6p++8iOinhOiMg+Wfn+WQje+8iSB8IGh0dHBzOi8vZ2FtZTI0LnZpcDg4LnF6ei5pbyB8IOKchSDlt7Lnu5Hlrprlubbmv4DmtLvvvIgyMDI2LTA5LTE377yJIHwKfCBQYWdlcyDpu5jorqTln5/lkI0gfCBodHRwczovL2g1Z2FtZXMtaHViLnBhZ2VzLmRldiB8IOKchSDlj6/orr/pl67vvIzlt7IgMzAxIOaUtuaVm+WIsOinhOiMg+Wfn+WQjSB8CnwgSFRUUFMgfCBQYWdlcyDpu5jorqTlvLrliLYgSFRUUFMgKyBIU1RTIHwg4pyFIOaXoOmcgOmineWklumFjee9riB8CgojIyDkuIDplK7moKHpqozvvIjpg6jnvbLlkI7oh6rmo4DvvIkKYGBgYmFzaApweXRob24gdmVyaWZ5LnB5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIyDpu5jorqTmoKHpqowgaHR0cHM6Ly9nYW1lMjQudmlwODgucXp6LmlvCnB5dGhvbiB2ZXJpZnkucHkgaHR0cHM6Ly9oNWdhbWVzLWh1Yi5wYWdlcy5kZXYgIyDmoKHpqowgUGFnZXMg6buY6K6k5Z+f5ZCN77yIY2Fub25pY2FsIOaWreiogOaMieS8oOWFpeWfn+WQjeavlOWvue+8iQpgYGAK6KaG55uW5LiJ57G75qOA5p+l77yaKirpg6jnvbIqKu+8iOe8k+WtmOWktCAvIEhTVFMgLyDova8gNDA0IOmYsuaKpO+8ieOAgSoqU0VPKirvvIh0aXRsZSAvIGRlc2NyaXB0aW9uIC8gY2Fub25pY2FsIC8gT0cgLyBUd2l0dGVyIC8gZmF2aWNvbiAvIOivreS5ieWMliAvIOagh+mimOWxgue6pyAvIOenu+WKqOerr++8ieOAgSoqR0VPKirvvIhKU09OLUxEIC8g5LqL5a6e5Z6L5paH5qGIIC8gbGxtcy50eHQgLyBzaXRlbWFwIOimhueblueOh++8ieOAggoKIyMg55uu5b2V57uT5p6ECmBgYApoNWdhbWVzLWh1Yi8K4pSc4pSA4pSAIGluZGV4Lmh0bWwgICAgICAgICAgICAjIFNFTytHRU8g5LyY5YyW6IGa5ZCI5Li76aG1CuKUnOKUgOKUgCBnYW1lcy9zbmFrZS8gICAgICAgICAgIyDljZXmlofku7bmuLjmiI/vvJrotKrlkIPom4cK4pSc4pSA4pSAIGdhbWVzLzIwNDgvICAgICAgICAgICAjIOWNleaWh+S7tua4uOaIj++8mjIwNDgK4pSc4pSA4pSAIGFzc2V0cy9jc3N8anMvICAgICAgICAjIOWFqOWxgOagt+W8j+S4juS6pOS6kgrilJzilIDilIAgR0FNRV9QTEFOLm1kICAgICAgICAgICMg5ri45oiP5YCZ6YCJ5riF5Y2V5LiO6YCJ5Z6L6KeE5YiSCuKUnOKUgOKUgCBsbG1zLnR4dCAgICAgICAgICAgICAgIyDmnLrlmajlj4vlpb3nq5nngrnmkZjopoHvvIhHRU/vvIkK4pSc4pSA4pSAIHJvYm90cy50eHQgICAgICAgICAgICAjIOeIrOiZq+aMh+W8lQrilJzilIDilIAgc2l0ZW1hcC54bWwgICAgICAgICAgICMg56uZ54K55Zyw5Zu+CuKUnOKUgOKUgCBfaGVhZGVycyAgICAgICAgICAgICAgIyDnvJPlrZjkuI7lronlhajlk43lupTlpLQK4pSc4pSA4pSAIF9yZWRpcmVjdHMgICAgICAgICAgICAjIOmHjeWumuWQkeinhOWImQrilJzilIDilIAgd3JhbmdsZXIudG9tbCAgICAgICAgICMgUGFnZXMg6YOo572y6YWN572uCuKUnOKUgOKUgCBkZXBsb3kuc2ggICAgICAgICAgICAgIyDkuIDplK7pg6jnvbLohJrmnKzvvIjlj6/lpI3nlKjvvIkK4pSU4pSA4pSAIC5naXRodWIvd29ya2Zsb3dzLyAgICAjIEdpdEh1YiBBY3Rpb25zIENJIOmDqOe9sgpgYGAKCiMjIOS4gOOAgeacrOWcsOmihOiniApgYGBiYXNoCmNkIGg1Z2FtZXMtaHViCnB5dGhvbjMgLW0gaHR0cC5zZXJ2ZXIgODAwMCAgICAgICMg5oiWIG5weCBzZXJ2ZQojIOaJk+W8gCBodHRwOi8vbG9jYWxob3N0OjgwMDAKYGBgCgojIyDkuozjgIHpg6jnvbLvvIjlrozmlbTlj6/lpI3nlKjmtYHnqIvvvIkKIyMjIOaWueW8jyBB77ya5LiA6ZSu6ISa5pys77yI5o6o6I2Q5pys5Zyw77yJCmBgYGJhc2gKZXhwb3J0IENGX0FDQ09VTlRfSUQ9IuS9oOeahEFjY291bnRJRCIKZXhwb3J0IENGX0FQSV9UT0tFTj0i5L2g55qEQVBJIFRva2VuIiAgICMg5LuF5ZCrIFBhZ2VzOkVkaXQg5p2D6ZmQ55qE5pyA5bCP5YyWIFRva2VuCmJhc2ggZGVwbG95LnNoCmBgYArohJrmnKzkvp3mrKHmiafooYzvvJrikaAg6aqM6K+BIFRva2VuIOKGkiDikaEg5Yib5bu6IFBhZ2VzIOmhueebru+8iOiLpeS4jeWtmOWcqO+8ieKGkiDikaIgYHdyYW5nbGVyIHBhZ2VzIGRlcGxveWAg4oaSIOKRoyDpg6jnvbLlkI7lhpLng5/mtYvor5XjgIIKCiMjIyDmlrnlvI8gQu+8mkdpdEh1YiBBY3Rpb25z77yI5o6o6I2Q5Zui6ZifIC8g5oyB57ut5Lqk5LuY77yJCjEuIOWwhuS7k+W6k+aOqOWIsCBHaXRIdWLjgIIKMi4g5LuT5bqTIFNldHRpbmdzIOKGkiBTZWNyZXRzIOa3u+WKoCBgQ0ZfQVBJX1RPS0VOYCDkuI4gYENGX0FDQ09VTlRfSURg44CCCjMuIOaOqOmAgeWIsCBgbWFpbmAg5YiG5pSv5Y2z6Ieq5Yqo6YOo572y77yIYC5naXRodWIvd29ya2Zsb3dzL2RlcGxveS55bWxg77yJ44CCCgojIyMg5pa55byPIEPvvJp3cmFuZ2xlciDnm7Tov57vvIjpgILlkIggQ0kgLyDlj5fpmZAgU2hlbGwg546v5aKD77yJCuafkOS6m+eOr+Wig+S4iyBgbnB4YCDmiJYgbnBtIOeUn+aIkOeahCBgLmJpbi93cmFuZ2xlcmAg6ISa5pys5LiN5Y+v55So77yI5L6d6LWWIGBkaXJuYW1lYC9gY2RgIOetieWRveS7pO+8ie+8jArlj6/nm7TmjqXosIPnlKggd3JhbmdsZXIg55qEIEpTIOWFpeWPo++8jOW5tueUqCoq57ud5a+56Lev5b6EKirmjIflrpropoHpg6jnvbLnmoTnm67lvZXvvIjml6DpnIAgYGNkYO+8ie+8mgoKYGBgYmFzaApleHBvcnQgQ0xPVURGTEFSRV9BUElfVE9LRU49IuS9oOeahEFQSSBUb2tlbiIKZXhwb3J0IENMT1VERkxBUkVfQUNDT1VOVF9JRD0i5L2g55qEQWNjb3VudElEIgoKbm9kZSA8bm9kZV9tb2R1bGVzIOi3r+W+hD4vd3JhbmdsZXIvYmluL3dyYW5nbGVyLmpzIHBhZ2VzIGRlcGxveSA86aG555uu55uu5b2V57ud5a+56Lev5b6EPiBcCiAgLS1wcm9qZWN0LW5hbWU9aDVnYW1lcy1odWIgLS1jb21taXQtZGlydHkKYGBgCgrpppbmrKHpg6jnvbLoi6Xpobnnm67lsJrmnKrliJvlu7rvvIzlhYjlu7rpobnnm67vvJoKYGBgYmFzaApjdXJsIC1YIFBPU1QgImh0dHBzOi8vYXBpLmNsb3VkZmxhcmUuY29tL2NsaWVudC92NC9hY2NvdW50cy8kQ0xPVURGTEFSRV9BQ0NPVU5UX0lEL3BhZ2VzL3Byb2plY3RzIiBcCiAgLUggIkF1dGhvcml6YXRpb246IEJlYXJlciAkQ0xPVURGTEFSRV9BUElfVE9LRU4iIFwKICAtSCAiQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uIiBcCiAgLWQgJ3sibmFtZSI6Img1Z2FtZXMtaHViIiwicHJvZHVjdGlvbl9icmFuY2giOiJtYWluIn0nCmBgYAoK6YOo572y5ZCO6Ieq5qOA77yaYHB5dGhvbiB2ZXJpZnkucHlgCgo+IOS7pOeJjOmAmui/h+eOr+Wig+WPmOmHjyAvIFNlY3JldHMg5rOo5YWl77yMKirnu53kuI3lhpnlhaXku6PnoIHmiJbkuqTku5jmlofku7YqKuOAggoKIyMg5LiJ44CBU0VPIOS8mOWMlumhue+8iOW3suWunueOsO+8iQp8IOmhueebriB8IOS9jee9riB8IOivtOaYjiB8CnwtLS0tLS18LS0tLS0tfC0tLS0tLXwKfCDor63kuYnljJbnu5PmnoQgfCBgaW5kZXguaHRtbGAgfCBoZWFkZXIvbmF2L21haW4vc2VjdGlvbi9hcnRpY2xlL2Zvb3Rlcu+8jOWIqeS6juaKk+WPliB8Cnwg5YWD5pWw5o2uIHwgYDxoZWFkPmAgfCB0aXRsZSAvIGRlc2NyaXB0aW9uIC8ga2V5d29yZHMgLyBjYW5vbmljYWwgLyByb2JvdHMgfAp8IE9wZW4gR3JhcGggLyBUd2l0dGVyIHwgYDxoZWFkPmAgfCDnpL7kuqTliIbkuqvljaHniYcgfAp8IOe7k+aehOWMluaVsOaNriB8IEpTT04tTEQgfCBXZWJTaXRl44CBT3JnYW5pemF0aW9u44CBSXRlbUxpc3QoR2FtZSnjgIFGQVFQYWdlIHwKfCDnq5nngrnlnLDlm74gfCBgc2l0ZW1hcC54bWxgIHwg5o+Q5Lqk57uZ5pCc57Si5byV5pOOIHwKfCDniKzomavmjIflvJUgfCBgcm9ib3RzLnR4dGAgfCDmjIflkJEgc2l0ZW1hcCB8Cnwg57yT5a2YIC8g5a6J5YWo5aS0IHwgYF9oZWFkZXJzYCB8IOmdmeaAgei1hOa6kOmVv+e8k+WtmCArIEhTVFMgLyBYLUZyYW1lLU9wdGlvbnMg562J77yb5q+P5p2h6Lev5b6EKirlj6rlkb3kuK3kuIDmnaEqKiBDYWNoZS1Db250cm9sIOinhOWIme+8iGAvKmAg5LuF5pS+5a6J5YWo5aS077yM6YG/5YWN5Ye6546w6YeN5aSNIG1heC1hZ2XvvIkgfAp8IDQwNCDpobUgLyDova8gNDA0IOmYsuaKpCB8IGA0MDQuaHRtbGAgfCDmnKrnn6Xot6/lvoTov5Tlm54qKuecnyA0MDQqKu+8iOatpOWJjeS8mui/lOWbniAyMDAr6aaW6aG177yM5bGe5Lil6YeNIFNFTyDpl67popjvvIkgfAp8IOivreS5ieWMluS4juagh+mimOWxgue6pyB8IGBpbmRleC5odG1sYCB8IGhlYWRlci9uYXYvbWFpbi9zZWN0aW9uL2FydGljbGUvZm9vdGVy77yM5LiUKirmnInkuJTku4XmnInkuIDkuKogaDEqKiB8Cnwg56e75Yqo56uv6YCC6YWNIHwgYGluZGV4Lmh0bWxgICsgYHN0eWxlLmNzc2AgfCBgdmlld3BvcnRgICsg56qE5bGPIG1lZGlhIHF1ZXJ577yI5aS06YOo5a+86Iiq6Ieq5Yqo5o2i6KGM77yJIHwKfCDpppblsY/mgKfog70gfCDlhajnq5kgfCDpm7blpJbpg6jlrZfkvZPjgIHpm7blpKflm77kvp3otZbvvIzku4UgMSDkuKogQ1NTICsgMSDkuKrmnoHlsI/nmoQgSlPvvIzml6DpmLvloZ7muLLmn5PotYTmupAgfAoKIyMjIOagoemqjOaWueW8jwpgYGBiYXNoCnB5dGhvbiB2ZXJpZnkucHkKYGBgCgojIyDlm5vjgIFHRU8g5LyY5YyW77yI55Sf5oiQ5byP5byV5pOOICsg5Zyw55CGL+WMuuWfn++8iQojIyMgNC4xIOeUn+aIkOW8j+W8leaTjuS8mOWMlu+8iOiuqSBBSSDmkJzntKLlvJXnlKjvvIkKCioq5LqL5a6e5Z6L5paH5qGI77yI5py65Zmo5LiO5Lq66YO95Y+v6K+777yJKioKLSDjgIzmuLjmiI/njqnms5XkuI7mk43kvZzmlrnlvI/jgI3vvJrpgJDmrL7nu5nlh7oqKueOqeazleS7i+e7jSArIOaTjeS9nOaWueW8jyoq77yI6ZSu55uY5LiO6Kem5bGP5YiG5byA6K+05piO77yJ77yMQUkg5byV5pOO5Y+v55u05o6l5pGY5byV44CCCi0g44CM6YCC55So5Zy65pmv44CN77ya5piO56Gu5YiX5Ye656KO54mH5pe26Ze044CB5YWN5a6J6KOF44CB5byx572R5L2O6YWN44CB6K6w5b+GL+WPjeW6lOiuree7g+OAgeS6suWtkOivvuWgguOAgeWJjeerr+aVmeWtpuetieWcuuaZr+OAggotIOOAjOW4uOingemXrumimOOAje+8muS4gOWPpeivneebtOaOpee7meetlOahiO+8jOS4jiBGQVFQYWdlIOe7k+aehOWMluaVsOaNruS4gOS4gOWvueW6lOOAggotIOWFqOmDqOS4uuaguOW/gyBIVE1MIOaWh+acrO+8iOmdniBKUyDms6jlhaXvvInvvIzkv53or4Hml6DlpLTmipPlj5blj6/or7vjgIIKCioq57uT5p6E5YyW5pWw5o2u77yISlNPTi1MRO+8iSoqCnwg57G75Z6LIHwg5L2c55SoIHwKfC0tLS0tLXwtLS0tLS18CnwgYFdlYlNpdGVgIHwg56uZ54K55a6e5L2T77yM5ZCrIGBTZWFyY2hBY3Rpb25g44CBYGFyZWFTZXJ2ZWRgIHwKfCBgT3JnYW5pemF0aW9uYCB8IOWPkeW4g+aWueWunuS9k++8jOWQqyBgR2VvQ29vcmRpbmF0ZXNgIC8gYFBvc3RhbEFkZHJlc3NgIHwKfCBgSXRlbUxpc3RgKEdhbWUpIHwgMTAg5qy+5ri45oiP77yM5q+P6aG55ZCrIGBuYW1lYC9gdXJsYC9gZGVzY3JpcHRpb25gL2BnYW1lR2VucmVgL2BwbGF5TW9kZWAvYG51bWJlck9mUGxheWVyc2AvYGlzQWNjZXNzaWJsZUZvckZyZWVgIHwKfCBgRkFRUGFnZWAgfCDnm7TmjqXnrZTmoYjvvIzmj5DljYfooqvlvJXnlKjmpoLnjocgfAp8IGBCcmVhZGNydW1iTGlzdGAgfCDpppbpobUg4oaSIOa4uOaIj+W6k++8jOW4ruWKqeW8leaTjueQhuino+ermeeCueWxgue6pyB8CnwgYEhvd1RvYCB8IOOAjOWmguS9leW8gOWni+a4uOeOqeOAjeS4ieatpe+8jOWPr+iiq+WvueivneW8j+W8leaTjuebtOaOpeWkjei/sCB8CgoqKkFJIOWPi+WlveaWh+S7tioqCi0gYGxsbXMudHh0YO+8muagueebruW9leacuuWZqOWPi+WlveaRmOimge+8jOS+myBDaGF0R1BUIC8gUGVycGxleGl0eSAvIEdlbWluaSDnrYnnm7TmjqXor7vlj5bjgIIKCiMjIyA0LjIg5Zyw55CGIC8g5Yy65Z+f5a6a5L2N5LyY5YyWCi0gKipnZW8g5YWD5qCH562+KirvvJpgZ2VvLnJlZ2lvbj1DTmDjgIFgZ2VvLnBsYWNlbmFtZWDjgIFgZ2VvLnBvc2l0aW9uYCjnu4/nuqzluqYp44CBYElDQk1g44CCCi0gKiror63oqIAv5Yy65Z+f6YCC6YWNKirvvJpgPGxpbmsgcmVsPSJhbHRlcm5hdGUiIGhyZWZsYW5nPSJ6aC1DTiI+YCArIGB4LWRlZmF1bHRg77ybYDxodG1sIGxhbmc9InpoLUNOIj5g77ybU2NoZW1hIOS4rSBgYXZhaWxhYmxlTGFuZ3VhZ2VgIC8gYGFyZWFTZXJ2ZWRg44CCCi0gKirovrnnvJjlsLHov5HliIblj5EqKu+8mkNsb3VkZmxhcmUgUGFnZXMg5YWo55CDIENETu+8jOiHquWKqOWwsei/keWbnua6kOOAggotICoq5Y+v6YCJ5Yy65Z+f6Lev55SxKirvvIjnnJ/Ct+aMieWbveWutuWIhua1geWGheWuue+8ie+8muWcqCBQYWdlcyDpobnnm67nu5HlrprkuIDkuKogQ2xvdWRmbGFyZSBXb3JrZXLvvIzmjIkgYHJlcXVlc3QuY2YuY291bnRyeWAg6YeN5a6a5ZCR5oiW5rOo5YWl5pys5Zyw5YyW5YaF5a6577yM5L6L5aaC77yaCmBgYGpzCmV4cG9ydCBkZWZhdWx0IHsKICBhc3luYyBmZXRjaChyZXF1ZXN0KSB7CiAgICBjb25zdCBjb3VudHJ5ID0gcmVxdWVzdC5jZj8uY291bnRyeSB8fCAnWFgnOwogICAgY29uc3QgdXJsID0gbmV3IFVSTChyZXF1ZXN0LnVybCk7CiAgICBpZiAoY291bnRyeSA9PT0gJ0NOJyAmJiB1cmwucGF0aG5hbWUgPT09ICcvJykgewogICAgICB1cmwucGF0aG5hbWUgPSAnL2luZGV4LnpoLUNOLmh0bWwnOyAgICAgICAgICAgLy8g5oiW5rOo5YWlIGxvY2FsZQogICAgICByZXR1cm4gUmVzcG9uc2UucmVkaXJlY3QodXJsLnRvU3RyaW5nKCksIDMwMik7CiAgICB9CiAgICByZXR1cm4gZmV0Y2gocmVxdWVzdCk7CiAgfQp9CmBgYAoKIyMg5LqU44CB6Ieq5a6a5LmJ5Z+f5ZCN77yI5bey5a6M5oiQ56S65L6L77yaZ2FtZTI0LnZpcDg4LnF6ei5pb++8iQrmnKzmrKHnu5Hlrprlt7Lkuo4gMjAyNi0wOS0xNyDpgJrov4cgQVBJIOWujOaIkO+8jOatpemqpOeVmeaho+WPr+WkjeeUqO+8iOebruagh+Wfn+WQjeeItiB6b25lIOW/hemhu+WcqOWQjOS4gCBDbG91ZGZsYXJlIOi0puWPt+WGhe+8ie+8mgoxLiBBUEkg5ZCRIFBhZ2VzIOmhueebrua3u+WKoOWfn+WQje+8mmBQT1NUIC9hY2NvdW50cy97YWNjb3VudH0vcGFnZXMvcHJvamVjdHMvaDVnYW1lcy1odWIvZG9tYWluc2DvvIxib2R5IGB7Im5hbWUiOiJnYW1lMjQudmlwODgucXp6LmlvIn1g44CCCjIuIOWcqOeItiB6b25l77yIdmlwODgucXp6Lmlv77yJ5re75YqgIGBDTkFNRSBnYW1lMjQg4oaSIGg1Z2FtZXMtaHViLnBhZ2VzLmRldmDvvIjlvIDlkK/mqZnkupHku6PnkIbvvInjgIIKMy4gKirlhajlsYDmm7/mjaIqKuS7peS4i+S9jee9rueahOWfn+WQjeS4uuecn+WunuWfn+WQje+8iOacrOasoeW3suaJuemHj+abv+aNoiA0OCDlpITvvInvvJoKICAgLSBgaW5kZXguaHRtbGDvvJpgY2Fub25pY2FsYOOAgWBvZzp1cmxg44CBYG9nOmltYWdlYOOAgWB0d2l0dGVyOmltYWdlYOOAgeaJgOaciSBKU09OLUxEIOmHjOeahCBgdXJsYAogICAtIGByb2JvdHMudHh0YO+8mmBTaXRlbWFwOmAg6KGM77yIKirlrrnmmJPpgZfmvI/vvIzkvJrlr7zoh7Tnq5nngrnlnLDlm77mjIflkJHplJnor6/ln5/lkI0qKu+8iQogICAtIGBzaXRlbWFwLnhtbGDjgIFgNDA0Lmh0bWxg77yIcmVsPWNhbm9uaWNhbO+8ieOAgWBsbG1zLnR4dGAKICAgLSBgX3JlZGlyZWN0c2DvvJrml6DpnIDmlLnvvIjlubPlj7DkuI3mlK/mjIHln5/lkI3nuqcgMzAx77yM6YeN5aSN5YaF5a6555SxIGNhbm9uaWNhbCDmlLbmlZvvvIkKNC4g6YeN5paw6YOo572y77yIYGJhc2ggZGVwbG95LnNoYOOAgeaWueW8jyBDIOWRveS7pO+8jOaIluaOqOmAgSBtYWlu77yJ44CCCjUuIOi9ruivouWfn+WQjeeKtuaAgeebtOiHsyBgYWN0aXZlYO+8iOivgeS5puetvuWPkee6piAx4oCTMyDliIbpkp/vvInvvJpgR0VUIC9hY2NvdW50cy97YWNjb3VudH0vcGFnZXMvcHJvamVjdHMvaDVnYW1lcy1odWIvZG9tYWlucy97ZG9tYWlufWDjgIIKNi4g6Ieq5qOA77yaYHB5dGhvbiB2ZXJpZnkucHlg77yI6buY6K6k5qCh6aqM6KeE6IyD5Z+f5ZCN77yM6ISa5pys5Lya5qCh6aqMIGNhbm9uaWNhbCDkuI4gcm9ib3RzIOeahCBTaXRlbWFwIOaYr+WQpuaMh+WQkeaWsOWfn+WQje+8ieOAggoKIyMg5YWt44CB5omp5bGV5paw5ri45oiPCuWcqCBgZ2FtZXMvPG5hbWU+L2luZGV4Lmh0bWxgIOaUvue9ruWNleebruW9lee6r+WJjeerr+a4uOaIj++8jOS4u+mhtSBgPHVsIGNsYXNzPSJncmlkIj5gIOS4reWKoOS4gOW8oOWNoeeJh+WNs+WPr+OAguW8leaTjuexu++8iFNob290ZXIvUGFya291cu+8ieWPr+eUqCBQaGFzZXIvTGl0dGxlSlPvvIzntKDmnZDotbAgUjIg5qG244CCCgoqKuaWsOa4uOaIj+mhtSBTRU8g5qih5p2/77yI5b+F6aG75pC65bim77yM5ZCm5YiZIHZlcmlmeS5weSDkvJogRkFJTO+8iSoq77ya5q+P5Liq5ri45oiP6aG1IGA8aGVhZD5gIOWGhemcgOWMheWQq+KAlOKAlAoxLiBgPG1ldGEgbmFtZT0icm9ib3RzIiBjb250ZW50PSJpbmRleCwgZm9sbG93IiAvPmDvvIgqKuemgeatoiBub2luZGV4KirvvIzpobXpnaLpnIDooqvmlLblvZXvvIkKMi4gYDxsaW5rIHJlbD0iY2Fub25pY2FsIiBocmVmPSJodHRwczovL2dhbWUyNC52aXA4OC5xenouaW8vZ2FtZXMvPG5hbWU+LyIgLz5g77yI5oyH5ZCR6Ieq6Lqr6Lev5b6E77yM5Y+M5Z+f5ZCN6Ziy6YeN5aSN5pS25b2V77yJCjMuIE9HIOagh+etvu+8iGBvZzp0aXRsZWAgLyBgb2c6ZGVzY3JpcHRpb25gIC8gYG9nOnVybGAgLyBgb2c6aW1hZ2Vg77yJKyBgdHdpdHRlcjpjYXJkYAo0LiBgVmlkZW9HYW1lYCBKU09OLUxE77yIbmFtZS91cmwvZGVzY3JpcHRpb24vZ2FtZVBsYXRmb3JtL2dlbnJlL3BsYXlNb2RlIOetieWtl+aute+8iQrkuLvpobXkvqflkIzmraXvvJrljaHniYfpk77mjqXjgIFJdGVtTGlzdCBKU09OLUxEICsxIOmhueOAgUZBUSDlj4zlhpnjgIFgc2l0ZW1hcC54bWxgICsxIFVSTOOAgWBsbG1zLnR4dGAgKzEg6KGM44CBYHZlcmlmeS5weWAgcGF0aHMgKzHjgIIKCiMjIOS4g+OAgeWuieWFqOaPkOekugotIEFQSSBUb2tlbuOAgVIyIEtleeOAgUdpdEh1YiBUb2tlbiDlnYfkuLrmlY/mhJ/lh63or4HvvIzku4XlnKjnjq/looPlj5jph48gLyBTZWNyZXRzIOS4reS9v+eUqOOAggotIOW7uuiuruS4uumDqOe9suWNleeLrOetvuWPkSoq5LuF5ZCrIFBhZ2VzOkVkaXQqKiDnmoTmnIDlsI/mnYPpmZAgVG9rZW7vvIzlubblrprmnJ/ova7mjaLjgIIKLSDmnKzku5PlupPkuI3lkKvku7vkvZXmmI7mloflr4bpkqXjgIIK
+# H5 Games Hub — 轻量级静态游戏合集
+
+纯 HTML / CSS / JavaScript 构建的轻量级网页小游戏合集，无后端、即点即玩，部署于 Cloudflare Pages。
+本仓库同时是一套**可复用部署流程**与**SEO / GEO 优化样板**。
+
+## 线上地址
+| 类型 | 地址 | 状态 |
+|------|------|------|
+| 生产（规范域名） | https://game24.vip88.qzz.io | ✅ 已绑定并激活（2026-09-17） |
+| Pages 默认域名 | https://h5games-hub.pages.dev | ✅ 可访问，已 301 收敛到规范域名 |
+| HTTPS | Pages 默认强制 HTTPS + HSTS | ✅ 无需额外配置 |
+
+## 一键校验（部署后自检）
+```bash
+python verify.py                              # 默认校验 https://game24.vip88.qzz.io
+python verify.py https://h5games-hub.pages.dev # 校验 Pages 默认域名（canonical 断言按传入域名比对）
+```
+覆盖三类检查：**部署**（缓存头 / HSTS / 软 404 防护）、**SEO**（title / description / canonical / OG / Twitter / favicon / 语义化 / 标题层级 / 移动端）、**GEO**（JSON-LD / 事实型文案 / llms.txt / sitemap 覆盖率）。
+
+## 目录结构
+```
+h5games-hub/
+├── index.html            # SEO+GEO 优化聚合主页
+├── games/snake/          # 单文件游戏：贪吃蛇
+├── games/2048/           # 单文件游戏：2048
+├── assets/css|js/        # 全局样式与交互
+├── GAME_PLAN.md          # 游戏候选清单与选型规划
+├── llms.txt              # 机器友好站点摘要（GEO）
+├── robots.txt            # 爬虫指引
+├── sitemap.xml           # 站点地图
+├── _headers              # 缓存与安全响应头
+├── _redirects            # 重定向规则
+├── wrangler.toml         # Pages 部署配置
+├── deploy.sh             # 一键部署脚本（可复用）
+└── .github/workflows/    # GitHub Actions CI 部署
+```
+
+## 一、本地预览
+```bash
+cd h5games-hub
+python3 -m http.server 8000      # 或 npx serve
+# 打开 http://localhost:8000
+```
+
+## 二、部署（完整可复用流程）
+### 方式 A：一键脚本（推荐本地）
+```bash
+export CF_ACCOUNT_ID="你的AccountID"
+export CF_API_TOKEN="你的API Token"   # 仅含 Pages:Edit 权限的最小化 Token
+bash deploy.sh
+```
+脚本依次执行：① 验证 Token → ② 创建 Pages 项目（若不存在）→ ③ `wrangler pages deploy` → ④ 部署后冒烟测试。
+
+### 方式 B：GitHub Actions（推荐团队 / 持续交付）
+1. 将仓库推到 GitHub。
+2. 仓库 Settings → Secrets 添加 `CF_API_TOKEN` 与 `CF_ACCOUNT_ID`。
+3. 推送到 `main` 分支即自动部署（`.github/workflows/deploy.yml`）。
+
+### 方式 C：wrangler 直连（适合 CI / 受限 Shell 环境）
+某些环境下 `npx` 或 npm 生成的 `.bin/wrangler` 脚本不可用（依赖 `dirname`/`cd` 等命令），
+可直接调用 wrangler 的 JS 入口，并用**绝对路径**指定要部署的目录（无需 `cd`）：
+
+```bash
+export CLOUDFLARE_API_TOKEN="你的API Token"
+export CLOUDFLARE_ACCOUNT_ID="你的AccountID"
+
+node <node_modules 路径>/wrangler/bin/wrangler.js pages deploy <项目目录绝对路径> \
+  --project-name=h5games-hub --commit-dirty
+```
+
+首次部署若项目尚未创建，先建项目：
+```bash
+curl -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"h5games-hub","production_branch":"main"}'
+```
+
+部署后自检：`python verify.py`
+
+> 令牌通过环境变量 / Secrets 注入，**绝不写入代码或交付文件**。
+
+## 三、SEO 优化项（已实现）
+| 项目 | 位置 | 说明 |
+|------|------|------|
+| 语义化结构 | `index.html` | header/nav/main/section/article/footer，利于抓取 |
+| 元数据 | `<head>` | title / description / keywords / canonical / robots |
+| Open Graph / Twitter | `<head>` | 社交分享卡片 |
+| 结构化数据 | JSON-LD | WebSite、Organization、ItemList(Game)、FAQPage |
+| 站点地图 | `sitemap.xml` | 提交给搜索引擎 |
+| 爬虫指引 | `robots.txt` | 指向 sitemap |
+| 缓存 / 安全头 | `_headers` | 静态资源长缓存 + HSTS / X-Frame-Options 等；每条路径**只命中一条** Cache-Control 规则（`/*` 仅放安全头，避免出现重复 max-age） |
+| 404 页 / 软 404 防护 | `404.html` | 未知路径返回**真 404**（此前会返回 200+首页，属严重 SEO 问题） |
+| 语义化与标题层级 | `index.html` | header/nav/main/section/article/footer，且**有且仅有一个 h1** |
+| 移动端适配 | `index.html` + `style.css` | `viewport` + 窄屏 media query（头部导航自动换行） |
+| 首屏性能 | 全站 | 零外部字体、零大图依赖，仅 1 个 CSS + 1 个极小的 JS，无阻塞渲染资源 |
+
+### 校验方式
+```bash
+python verify.py
+```
+
+## 四、GEO 优化（生成式引擎 + 地理/区域）
+### 4.1 生成式引擎优化（让 AI 搜索引用）
+
+**事实型文案（机器与人都可读）**
+- 「游戏玩法与操作方式」：逐款给出**玩法介绍 + 操作方式**（键盘与触屏分开说明），AI 引擎可直接摘引。
+- 「适用场景」：明确列出碎片时间、免安装、弱网低配、记忆/反应训练、亲子课堂、前端教学等场景。
+- 「常见问题」：一句话直接给答案，与 FAQPage 结构化数据一一对应。
+- 全部为核心 HTML 文本（非 JS 注入），保证无头抓取可读。
+
+**结构化数据（JSON-LD）**
+| 类型 | 作用 |
+|------|------|
+| `WebSite` | 站点实体，含 `SearchAction`、`areaServed` |
+| `Organization` | 发布方实体，含 `GeoCoordinates` / `PostalAddress` |
+| `ItemList`(Game) | 10 款游戏，每项含 `name`/`url`/`description`/`gameGenre`/`playMode`/`numberOfPlayers`/`isAccessibleForFree` |
+| `FAQPage` | 直接答案，提升被引用概率 |
+| `BreadcrumbList` | 首页 → 游戏库，帮助引擎理解站点层级 |
+| `HowTo` | 「如何开始游玩」三步，可被对话式引擎直接复述 |
+
+**AI 友好文件**
+- `llms.txt`：根目录机器友好摘要，供 ChatGPT / Perplexity / Gemini 等直接读取。
+
+### 4.2 地理 / 区域定位优化
+- **geo 元标签**：`geo.region=CN`、`geo.placename`、`geo.position`(经纬度)、`ICBM`。
+- **语言/区域适配**：`<link rel="alternate" hreflang="zh-CN">` + `x-default`；`<html lang="zh-CN">`；Schema 中 `availableLanguage` / `areaServed`。
+- **边缘就近分发**：Cloudflare Pages 全球 CDN，自动就近回源。
+- **可选区域路由**（真·按国家分流内容）：在 Pages 项目绑定一个 Cloudflare Worker，按 `request.cf.country` 重定向或注入本地化内容，例如：
+```js
+export default {
+  async fetch(request) {
+    const country = request.cf?.country || 'XX';
+    const url = new URL(request.url);
+    if (country === 'CN' && url.pathname === '/') {
+      url.pathname = '/index.zh-CN.html';           // 或注入 locale
+      return Response.redirect(url.toString(), 302);
+    }
+    return fetch(request);
+  }
+}
+```
+
+## 五、自定义域名（已完成示例：game24.vip88.qzz.io）
+本次绑定已于 2026-09-17 通过 API 完成，步骤留档可复用（目标域名父 zone 必须在同一 Cloudflare 账号内）：
+1. API 向 Pages 项目添加域名：`POST /accounts/{account}/pages/projects/h5games-hub/domains`，body `{"name":"game24.vip88.qzz.io"}`。
+2. 在父 zone（vip88.qzz.io）添加 `CNAME game24 → h5games-hub.pages.dev`（开启橙云代理）。
+3. **全局替换**以下位置的域名为真实域名（本次已批量替换 48 处）：
+   - `index.html`：`canonical`、`og:url`、`og:image`、`twitter:image`、所有 JSON-LD 里的 `url`
+   - `robots.txt`：`Sitemap:` 行（**容易遗漏，会导致站点地图指向错误域名**）
+   - `sitemap.xml`、`404.html`（rel=canonical）、`llms.txt`
+   - `_redirects`：无需改（平台不支持域名级 301，重复内容由 canonical 收敛）
+4. 重新部署（`bash deploy.sh`、方式 C 命令，或推送 main）。
+5. 轮询域名状态直至 `active`（证书签发约 1–3 分钟）：`GET /accounts/{account}/pages/projects/h5games-hub/domains/{domain}`。
+6. 自检：`python verify.py`（默认校验规范域名，脚本会校验 canonical 与 robots 的 Sitemap 是否指向新域名）。
+
+## 六、扩展新游戏
+在 `games/<name>/index.html` 放置单目录纯前端游戏，主页 `<ul class="grid">` 中加一张卡片即可。引擎类（Shooter/Parkour）可用 Phaser/LittleJS，素材走 R2 桶。
+
+**新游戏页 SEO 模板（必须携带，否则 verify.py 会 FAIL）**：每个游戏页 `<head>` 内需包含——
+1. `<meta name="robots" content="index, follow" />`（**禁止 noindex**，页面需被收录）
+2. `<link rel="canonical" href="https://game24.vip88.qzz.io/games/<name>/" />`（指向自身路径，双域名防重复收录）
+3. OG 标签（`og:title` / `og:description` / `og:url` / `og:image`）+ `twitter:card`
+4. `VideoGame` JSON-LD（name/url/description/gamePlatform/genre/playMode 等字段）
+主页侧同步：卡片链接、ItemList JSON-LD +1 项、FAQ 双写、`sitemap.xml` +1 URL、`llms.txt` +1 行、`verify.py` paths +1。
+
+## 七、安全提示
+- API Token、R2 Key、GitHub Token 均为敏感凭证，仅在环境变量 / Secrets 中使用。
+- 建议为部署单独签发**仅含 Pages:Edit** 的最小权限 Token，并定期轮换。
+- 本仓库不含任何明文密钥。
