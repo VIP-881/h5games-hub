@@ -1,1 +1,226 @@
-IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiIKSDUgR2FtZXMgSHViIOKAlCDnur/kuIrpg6jnvbIgLyBTRU8gLyBHRU8g5qCh6aqM6ISa5pys77yI5Y+v5aSN55So77yJCueUqOazle+8mnB5dGhvbjMgdmVyaWZ5LnB5IFtCQVNFX1VSTF0K6buY6K6kIEJBU0VfVVJMPWh0dHBzOi8vaDVnYW1lcy1odWIucGFnZXMuZGV2Cgropobnm5bkuInnsbvmo4Dmn6XvvJoKICAxKSDpg6jnvbLvvJrotYTmupDlj6/orr/pl67jgIHnvJPlrZjnrZbnlaXjgIHlronlhagvSFRUUFMg5aS044CB6Lev55Sx5Zue6YCA77yI6L2vIDQwNO+8iQogIDIpIFNFT++8mnRpdGxlL2Rlc2NyaXB0aW9uL2Nhbm9uaWNhbC9PRy9Ud2l0dGVyL2Zhdmljb24vcm9ib3RzL3NpdGVtYXDjgIHor63kuYnljJbkuI7moIfpopjlsYLnuqfjgIHnp7vliqjnq68KICAzKSBHRU/vvJrkuovlrp7lnovmlofmoYjvvIjnjqnms5Uv5pON5L2cL+WcuuaZry9GQVHvvInjgIFKU09OLUxE77yIV2ViU2l0ZS9Pcmdhbml6YXRpb24vSXRlbUxpc3QvRkFRUGFnZS9CcmVhZGNydW1iTGlzdC9Ib3dUb++8iQoiIiIKaW1wb3J0IHJlCmltcG9ydCBzeXMKaW1wb3J0IHRpbWUKaW1wb3J0IHVybGxpYi5yZXF1ZXN0CmltcG9ydCB1cmxsaWIuZXJyb3IKCiMg5ri45oiP6aG1IGNhbm9uaWNhbCDmj5Dlj5bvvIg8bGluayByZWw9ImNhbm9uaWNhbCIgaHJlZj0iLi4uIj7vvIkKcmVfY2Fub24gPSByZS5jb21waWxlKHInPGxpbmtbXj5dK3JlbD0iY2Fub25pY2FsIltePl0raHJlZj0iKFteIl0rKSInLCByZS5JKQoKQkFTRSA9IHN5cy5hcmd2WzFdLnJzdHJpcCgiLyIpIGlmIGxlbihzeXMuYXJndikgPiAxIGVsc2UgImh0dHBzOi8vZ2FtZTI0LnZpcDg4LnF6ei5pbyIKVUEgPSB7IlVzZXItQWdlbnQiOiAiTW96aWxsYS81LjAgKGNvbXBhdGlibGU7IEg1SHViVmVyaWZpZXIvMS4wKSJ9CgoKZGVmIGZldGNoKHBhdGgpOgogICAgIiIi6L+U5ZueICjnirbmgIHnoIEsIOWTjeW6lOS9k+aWh+acrCkiIiIKICAgIHJlcSA9IHVybGxpYi5yZXF1ZXN0LlJlcXVlc3QoQkFTRSArIHBhdGgsIGhlYWRlcnM9VUEpCiAgICB0cnk6CiAgICAgICAgd2l0aCB1cmxsaWIucmVxdWVzdC51cmxvcGVuKHJlcSwgdGltZW91dD0yMCkgYXMgcjoKICAgICAgICAgICAgcmV0dXJuIHIuc3RhdHVzLCByLnJlYWQoKS5kZWNvZGUoInV0Zi04IiwgInJlcGxhY2UiKQogICAgZXhjZXB0IHVybGxpYi5lcnJvci5IVFRQRXJyb3IgYXMgZToKICAgICAgICByZXR1cm4gZS5jb2RlLCAiIgogICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBlOiAgIyBub3FhOiBCTEUwMDEKICAgICAgICByZXR1cm4gLTEsIHN0cihlKQoKCmRlZiBmZXRjaF9oZWFkZXJzKHBhdGgpOgogICAgIiIi6L+U5ZueICjnirbmgIHnoIEsIOWTjeW6lOWktOWtl+WFuCnjgILplK7nu5/kuIDlsI/lhpnvvIzpgb/lhY3lpKflsI/lhpnlr7zoh7Tor6/liKTjgIIiIiIKICAgIHJlcSA9IHVybGxpYi5yZXF1ZXN0LlJlcXVlc3QoQkFTRSArIHBhdGgsIGhlYWRlcnM9VUEpCiAgICB0cnk6CiAgICAgICAgd2l0aCB1cmxsaWIucmVxdWVzdC51cmxvcGVuKHJlcSwgdGltZW91dD0yMCkgYXMgcjoKICAgICAgICAgICAgcmV0dXJuIHIuc3RhdHVzLCB7ay5sb3dlcigpOiB2IGZvciBrLCB2IGluIHIuaGVhZGVycy5pdGVtcygpfQogICAgZXhjZXB0IHVybGxpYi5lcnJvci5IVFRQRXJyb3IgYXMgZToKICAgICAgICByZXR1cm4gZS5jb2RlLCB7ay5sb3dlcigpOiB2IGZvciBrLCB2IGluIChlLmhlYWRlcnMgb3Ige30pLml0ZW1zKCl9CiAgICBleGNlcHQgRXhjZXB0aW9uOiAgIyBub3FhOiBCTEUwMDEKICAgICAgICByZXR1cm4gLTEsIHt9CgoKb2tfYWxsID0gVHJ1ZQoKCmRlZiBjaGVjayhvaywgbGFiZWwsIGRldGFpbD0iIik6CiAgICBnbG9iYWwgb2tfYWxsCiAgICBva19hbGwgPSBva19hbGwgYW5kIGJvb2wob2spCiAgICBwcmludChmIlt7J1BBU1MnIGlmIG9rIGVsc2UgJ0ZBSUwnfV0ge2xhYmVsfSIgKyAoZiIgKHtkZXRhaWx9KSIgaWYgZGV0YWlsIGVsc2UgIiIpKQoKCnByaW50KGYiPT0g5qCh6aqM55uu5qCH77yae0JBU0V9ID09IikKCiMg4pSA4pSAIDEuIOmDqOe9siDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKcHJpbnQoIi0tIOmDqOe9suS4juaJmOeuoSAtLSIpCnN0YXR1cywgaHRtbCA9IGZldGNoKCIvIikKY2hlY2soc3RhdHVzID09IDIwMCwgIummlumhteWPr+iuv+mXriIsIGYiSFRUUCB7c3RhdHVzfSIpCgpzdF9yb290LCBoZHJfcm9vdCA9IGZldGNoX2hlYWRlcnMoIi8iKQpjY19yb290ID0gaGRyX3Jvb3QuZ2V0KCJjYWNoZS1jb250cm9sIiwgIiIpCmNoZWNrKCJtYXgtYWdlIiBpbiBjY19yb290LCAi6aaW6aG1IENhY2hlLUNvbnRyb2wg55Sf5pWIIiwgY2Nfcm9vdCBvciAi57y65aSxIikKCnN0X2dhbWUsIGhkcl9nYW1lID0gZmV0Y2hfaGVhZGVycygiL2dhbWVzL3NuYWtlLyIpCmNjX2dhbWUgPSBoZHJfZ2FtZS5nZXQoImNhY2hlLWNvbnRyb2wiLCAiIikKY2hlY2soIm1heC1hZ2UiIGluIGNjX2dhbWUsICLmuLjmiI/pobUgQ2FjaGUtQ29udHJvbCDnlJ/mlYjvvIjnm67lvZXlnovot6/lvoTvvIkiLCBjY19nYW1lIG9yICLnvLrlpLEiKQoKIyBfaGVhZGVycyDoi6XorqnlkIzkuIDot6/lvoTlkb3kuK3lpJrmnaHluKYgQ2FjaGUtQ29udHJvbCDnmoTop4TliJnvvIzlk43lupTkvJrlh7rnjrDph43lpI3nmoQgbWF4LWFnZe+8jAojIOa1j+iniOWZqOihjOS4uuS4jeS4gOiHtO+8jOWxnuS6jumFjee9rue8uumZt+KAlOKAlOi/memHjOWBmuWbnuW9kumYsuaKpOOAggpjaGVjayhjY19yb290LmNvdW50KCJtYXgtYWdlIikgPT0gMSwgIummlumhtSBDYWNoZS1Db250cm9sIOaXoOmHjeWkje+8iOWNleadoeinhOWImeWRveS4re+8iSIsCiAgICAgIGYibWF4LWFnZSDlh7rnjrAge2NjX3Jvb3QuY291bnQoJ21heC1hZ2UnKX0g5qyhIikKY2hlY2soY2NfZ2FtZS5jb3VudCgibWF4LWFnZSIpID09IDEsICLmuLjmiI/pobUgQ2FjaGUtQ29udHJvbCDml6Dph43lpI3vvIjljZXmnaHop4TliJnlkb3kuK3vvIkiLAogICAgICBmIm1heC1hZ2Ug5Ye6546wIHtjY19nYW1lLmNvdW50KCdtYXgtYWdlJyl9IOasoSIpCgpub3NuaWZmID0gaGRyX3Jvb3QuZ2V0KCJ4LWNvbnRlbnQtdHlwZS1vcHRpb25zIiwgIiIpCmNoZWNrKG5vc25pZmYubG93ZXIoKSA9PSAibm9zbmlmZiIsICLlronlhajlpLQgWC1Db250ZW50LVR5cGUtT3B0aW9ucyIsIG5vc25pZmYgb3IgIue8uuWksSIpCgpoc3RzID0gaGRyX3Jvb3QuZ2V0KCJzdHJpY3QtdHJhbnNwb3J0LXNlY3VyaXR5IiwgIiIpCmNoZWNrKCJtYXgtYWdlIiBpbiBoc3RzLCAiSFNUUyBIVFRQUyDlvLrljJblpLQiLCAoaHN0c1s6MzZdICsgIi4uLiIpIGlmIGhzdHMgZWxzZSAi57y65aSxIikKCiMg6L2vIDQwNCDpmLLmiqTvvJrmnKrnn6Xot6/lvoTlv4Xpobvov5Tlm57nnJ8gNDA077yM5ZCm5YiZ5Lu75oSPIFVSTCDpg73kvJrooqvlvZPpppbpobXph43lpI3mlLblvZUKczQwNCwgXyA9IGZldGNoKCIvX19zb2Z0NDA0X3Byb2JlX18uaHRtbCIpCmNoZWNrKHM0MDQgPT0gNDA0LCAi6L2vIDQwNCDpmLLmiqTvvJrmnKrnn6Xot6/lvoTov5Tlm57nnJ8gNDA0IiwgZiJIVFRQIHtzNDA0fSIpCgojIOKUgOKUgCAyLiBTRU8g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACnByaW50KCItLSBTRU8g5YWD5pWw5o2uIC0tIikKc2VvID0gewogICAgInRpdGxlIOagh+etviI6ICI8dGl0bGU+IiwKICAgICJtZXRhIGRlc2NyaXB0aW9uIjogJ25hbWU9ImRlc2NyaXB0aW9uIicsCiAgICAiY2Fub25pY2FsIOinhOiMg+mTvuaOpSI6ICdyZWw9ImNhbm9uaWNhbCInLAogICAgImNhbm9uaWNhbCDmjIflkJHnlJ/mlYjln5/lkI0iOiBmJ2hyZWY9IntCQVNFfS8iJywKICAgICJvZzp0aXRsZSI6ICdwcm9wZXJ0eT0ib2c6dGl0bGUiJywKICAgICJvZzpkZXNjcmlwdGlvbiI6ICdwcm9wZXJ0eT0ib2c6ZGVzY3JpcHRpb24iJywKICAgICJvZzppbWFnZSDnpL7kuqTlsIHpnaIiOiAncHJvcGVydHk9Im9nOmltYWdlIicsCiAgICAidHdpdHRlcjpjYXJkIjogJ25hbWU9InR3aXR0ZXI6Y2FyZCInLAogICAgInR3aXR0ZXI6aW1hZ2UiOiAnbmFtZT0idHdpdHRlcjppbWFnZSInLAogICAgImZhdmljb24iOiAncmVsPSJpY29uIicsCiAgICAidmlld3BvcnQg56e75Yqo56uv6YCC6YWNIjogJ25hbWU9InZpZXdwb3J0IicsCiAgICAibGFuZyDor63oqIDlo7DmmI4iOiAnbGFuZz0iemgtQ04iJywKfQpmb3IgbmFtZSwgbmVlZGxlIGluIHNlby5pdGVtcygpOgogICAgY2hlY2sobmVlZGxlIGluIGh0bWwsIG5hbWUpCgpwcmludCgiLS0g6K+t5LmJ5YyW5LiO5qCH6aKY5bGC57qnIC0tIikKc2VtYW50aWMgPSB7CiAgICAiaGVhZGVyIOivreS5ieagh+etviI6ICI8aGVhZGVyIiwKICAgICJuYXYg6K+t5LmJ5qCH562+IjogIjxuYXYiLAogICAgIm1haW4g6K+t5LmJ5qCH562+IjogIjxtYWluIiwKICAgICJzZWN0aW9uIOivreS5ieagh+etviI6ICI8c2VjdGlvbiIsCiAgICAiYXJ0aWNsZSDor63kuYnmoIfnrb4iOiAiPGFydGljbGUiLAogICAgImZvb3RlciDor63kuYnmoIfnrb4iOiAiPGZvb3RlciIsCn0KZm9yIG5hbWUsIG5lZWRsZSBpbiBzZW1hbnRpYy5pdGVtcygpOgogICAgY2hlY2sobmVlZGxlIGluIGh0bWwsIG5hbWUpCgpoMV9jb3VudCA9IGh0bWwuY291bnQoIjxoMSIpCmNoZWNrKGgxX2NvdW50ID09IDEsICLlrZjlnKjkuJTku4XmnInkuIDkuKogaDEiLCBmImgxIOaVsOmHjz17aDFfY291bnR9IikKY2hlY2soIjxoMiIgaW4gaHRtbCwgIuWtmOWcqCBoMiDkuoznuqfmoIfpopgiKQpjaGVjaygiPGgzIiBpbiBodG1sLCAi5a2Y5ZyoIGgzIOS4iee6p+agh+mimO+8iOa4uOaIj+WNoeeJh++8iSIpCgojIOKUgOKUgCAzLiBHRU8g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACnByaW50KCItLSBHRU8g57uT5p6E5YyW5pWw5o2uIC0tIikKZ2VvX2xkID0gewogICAgIkpTT04tTEQg5Z2XIjogImFwcGxpY2F0aW9uL2xkK2pzb24iLAogICAgIldlYlNpdGUg5a6e5L2TIjogJyJXZWJTaXRlIicsCiAgICAiT3JnYW5pemF0aW9uIOWunuS9kyI6ICciT3JnYW5pemF0aW9uIicsCiAgICAiSXRlbUxpc3Qg5ri45oiP5YiX6KGoIjogJyJJdGVtTGlzdCInLAogICAgIkl0ZW1MaXN0IOWQq+a4uOaIj+aPj+i/sOWtl+autSI6ICciZ2FtZUdlbnJlIicsCiAgICAiRkFRUGFnZSDnu5PmnoTljJbmlbDmja4iOiAnIkZBUVBhZ2UiJywKICAgICJCcmVhZGNydW1iTGlzdCDpnaLljIXlsZEiOiAnIkJyZWFkY3J1bWJMaXN0IicsCiAgICAiSG93VG8g5pON5L2c5q2l6aqkIjogJyJIb3dUbyInLAogICAgIkdlb0Nvb3JkaW5hdGVzIOWcsOeQhuWdkOaghyI6ICciR2VvQ29vcmRpbmF0ZXMiJywKICAgICJhcmVhU2VydmVkIOWMuuWfn+acjeWKoSI6ICJhcmVhU2VydmVkIiwKfQpmb3IgbmFtZSwgbmVlZGxlIGluIGdlb19sZC5pdGVtcygpOgogICAgY2hlY2sobmVlZGxlIGluIGh0bWwsIG5hbWUpCgpwcmludCgiLS0gR0VPIOS6i+WunuWei+aWh+ahiCAtLSIpCmdlb190ZXh0ID0gewogICAgIueOqeazleS4juaTjeS9nOauteiQvSI6ICdpZD0iaG93dG8iJywKICAgICLpgILnlKjlnLrmma/mrrXokL0iOiAnaWQ9InVzZS1jYXNlcyInLAogICAgIueOqeazleS7i+e7jeaWh+ahiCI6ICLnjqnms5Xku4vnu40iLAogICAgIuaTjeS9nOaWueW8j+aWh+ahiCI6ICLmk43kvZzmlrnlvI8iLAogICAgIuW4uOingemXrumimOauteiQvSI6ICdpZD0iZmFxIicsCiAgICAibGxtcy50eHQg6ZO+5o6l77yIQUkg5Y+v6K+75pGY6KaB77yJIjogImxsbXMudHh0IiwKfQpmb3IgbmFtZSwgbmVlZGxlIGluIGdlb190ZXh0Lml0ZW1zKCk6CiAgICBjaGVjayhuZWVkbGUgaW4gaHRtbCwgbmFtZSkKCiMg4pSA4pSAIDQuIOi1hOa6kOS4juermeeCueWcsOWbviDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKcHJpbnQoIi0tIOi1hOa6kOS4jueIrOiZq+aWh+S7tiAtLSIpCnBhdGhzID0gWyIvZ2FtZXMvc25ha2UvIiwgIi9nYW1lcy8yMDQ4LyIsICIvZ2FtZXMvbWVtb3J5LyIsICIvZ2FtZXMvYnJlYWtvdXQvIiwKICAgICAgICAgIi9nYW1lcy90aWN0YWN0b2UvIiwgIi9nYW1lcy9zaW1vbi8iLCAiL2dhbWVzL3NwYWNlc2hvb3Rlci8iLCAiL2dhbWVzL3RldHJpcy8iLAogICAgICAgICAiL2dhbWVzL21pbmVzd2VlcGVyLyIsICIvZ2FtZXMvZmxhcHB5LyIsICIvZ2FtZXMvcHV6emxlMTUvIiwgIi9nYW1lcy93aGFja2Ftb2xlLyIsCiAgICAgICAgICIvZ2FtZXMvbGlmZS8iLCAiL2dhbWVzL2hhbm9pLyIsICIvZ2FtZXMvcG9uZy8iLCAiL2dhbWVzL3N1ZG9rdS8iLCAiL2dhbWVzL2dvbW9rdS8iLAogICAgICAgICAiL2dhbWVzL2xpZ2h0c291dC8iLCAiL2dhbWVzL21hemUvIiwgIi9nYW1lcy9kaW5vLyIsICIvZ2FtZXMvZ2FtZTI0LyIsCiAgICAgICAgICIvbGxtcy50eHQiLCAiL3NpdGVtYXAueG1sIiwgIi9yb2JvdHMudHh0IiwgIi9hc3NldHMvb2ctY292ZXIuc3ZnIiwKICAgICAgICAgIi9hc3NldHMvY3NzL3N0eWxlLmNzcyIsICIvYXNzZXRzL2pzL21haW4uanMiXQpmb3IgcCBpbiBwYXRoczoKICAgIHMsIF8gPSBmZXRjaChwKQogICAgY2hlY2socyA9PSAyMDAsIGYi6LWE5rqQ5Y+v6K6/6ZeuIHtwfSIsIGYiSFRUUCB7c30iKQoKIyByb2JvdHMudHh0IOW/hemhu+aKiiBTaXRlbWFwIOaMh+WQkeOAjOW9k+WJjeeUn+aViOWfn+WQjeOAjQpzX3JiLCByb2JvdHNfdHh0ID0gZmV0Y2goIi9yb2JvdHMudHh0IikKY2hlY2soZiJTaXRlbWFwOiB7QkFTRX0vc2l0ZW1hcC54bWwiIGluIHJvYm90c190eHQsCiAgICAgICJyb2JvdHMudHh0IOeahCBTaXRlbWFwIOaMh+WQkeeUn+aViOWfn+WQjSIsIEJBU0UpCgojIHNpdGVtYXAg5bqU5YyF5ZCr5YWo6YOo5ri45oiP6aG1CnNfc20sIHNpdGVtYXBfeG1sID0gZmV0Y2goIi9zaXRlbWFwLnhtbCIpCmdhbWVfcGF0aHMgPSBbcCBmb3IgcCBpbiBwYXRocyBpZiBwLnN0YXJ0c3dpdGgoIi9nYW1lcy8iKV0KbWlzc2luZyA9IFtwIGZvciBwIGluIGdhbWVfcGF0aHMgaWYgKEJBU0UgKyBwKSBub3QgaW4gc2l0ZW1hcF94bWxdCmNoZWNrKG5vdCBtaXNzaW5nLCAic2l0ZW1hcC54bWwg6KaG55uW5YWo6YOo5ri45oiP6aG1IiwKICAgICAgKCLnvLrlpLHvvJoiICsgIiwiLmpvaW4obWlzc2luZykpIGlmIG1pc3NpbmcgZWxzZSBmIntsZW4oZ2FtZV9wYXRocyl9L3tsZW4oZ2FtZV9wYXRocyl9IikKCiMg4pSA4pSAIDUuIOa4uOaIj+WtkOmhtSBTRU/vvIjlj6/ntKLlvJUgLyBjYW5vbmljYWwgLyBPRyAvIEpTT04tTETvvIkg4pSA4pSA4pSA4pSACnByaW50KCItLSDmuLjmiI/lrZDpobUgU0VPIC0tIikKZ2FtZV9zbHVncyA9IFtwLnN0cmlwKCIvIikuc3BsaXQoIi8iKVstMV0gZm9yIHAgaW4gZ2FtZV9wYXRoc10KYmFkX2Nhbm9uLCBiYWRfcm9ib3RzLCBiYWRfb2csIGJhZF9sZCA9IFtdLCBbXSwgW10sIFtdCmZvciBzbHVnIGluIGdhbWVfc2x1Z3M6CiAgICBzLCBnaHRtbCA9IGZldGNoKGYiL2dhbWVzL3tzbHVnfS8iKQogICAgaWYgcyAhPSAyMDA6CiAgICAgICAgYmFkX2Nhbm9uLmFwcGVuZChzbHVnICsgIijpnZ4yMDApIikKICAgICAgICBjb250aW51ZQogICAgbSA9IHJlX2Nhbm9uLnNlYXJjaChnaHRtbCkKICAgIGlmIG5vdCAobSBhbmQgZiIvZ2FtZXMve3NsdWd9LyIgaW4gbS5ncm91cCgxKSk6CiAgICAgICAgYmFkX2Nhbm9uLmFwcGVuZChzbHVnKQogICAgaWYgIm5vaW5kZXgiIGluIGdodG1sOgogICAgICAgIGJhZF9yb2JvdHMuYXBwZW5kKHNsdWcpCiAgICBpZiAncHJvcGVydHk9Im9nOnRpdGxlIicgbm90IGluIGdodG1sOgogICAgICAgIGJhZF9vZy5hcHBlbmQoc2x1ZykKICAgIGlmICciVmlkZW9HYW1lIicgbm90IGluIGdodG1sOgogICAgICAgIGJhZF9sZC5hcHBlbmQoc2x1ZykKCmNoZWNrKG5vdCBiYWRfY2Fub24sICLmuLjmiI/pobUgY2Fub25pY2FsIOaMh+WQkeiHqui6q+i3r+W+hCIsCiAgICAgICLnvLrlpLHvvJoiICsgIiwiLmpvaW4oYmFkX2Nhbm9uKSBpZiBiYWRfY2Fub24gZWxzZSBmIntsZW4oZ2FtZV9zbHVncyl9L3tsZW4oZ2FtZV9zbHVncyl9IikKY2hlY2sobm90IGJhZF9yb2JvdHMsICLmuLjmiI/pobXlj6/ntKLlvJXvvIjml6Agbm9pbmRleO+8iSIsCiAgICAgICJub2luZGV477yaIiArICIsIi5qb2luKGJhZF9yb2JvdHMpIGlmIGJhZF9yb2JvdHMgZWxzZSBmIntsZW4oZ2FtZV9zbHVncyl9L3tsZW4oZ2FtZV9zbHVncyl9IikKY2hlY2sobm90IGJhZF9vZywgIua4uOaIj+mhtSBPRyDmoIfnrb7vvIhvZzp0aXRsZe+8iSIsCiAgICAgICLnvLrlpLHvvJoiICsgIiwiLmpvaW4oYmFkX29nKSBpZiBiYWRfb2cgZWxzZSBmIntsZW4oZ2FtZV9zbHVncyl9L3tsZW4oZ2FtZV9zbHVncyl9IikKY2hlY2sobm90IGJhZF9sZCwgIua4uOaIj+mhtSBWaWRlb0dhbWUgSlNPTi1MRCIsCiAgICAgICLnvLrlpLHvvJoiICsgIiwiLmpvaW4oYmFkX2xkKSBpZiBiYWRfbGQgZWxzZSBmIntsZW4oZ2FtZV9zbHVncyl9L3tsZW4oZ2FtZV9zbHVncyl9IikKCiMg4pSA4pSAIDYuIOaAp+iDveS4juWPr+iuv+mXruaApyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKcHJpbnQoIi0tIOaAp+iDveS4juWPr+iuv+mXruaApyAtLSIpCmh0bWxfYnl0ZXMgPSBsZW4oaHRtbC5lbmNvZGUoInV0Zi04IikpCmNoZWNrKGh0bWxfYnl0ZXMgPD0gODAgKiAxMDI0LCAi6aaW6aG1IEhUTUwg5L2T56evIOKJpCA4MEtCIiwgZiJ7aHRtbF9ieXRlcyAvIDEwMjQ6LjFmfSBLQiIpCgpzX2NzcywgY3NzX3R4dCA9IGZldGNoKCIvYXNzZXRzL2Nzcy9zdHlsZS5jc3MiKQpjc3NfYnl0ZXMgPSBsZW4oY3NzX3R4dC5lbmNvZGUoInV0Zi04IikpCmNoZWNrKHNfY3NzID09IDIwMCBhbmQgY3NzX2J5dGVzIDw9IDMwICogMTAyNCwgIuagt+W8j+ihqOS9k+enryDiiaQgMzBLQiIsIGYie2Nzc19ieXRlcyAvIDEwMjQ6LjFmfSBLQiIpCgp0MCA9IHRpbWUudGltZSgpCnNfcGVyZiwgXyA9IGZldGNoKCIvIikKZWxhcHNlZCA9ICh0aW1lLnRpbWUoKSAtIHQwKSAqIDEwMDAKY2hlY2soc19wZXJmID09IDIwMCBhbmQgZWxhcHNlZCA8PSAzMDAwLCAi6aaW6aG15ZON5bqU6ICX5pe2IOKJpCAzcyIsIGYie2VsYXBzZWQ6LjBmfSBtcyIpCgpjaGVjaygnY2xhc3M9InNraXAtbGluayInIGluIGh0bWwsICLml6Dpmpznoo3vvJrot7PovazkuLvlhoXlrrnpk77mjqXvvIhza2lwLWxpbmvvvIkiKQpjaGVjaygnYXJpYS1sYWJlbD0i5Li75a+86IiqIicgaW4gaHRtbCwgIuaXoOmanOeije+8muWvvOiIquWMuiBhcmlhLWxhYmVsIikKCnByaW50KCJcbue7k+aenO+8miIsICLlhajpg6jpgJrov4ciIGlmIG9rX2FsbCBlbHNlICLlrZjlnKjlpLHotKXpobkiKQpzeXMuZXhpdCgwIGlmIG9rX2FsbCBlbHNlIDEpCg==
+#!/usr/bin/env python3
+"""
+H5 Games Hub — 线上部署 / SEO / GEO 校验脚本（可复用）
+用法：python3 verify.py [BASE_URL]
+默认 BASE_URL=https://h5games-hub.pages.dev
+
+覆盖三类检查：
+  1) 部署：资源可访问、缓存策略、安全/HTTPS 头、路由回退（软 404）
+  2) SEO：title/description/canonical/OG/Twitter/favicon/robots/sitemap、语义化与标题层级、移动端
+  3) GEO：事实型文案（玩法/操作/场景/FAQ）、JSON-LD（WebSite/Organization/ItemList/FAQPage/BreadcrumbList/HowTo）
+"""
+import re
+import sys
+import time
+import urllib.request
+import urllib.error
+
+# 游戏页 canonical 提取（<link rel="canonical" href="...">）
+re_canon = re.compile(r'<link[^>]+rel="canonical"[^>]+href="([^"]+)"', re.I)
+
+BASE = sys.argv[1].rstrip("/") if len(sys.argv) > 1 else "https://game24.vip88.qzz.io"
+UA = {"User-Agent": "Mozilla/5.0 (compatible; H5HubVerifier/1.0)"}
+
+
+def fetch(path):
+    """返回 (状态码, 响应体文本)"""
+    req = urllib.request.Request(BASE + path, headers=UA)
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return r.status, r.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as e:
+        return e.code, ""
+    except Exception as e:  # noqa: BLE001
+        return -1, str(e)
+
+
+def fetch_headers(path):
+    """返回 (状态码, 响应头字典)。键统一小写，避免大小写导致误判。"""
+    req = urllib.request.Request(BASE + path, headers=UA)
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            return r.status, {k.lower(): v for k, v in r.headers.items()}
+    except urllib.error.HTTPError as e:
+        return e.code, {k.lower(): v for k, v in (e.headers or {}).items()}
+    except Exception:  # noqa: BLE001
+        return -1, {}
+
+
+ok_all = True
+
+
+def check(ok, label, detail=""):
+    global ok_all
+    ok_all = ok_all and bool(ok)
+    print(f"[{'PASS' if ok else 'FAIL'}] {label}" + (f" ({detail})" if detail else ""))
+
+
+print(f"== 校验目标：{BASE} ==")
+
+# ── 1. 部署 ────────────────────────────────────────────────
+print("-- 部署与托管 --")
+status, html = fetch("/")
+check(status == 200, "首页可访问", f"HTTP {status}")
+
+st_root, hdr_root = fetch_headers("/")
+cc_root = hdr_root.get("cache-control", "")
+check("max-age" in cc_root, "首页 Cache-Control 生效", cc_root or "缺失")
+
+st_game, hdr_game = fetch_headers("/games/snake/")
+cc_game = hdr_game.get("cache-control", "")
+check("max-age" in cc_game, "游戏页 Cache-Control 生效（目录型路径）", cc_game or "缺失")
+
+# _headers 若让同一路径命中多条带 Cache-Control 的规则，响应会出现重复的 max-age，
+# 浏览器行为不一致，属于配置缺陷——这里做回归防护。
+check(cc_root.count("max-age") == 1, "首页 Cache-Control 无重复（单条规则命中）",
+      f"max-age 出现 {cc_root.count('max-age')} 次")
+check(cc_game.count("max-age") == 1, "游戏页 Cache-Control 无重复（单条规则命中）",
+      f"max-age 出现 {cc_game.count('max-age')} 次")
+
+nosniff = hdr_root.get("x-content-type-options", "")
+check(nosniff.lower() == "nosniff", "安全头 X-Content-Type-Options", nosniff or "缺失")
+
+hsts = hdr_root.get("strict-transport-security", "")
+check("max-age" in hsts, "HSTS HTTPS 强化头", (hsts[:36] + "...") if hsts else "缺失")
+
+# 软 404 防护：未知路径必须返回真 404，否则任意 URL 都会被当首页重复收录
+s404, _ = fetch("/__soft404_probe__.html")
+check(s404 == 404, "软 404 防护：未知路径返回真 404", f"HTTP {s404}")
+
+# ── 2. SEO ─────────────────────────────────────────────────
+print("-- SEO 元数据 --")
+seo = {
+    "title 标签": "<title>",
+    "meta description": 'name="description"',
+    "canonical 规范链接": 'rel="canonical"',
+    "canonical 指向生效域名": f'href="{BASE}/"',
+    "og:title": 'property="og:title"',
+    "og:description": 'property="og:description"',
+    "og:image 社交封面": 'property="og:image"',
+    "twitter:card": 'name="twitter:card"',
+    "twitter:image": 'name="twitter:image"',
+    "favicon": 'rel="icon"',
+    "viewport 移动端适配": 'name="viewport"',
+    "lang 语言声明": 'lang="zh-CN"',
+}
+for name, needle in seo.items():
+    check(needle in html, name)
+
+print("-- 语义化与标题层级 --")
+semantic = {
+    "header 语义标签": "<header",
+    "nav 语义标签": "<nav",
+    "main 语义标签": "<main",
+    "section 语义标签": "<section",
+    "article 语义标签": "<article",
+    "footer 语义标签": "<footer",
+}
+for name, needle in semantic.items():
+    check(needle in html, name)
+
+h1_count = html.count("<h1")
+check(h1_count == 1, "存在且仅有一个 h1", f"h1 数量={h1_count}")
+check("<h2" in html, "存在 h2 二级标题")
+check("<h3" in html, "存在 h3 三级标题（游戏卡片）")
+
+# ── 3. GEO ─────────────────────────────────────────────────
+print("-- GEO 结构化数据 --")
+geo_ld = {
+    "JSON-LD 块": "application/ld+json",
+    "WebSite 实体": '"WebSite"',
+    "Organization 实体": '"Organization"',
+    "ItemList 游戏列表": '"ItemList"',
+    "ItemList 含游戏描述字段": '"gameGenre"',
+    "FAQPage 结构化数据": '"FAQPage"',
+    "BreadcrumbList 面包屑": '"BreadcrumbList"',
+    "HowTo 操作步骤": '"HowTo"',
+    "GeoCoordinates 地理坐标": '"GeoCoordinates"',
+    "areaServed 区域服务": "areaServed",
+}
+for name, needle in geo_ld.items():
+    check(needle in html, name)
+
+print("-- GEO 事实型文案 --")
+geo_text = {
+    "玩法与操作段落": 'id="howto"',
+    "适用场景段落": 'id="use-cases"',
+    "玩法介绍文案": "玩法介绍",
+    "操作方式文案": "操作方式",
+    "常见问题段落": 'id="faq"',
+    "llms.txt 链接（AI 可读摘要）": "llms.txt",
+}
+for name, needle in geo_text.items():
+    check(needle in html, name)
+
+# ── 4. 资源与站点地图 ──────────────────────────────────────
+print("-- 资源与爬虫文件 --")
+paths = ["/games/snake/", "/games/2048/", "/games/memory/", "/games/breakout/",
+         "/games/tictactoe/", "/games/simon/", "/games/spaceshooter/", "/games/tetris/",
+         "/games/minesweeper/", "/games/flappy/", "/games/puzzle15/", "/games/whackamole/",
+         "/games/life/", "/games/hanoi/", "/games/pong/", "/games/sudoku/", "/games/gomoku/",
+         "/games/lightsout/", "/games/maze/", "/games/dino/", "/games/game24/",
+         "/llms.txt", "/sitemap.xml", "/robots.txt", "/assets/og-cover.svg",
+         "/assets/css/style.css", "/assets/js/main.js"]
+for p in paths:
+    s, _ = fetch(p)
+    check(s == 200, f"资源可访问 {p}", f"HTTP {s}")
+
+# robots.txt 必须把 Sitemap 指向「当前生效域名」
+s_rb, robots_txt = fetch("/robots.txt")
+check(f"Sitemap: {BASE}/sitemap.xml" in robots_txt,
+      "robots.txt 的 Sitemap 指向生效域名", BASE)
+
+# sitemap 应包含全部游戏页
+s_sm, sitemap_xml = fetch("/sitemap.xml")
+game_paths = [p for p in paths if p.startswith("/games/")]
+missing = [p for p in game_paths if (BASE + p) not in sitemap_xml]
+check(not missing, "sitemap.xml 覆盖全部游戏页",
+      ("缺失：" + ",".join(missing)) if missing else f"{len(game_paths)}/{len(game_paths)}")
+
+# ── 5. 游戏子页 SEO（可索引 / canonical / OG / JSON-LD） ────
+print("-- 游戏子页 SEO --")
+game_slugs = [p.strip("/").split("/")[-1] for p in game_paths]
+bad_canon, bad_robots, bad_og, bad_ld = [], [], [], []
+for slug in game_slugs:
+    s, ghtml = fetch(f"/games/{slug}/")
+    if s != 200:
+        bad_canon.append(slug + "(非200)")
+        continue
+    m = re_canon.search(ghtml)
+    if not (m and f"/games/{slug}/" in m.group(1)):
+        bad_canon.append(slug)
+    if "noindex" in ghtml:
+        bad_robots.append(slug)
+    if 'property="og:title"' not in ghtml:
+        bad_og.append(slug)
+    if '"VideoGame"' not in ghtml:
+        bad_ld.append(slug)
+
+check(not bad_canon, "游戏页 canonical 指向自身路径",
+      "缺失：" + ",".join(bad_canon) if bad_canon else f"{len(game_slugs)}/{len(game_slugs)}")
+check(not bad_robots, "游戏页可索引（无 noindex）",
+      "noindex：" + ",".join(bad_robots) if bad_robots else f"{len(game_slugs)}/{len(game_slugs)}")
+check(not bad_og, "游戏页 OG 标签（og:title）",
+      "缺失：" + ",".join(bad_og) if bad_og else f"{len(game_slugs)}/{len(game_slugs)}")
+check(not bad_ld, "游戏页 VideoGame JSON-LD",
+      "缺失：" + ",".join(bad_ld) if bad_ld else f"{len(game_slugs)}/{len(game_slugs)}")
+
+# ── 6. 性能与可访问性 ──────────────────────────────────────
+print("-- 性能与可访问性 --")
+html_bytes = len(html.encode("utf-8"))
+check(html_bytes <= 80 * 1024, "首页 HTML 体积 ≤ 80KB", f"{html_bytes / 1024:.1f} KB")
+
+s_css, css_txt = fetch("/assets/css/style.css")
+css_bytes = len(css_txt.encode("utf-8"))
+check(s_css == 200 and css_bytes <= 30 * 1024, "样式表体积 ≤ 30KB", f"{css_bytes / 1024:.1f} KB")
+
+t0 = time.time()
+s_perf, _ = fetch("/")
+elapsed = (time.time() - t0) * 1000
+check(s_perf == 200 and elapsed <= 3000, "首页响应耗时 ≤ 3s", f"{elapsed:.0f} ms")
+
+check('class="skip-link"' in html, "无障碍：跳转主内容链接（skip-link）")
+check('aria-label="主导航"' in html, "无障碍：导航区 aria-label")
+
+print("\n结果：", "全部通过" if ok_all else "存在失败项")
+sys.exit(0 if ok_all else 1)
