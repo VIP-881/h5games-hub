@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Flappy Bird 像素飞鸟 | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/flappy/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Flappy Bird 像素飞鸟 | H5 小游戏合集" />
+  <meta property="og:description" content="控制小鸟穿过管道间隙，每穿过一根得 1 分，撞到管道或坠地即结束。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/flappy/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flappy Bird 像素飞鸟 | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Flappy Bird 像素飞鸟",
+  "url": "https://h5games-hub.pages.dev/games/flappy/",
+  "description": "控制小鸟穿过管道间隙，每穿过一根得 1 分，撞到管道或坠地即结束。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "动作",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+<meta name="description" content="纯前端 Flappy Bird 小游戏：点击或空格控制小鸟穿越管道，含重力积分、碰撞判定与本地最高分。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐤</text></svg>" />
+<style>
+  :root { --bg:#0b0e1a; --panel:#161b3a; --grid:#1c2247; --neon:#00e5ff; --neon2:#ff2e88; --text:#e8ecff; --muted:#9aa3c7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { width:100%; padding:14px 20px; text-align:center; }
+  header a { color:var(--muted); text-decoration:none; font-size:.9rem; }
+  h1 { font-size:1.3rem; margin:6px 0; }
+  .hud { display:flex; gap:22px; margin:8px 0; font-variant-numeric:tabular-nums; }
+  .hud b { color:var(--neon); }
+  canvas { background:var(--grid); border-radius:12px; touch-action:none; max-width:94vw; height:auto; box-shadow:0 6px 30px rgba(0,0,0,.4); }
+  .controls { margin:14px 0; display:flex; gap:10px; }
+  button { background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); padding:9px 18px; border-radius:999px; cursor:pointer; font-size:.95rem; }
+  button:hover { border-color:var(--neon); }
+  .hint { color:var(--muted); font-size:.85rem; margin-bottom:24px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← 返回合集</a>
+  <h1>🐤 Flappy Bird 像素飞鸟</h1>
+</header>
+<div class="hud">
+  <div>得分 <b id="score">0</b></div>
+  <div>最高 <b id="best">0</b></div>
+</div>
+<canvas id="game" width="360" height="540"></canvas>
+<div class="controls">
+  <button id="start">开始</button>
+</div>
+<p class="hint">空格 / 鼠标点击 / 触屏点击 = 拍翅上升 · 穿过管道得分，撞管或落地结束</p>
+
+<script>
+(function () {
+  'use strict';
+  var canvas=document.getElementById('game'), ctx=canvas.getContext('2d');
+  var W=canvas.width, H=canvas.height;
+  var scoreEl=document.getElementById('score'), bestEl=document.getElementById('best');
+  var BEST_KEY='h5hub_flappy_best';
+  bestEl.textContent=localStorage.getItem(BEST_KEY)||0;
+
+  var bird, pipes, score, running, raf, frame, gap, pw, spawned;
+  var GRAV=0.45, FLAP=-7.6, PW=58, GAP=150, SPEED=2.6, INTERVAL=95;
+
+  function reset(){
+    bird={ x:80, y:H/2, vy:0, r:13 };
+    pipes=[]; score=0; frame=0; spawned=0; running=false;
+    updateHud(); draw();
+  }
+  function updateHud(){ scoreEl.textContent=score; bestEl.textContent=Math.max(score,+bestEl.textContent); }
+
+  function flap(){ if(running) bird.vy=FLAP; }
+
+  function loop(){
+    if(!running) return;
+    frame++;
+    bird.vy+=GRAV; bird.y+=bird.vy;
+    // 生成管道
+    if(frame%INTERVAL===0){ var top=60+Math.random()*(H-GAP-180); pipes.push({ x:W, top:top, passed:false }); }
+    // 移动管道 + 计分
+    for(var i=pipes.length-1;i>=0;i--){
+      var p=pipes[i]; p.x-=SPEED;
+      if(!p.passed && p.x+PW<bird.x){ p.passed=true; score++; updateHud(); }
+      if(p.x+PW<-10) pipes.splice(i,1);
+    }
+    // 碰撞：地面/天花板
+    if(bird.y+bird.r>H || bird.y-bird.r<0) return gameOver();
+    // 碰撞：管道
+    for(var j=0;j<pipes.length;j++){
+      var q=pipes[j];
+      var inX = bird.x+bird.r>q.x && bird.x-bird.r<q.x+PW;
+      var inY = bird.y-bird.r<q.top || bird.y+bird.r>q.top+GAP;
+      if(inX && inY) return gameOver();
+    }
+    draw();
+    if(running) raf=requestAnimationFrame(loop);
+  }
+
+  function draw(){
+    // 背景
+    ctx.fillStyle='#1c2247'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='rgba(0,229,255,.18)';
+    for(var s=0;s<20;s++){ ctx.fillRect((s*61)%W, (s*113)%H, 2, 2); }
+    // 管道
+    ctx.fillStyle='#36f1cd';
+    pipes.forEach(function(p){
+      ctx.fillRect(p.x,0,PW,p.top);
+      ctx.fillRect(p.x,p.top+GAP,PW,H-(p.top+GAP));
+    });
+    // 地面
+    ctx.fillStyle='#232b57'; ctx.fillRect(0,H-6,W,6);
+    // 小鸟
+    ctx.beginPath(); ctx.fillStyle='#ffd166'; ctx.arc(bird.x,bird.y,bird.r,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.fillStyle='#ff2e88'; ctx.arc(bird.x+8,bird.y-3,3,0,Math.PI*2); ctx.fill();
+  }
+
+  function gameOver(){
+    running=false; cancelAnimationFrame(raf);
+    var best=Math.max(score,+(localStorage.getItem(BEST_KEY)||0));
+    localStorage.setItem(BEST_KEY,best); bestEl.textContent=best;
+    draw();
+    setTimeout(function(){ alert('游戏结束！得分：'+score); },40);
+  }
+
+  function start(){ if(running) return; reset(); running=true; raf=requestAnimationFrame(loop); }
+
+  document.getElementById('start').addEventListener('click', start);
+  document.addEventListener('keydown', function(e){ if(e.key===' '){ e.preventDefault(); if(!running) start(); else flap(); } });
+  canvas.addEventListener('mousedown', function(){ if(!running) start(); else flap(); });
+  canvas.addEventListener('touchstart', function(e){ e.preventDefault(); if(!running) start(); else flap(); }, {passive:false});
+
+  reset();
+})();
+</script>
+</body>
+</html>
