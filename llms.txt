@@ -1,1 +1,43 @@
-IyBINSDlsI/muLjmiI/lkIjpm4YgKEg1IEdhbWVzIEh1YikKCue6ryBIVE1MIC8gQ1NTIC8gSmF2YVNjcmlwdCDmnoTlu7rnmoTovbvph4/nuqfnvZHpobXmuLjmiI/lupPjgILml6DpnIDlkI7nq6/jgIHml6DpnIDkuIvovb3vvIzljbPngrnljbPnjqnvvIzmiZjnrqHkuo7pnZnmgIHlubPlj7DvvIhDbG91ZGZsYXJlIFBhZ2Vz77yJ44CC5Li754mI5pys6K+t6KiA5Li65Lit5paH77yIemgtQ07vvInvvIzpnaLlkJHkuK3lm73lj4rkuK3mlofnlKjmiLfvvIzlubbku6UgeC1kZWZhdWx0IOaPkOS+m+m7mOiupOeJiOacrOOAggoKIyMg5qaC6L+wCi0g5a6a5L2N77ya6L276YeP57qn6Z2Z5oCBIEg1IOS8kemXsua4uOaIj+iBmuWQiOermQotIOaKgOacr+agiO+8mkhUTUw1ICsgVmFuaWxsYSBKYXZhU2NyaXB0ICsgQ2FudmFzL0RPTe+8jOaXoOahhuaetuOAgeaXoOWQjuerrwotIOmDqOe9su+8mkNsb3VkZmxhcmUgUGFnZXMg6Z2Z5oCB5omY566h77yM5ri45oiP57Sg5p2Q57uPIFIyIOWtmOWCqOahtuWIhuWPkQotIOi/m+W6puS/neWtmO+8mua1j+iniOWZqCBsb2NhbFN0b3JhZ2UKLSDljLrln5/mnI3liqHvvJrkuLvopoHpnaLlkJHkuK3lm73vvIhDTu+8ie+8jOi1hOa6kOe7jyBDbG91ZGZsYXJlIOWFqOeQg+i+uee8mOiKgueCueWwsei/keWIhuWPkQoKIyMg5bey5LiK57q/5ri45oiPCi0g6LSq5ZCD6JuHIFNuYWtlIOKAlCBodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2dhbWVzL3NuYWtlLyDigJQg5pa55ZCR6ZSuL1dBU0Qg5oiW6Kem5bGP5ruR5Yqo77yM5ZCr5YWz5Y2h5LiO5pys5Zyw5pyA6auY5YiGCi0gMjA0OCDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy8yMDQ4LyDigJQg5pWw5a2X5ZCI5bm277yM5ZCr5pKk6ZSA5LiO5pys5Zyw5pyA6auY5YiGCi0g6K6w5b+G57+754mMIE1lbW9yeSDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy9tZW1vcnkvIOKAlCDnv7vniYzphY3lr7kgZW1vamnvvIzlkKvorqHml7bkuI7mnKzlnLDmnIDkvbPmiJDnu6kKLSDmiZPnoJblnZcgQnJlYWtvdXQg4oCUIGh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvYnJlYWtvdXQvIOKAlCDmjKHmnb/lj43lvLnmtojnoJbvvIzlkKvlhbPljaHkuI7mnKzlnLDmnIDpq5jliIYKLSDkupXlrZfmo4sgVGljLVRhYy1Ub2Ug4oCUIGh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvdGljdGFjdG9lLyDigJQg5YaF572uIE1pbmltYXggQUnvvIznroDljZUv5pmu6YCaL+WbsOmavuS4ieahowotIOilv+iSmeiusOW/hiBTaW1vbiDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy9zaW1vbi8g4oCUIOmXquWFiemfs+aViOW6j+WIl+Wkjei/sO+8jOWQq+acrOWcsOacgOmrmOi9ruasoQotIOWkquepuuWwhOWHuyBTcGFjZSBTaG9vdGVyIOKAlCBodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2dhbWVzL3NwYWNlc2hvb3Rlci8g4oCUIOmjnuiIueW8ueW5leWHu+iQveaVjOacuu+8jOWQq+azouasoeS4juacrOWcsOacgOmrmOWIhgotIOS/hOe9l+aWr+aWueWdlyBUZXRyaXMg4oCUIGh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvdGV0cmlzLyDigJQgNyDnp43mlrnlnZfml4vovazmtojooYzvvIzpmo/lhbPljaHliqDpgJ/vvIzlkKvmnKzlnLDmnIDpq5jliIYKLSDmiavpm7cgTWluZXN3ZWVwZXIg4oCUIGh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvbWluZXN3ZWVwZXIvIOKAlCA5w5c5IOe7j+WFuOaJq+mbt++8jOmmlueCueWuieWFqCvnqbrnmb3lsZXlvIAr5o+S5peX77yM5ZCr6K6h5pe25LiO5pyA5L2z5oiQ57upCi0gRmxhcHB5IEJpcmQg5YOP57Sg6aOe6bifIOKAlCBodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2dhbWVzL2ZsYXBweS8g4oCUIOeCueWHuy/nqbrmoLzmi43nv4Xnqb/otornrqHpgZPvvIzlkKvph43lipvnp6/liIbkuI7mnKzlnLDmnIDpq5jliIYKLSDmlbDlrZfljY7lrrnpgZMgMTUtUHV6emxlIOKAlCBodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2dhbWVzL3B1enpsZTE1LyDigJQg5ruR5Yqo5pa55Z2X5aSN5Y6fIDHigJMxNSDpobrluo/vvIzmtJfniYzlv4XnhLblj6/op6PvvIzlkKvmraXmlbAv6K6h5pe25LiO5pyA5L2zCi0g5omT5Zyw6bygIFdoYWNrLWEtTW9sZSDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy93aGFja2Ftb2xlLyDigJQgMzAg56eS6ZmQ5pe25pWy5Zyw6byg77yM6L+e5Ye75Yqg5YiG44CB6YCf5bqm6YCS5aKe77yM5ZCr5pys5Zyw5pyA6auY5YiGCi0g5bq35aiB55Sf5ZG95ri45oiPIEdhbWUgb2YgTGlmZSDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy9saWZlLyDigJQg6Zu2546p5a6257uG6IOe6Ieq5Yqo5py677yM57uY5Yi25Yid5aeL57uG6IOe6KeC5a+f5raM546w77yb5Y+v6LCD6YCf5bqm44CB5Y2V5q2l44CB6ZqP5py65pKt56eNCi0g5rGJ6K+65aGUIFRvd2VyIG9mIEhhbm9pIOKAlCBodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2dhbWVzL2hhbm9pLyDigJQg5ZyG55uY5pW05Y+g56e75p+x77yM5aSn55uY5LiN5Y6L5bCP55uY77ybMy04IOebmOWPr+mAie+8jOatpeaVsOWvueavlOacgOS8mOinoyAy4oG/4oiSMe+8jOWQq+acrOWcsOacgOS9swotIFBvbmcg5by555CD5a+55oiYIOKAlCBodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2dhbWVzL3BvbmcvIOKAlCDnu4/lhbggUG9uZyDlpI3liLvvvIzmjKHmnb/mjqXnkIPjgIHlh7vngrnlrprop5LluqbjgIHlhYjlvpcgNyDliIbog5zvvJtBSSDkuInmoaPpmr7luqYKLSDmlbDni6wgU3Vkb2t1IOKAlCBodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2dhbWVzL3N1ZG9rdS8g4oCUIOihjC/liJcv5a6rIDHigJM5IOS4jemHjeWkje+8jOWUr+S4gOino+eUn+aIkOWZqO+8m+S4ieaho+mavuW6puOAgemUmeivr+agh+e6ouOAgeaPkOekuuS4juiuoeaXtgotIOS6lOWtkOajiyBHb21va3Ug4oCUIGh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvZ29tb2t1LyDigJQgMTXDlzE1IOaXoOemgeaJi++8jOm7keWFiOi/nuS6lOWNs+iDnO+8m+WQr+WPkeW8jyBBSSDmlLvpmLLjgIHmgpTmo4vkuI7miJjnu6kKLSDngrnnga/muLjmiI8gTGlnaHRzIE91dCDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy9saWdodHNvdXQvIOKAlCDngrnlh7vnv7vovazljYHlrZfkupTmoLzvvIzlhajnga3ljbPog5zvvJvlsYDpnaLlv4XnhLblj6/op6PvvIzkuInmoaPpmr7luqYKLSDov7flrqvlr7vot68gTWF6ZSDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy9tYXplLyDigJQgREZTIOmaj+acuuWujOe+jui/t+Wuq++8jOi1sOWIsOe7iOeCue+8m+atpeaVsOWvueavlOacgOefrei3r+W+hO+8jOS4ieaho+WwuuWvuAotIOaBkOm+mei3s+i3gyBEaW5vIFJ1biDigJQgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1Yi9nYW1lcy9kaW5vLyDigJQg5YOP57Sg5oGQ6b6Z5peg5bC96LeR6YW377yM6Lez6L+H5LuZ5Lq65o6M77yb6YCf5bqm6YCS5aKe44CB6Led56a76K6h5YiGCi0gMjQg54K5566X5byPIEdhbWUgMjQg4oCUIGh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvZ2FtZTI0LyDigJQg5Zub5byg5pWw5a2X54mM5Yqg5YeP5LmY6Zmk5ZCI5bm25Ye6IDI077yb6YCG5o6o55Sf5oiQ5b+F5pyJ6Kej44CB5Y+v5pKk6ZSACgojIyDop4TliJLkuK3muLjmiI8K5pu05aSa5LyR6ZeyL+ebiuaZuuexu+aMiemcgOaxguaJqeWFhe+8jOWdh+S4uuWNleebruW9lee6r+WJjeerr+WunueOsOOAggoKIyMg5p2l5rqQ5LiO5Y2P6K6uCua4uOaIj+eBteaEn+S4jue0oOadkOadpeiHqiBpdGNoLmlv44CBR2l0SHVi44CBTHVkdW0gRGFyZSDnrYnlvIDmupDnpL7ljLrvvIzpgbXlvqrlkIToh6rlvIDmupDorrjlj6/or4HvvIhNSVQgLyBQdWJsaWMgRG9tYWluIC8gVW5saWNlbnNlIOetie+8ieOAggoKIyMg6YOo572yCuivpuingeS7k+W6k+agueebruW9le+8mndyYW5nbGVyLnRvbWzjgIFfaGVhZGVyc+OAgXJvYm90cy50eHTjgIFzaXRlbWFwLnhtbOOAggrmnKzlnLDpooTop4jvvJrlnKggaDVnYW1lcy1odWIg55uu5b2V6L+Q6KGMIGBucHggc2VydmVgIOaIliBgcHl0aG9uMyAtbSBodHRwLnNlcnZlciA4MDAwYOOAggo=
+# H5 小游戏合集 (H5 Games Hub)
+
+纯 HTML / CSS / JavaScript 构建的轻量级网页游戏库。无需后端、无需下载，即点即玩，托管于静态平台（Cloudflare Pages）。主版本语言为中文（zh-CN），面向中国及中文用户，并以 x-default 提供默认版本。
+
+## 概述
+- 定位：轻量级静态 H5 休闲游戏聚合站
+- 技术栈：HTML5 + Vanilla JavaScript + Canvas/DOM，无框架、无后端
+- 部署：Cloudflare Pages 静态托管，游戏素材经 R2 存储桶分发
+- 进度保存：浏览器 localStorage
+- 区域服务：主要面向中国（CN），资源经 Cloudflare 全球边缘节点就近分发
+
+## 已上线游戏
+- 贪吃蛇 Snake — https://vip-881.github.io/h5games-hub/games/snake/ — 方向键/WASD 或触屏滑动，含关卡与本地最高分
+- 2048 — https://vip-881.github.io/h5games-hub/games/2048/ — 数字合并，含撤销与本地最高分
+- 记忆翻牌 Memory — https://vip-881.github.io/h5games-hub/games/memory/ — 翻牌配对 emoji，含计时与本地最佳成绩
+- 打砖块 Breakout — https://vip-881.github.io/h5games-hub/games/breakout/ — 挡板反弹消砖，含关卡与本地最高分
+- 井字棋 Tic-Tac-Toe — https://vip-881.github.io/h5games-hub/games/tictactoe/ — 内置 Minimax AI，简单/普通/困难三档
+- 西蒙记忆 Simon — https://vip-881.github.io/h5games-hub/games/simon/ — 闪光音效序列复述，含本地最高轮次
+- 太空射击 Space Shooter — https://vip-881.github.io/h5games-hub/games/spaceshooter/ — 飞船弹幕击落敌机，含波次与本地最高分
+- 俄罗斯方块 Tetris — https://vip-881.github.io/h5games-hub/games/tetris/ — 7 种方块旋转消行，随关卡加速，含本地最高分
+- 扫雷 Minesweeper — https://vip-881.github.io/h5games-hub/games/minesweeper/ — 9×9 经典扫雷，首点安全+空白展开+插旗，含计时与最佳成绩
+- Flappy Bird 像素飞鸟 — https://vip-881.github.io/h5games-hub/games/flappy/ — 点击/空格拍翅穿越管道，含重力积分与本地最高分
+- 数字华容道 15-Puzzle — https://vip-881.github.io/h5games-hub/games/puzzle15/ — 滑动方块复原 1–15 顺序，洗牌必然可解，含步数/计时与最佳
+- 打地鼠 Whack-a-Mole — https://vip-881.github.io/h5games-hub/games/whackamole/ — 30 秒限时敲地鼠，连击加分、速度递增，含本地最高分
+- 康威生命游戏 Game of Life — https://vip-881.github.io/h5games-hub/games/life/ — 零玩家细胞自动机，绘制初始细胞观察涌现；可调速度、单步、随机播种
+- 汉诺塔 Tower of Hanoi — https://vip-881.github.io/h5games-hub/games/hanoi/ — 圆盘整叠移柱，大盘不压小盘；3-8 盘可选，步数对比最优解 2ⁿ−1，含本地最佳
+- Pong 弹球对战 — https://vip-881.github.io/h5games-hub/games/pong/ — 经典 Pong 复刻，挡板接球、击点定角度、先得 7 分胜；AI 三档难度
+- 数独 Sudoku — https://vip-881.github.io/h5games-hub/games/sudoku/ — 行/列/宫 1–9 不重复，唯一解生成器；三档难度、错误标红、提示与计时
+- 五子棋 Gomoku — https://vip-881.github.io/h5games-hub/games/gomoku/ — 15×15 无禁手，黑先连五即胜；启发式 AI 攻防、悔棋与战绩
+- 点灯游戏 Lights Out — https://vip-881.github.io/h5games-hub/games/lightsout/ — 点击翻转十字五格，全灭即胜；局面必然可解，三档难度
+- 迷宫寻路 Maze — https://vip-881.github.io/h5games-hub/games/maze/ — DFS 随机完美迷宫，走到终点；步数对比最短路径，三档尺寸
+- 恐龙跳跃 Dino Run — https://vip-881.github.io/h5games-hub/games/dino/ — 像素恐龙无尽跑酷，跳过仙人掌；速度递增、距离计分
+- 24 点算式 Game 24 — https://vip-881.github.io/h5games-hub/games/game24/ — 四张数字牌加减乘除合并出 24；逆推生成必有解、可撤销
+
+## 规划中游戏
+更多休闲/益智类按需求扩充，均为单目录纯前端实现。
+
+## 来源与协议
+游戏灵感与素材来自 itch.io、GitHub、Ludum Dare 等开源社区，遵循各自开源许可证（MIT / Public Domain / Unlicense 等）。
+
+## 部署
+详见仓库根目录：wrangler.toml、_headers、robots.txt、sitemap.xml。
+本地预览：在 h5games-hub 目录运行 `npx serve` 或 `python3 -m http.server 8000`。
