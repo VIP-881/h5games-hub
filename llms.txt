@@ -1,0 +1,43 @@
+# H5 小游戏合集 (H5 Games Hub)
+
+纯 HTML / CSS / JavaScript 构建的轻量级网页游戏库。无需后端、无需下载，即点即玩，托管于静态平台（Cloudflare Pages）。主版本语言为中文（zh-CN），面向中国及中文用户，并以 x-default 提供默认版本。
+
+## 概述
+- 定位：轻量级静态 H5 休闲游戏聚合站
+- 技术栈：HTML5 + Vanilla JavaScript + Canvas/DOM，无框架、无后端
+- 部署：Cloudflare Pages 静态托管，游戏素材经 R2 存储桶分发
+- 进度保存：浏览器 localStorage
+- 区域服务：主要面向中国（CN），资源经 Cloudflare 全球边缘节点就近分发
+
+## 已上线游戏
+- 贪吃蛇 Snake — https://h5games-hub.pages.dev/games/snake/ — 方向键/WASD 或触屏滑动，含关卡与本地最高分
+- 2048 — https://h5games-hub.pages.dev/games/2048/ — 数字合并，含撤销与本地最高分
+- 记忆翻牌 Memory — https://h5games-hub.pages.dev/games/memory/ — 翻牌配对 emoji，含计时与本地最佳成绩
+- 打砖块 Breakout — https://h5games-hub.pages.dev/games/breakout/ — 挡板反弹消砖，含关卡与本地最高分
+- 井字棋 Tic-Tac-Toe — https://h5games-hub.pages.dev/games/tictactoe/ — 内置 Minimax AI，简单/普通/困难三档
+- 西蒙记忆 Simon — https://h5games-hub.pages.dev/games/simon/ — 闪光音效序列复述，含本地最高轮次
+- 太空射击 Space Shooter — https://h5games-hub.pages.dev/games/spaceshooter/ — 飞船弹幕击落敌机，含波次与本地最高分
+- 俄罗斯方块 Tetris — https://h5games-hub.pages.dev/games/tetris/ — 7 种方块旋转消行，随关卡加速，含本地最高分
+- 扫雷 Minesweeper — https://h5games-hub.pages.dev/games/minesweeper/ — 9×9 经典扫雷，首点安全+空白展开+插旗，含计时与最佳成绩
+- Flappy Bird 像素飞鸟 — https://h5games-hub.pages.dev/games/flappy/ — 点击/空格拍翅穿越管道，含重力积分与本地最高分
+- 数字华容道 15-Puzzle — https://h5games-hub.pages.dev/games/puzzle15/ — 滑动方块复原 1–15 顺序，洗牌必然可解，含步数/计时与最佳
+- 打地鼠 Whack-a-Mole — https://h5games-hub.pages.dev/games/whackamole/ — 30 秒限时敲地鼠，连击加分、速度递增，含本地最高分
+- 康威生命游戏 Game of Life — https://h5games-hub.pages.dev/games/life/ — 零玩家细胞自动机，绘制初始细胞观察涌现；可调速度、单步、随机播种
+- 汉诺塔 Tower of Hanoi — https://h5games-hub.pages.dev/games/hanoi/ — 圆盘整叠移柱，大盘不压小盘；3-8 盘可选，步数对比最优解 2ⁿ−1，含本地最佳
+- Pong 弹球对战 — https://h5games-hub.pages.dev/games/pong/ — 经典 Pong 复刻，挡板接球、击点定角度、先得 7 分胜；AI 三档难度
+- 数独 Sudoku — https://h5games-hub.pages.dev/games/sudoku/ — 行/列/宫 1–9 不重复，唯一解生成器；三档难度、错误标红、提示与计时
+- 五子棋 Gomoku — https://h5games-hub.pages.dev/games/gomoku/ — 15×15 无禁手，黑先连五即胜；启发式 AI 攻防、悔棋与战绩
+- 点灯游戏 Lights Out — https://h5games-hub.pages.dev/games/lightsout/ — 点击翻转十字五格，全灭即胜；局面必然可解，三档难度
+- 迷宫寻路 Maze — https://h5games-hub.pages.dev/games/maze/ — DFS 随机完美迷宫，走到终点；步数对比最短路径，三档尺寸
+- 恐龙跳跃 Dino Run — https://h5games-hub.pages.dev/games/dino/ — 像素恐龙无尽跑酷，跳过仙人掌；速度递增、距离计分
+- 24 点算式 Game 24 — https://h5games-hub.pages.dev/games/game24/ — 四张数字牌加减乘除合并出 24；逆推生成必有解、可撤销
+
+## 规划中游戏
+更多休闲/益智类按需求扩充，均为单目录纯前端实现。
+
+## 来源与协议
+游戏灵感与素材来自 itch.io、GitHub、Ludum Dare 等开源社区，遵循各自开源许可证（MIT / Public Domain / Unlicense 等）。
+
+## 部署
+详见仓库根目录：wrangler.toml、_headers、robots.txt、sitemap.xml。
+本地预览：在 h5games-hub 目录运行 `npx serve` 或 `python3 -m http.server 8000`。
