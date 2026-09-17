@@ -1,1 +1,71 @@
-IyDotYTkuqfnlJ/kuqfmtYHmsLTnur/vvJpCbGVuZGVyIE1DUCDihpIgV2ViUCDihpIgUjIg4oaSIOermeeCuQoK5pys55uu5b2V55So5LqO5oqKICoqQmxlbmRlciBNQ1AqKu+8iOS7k+W6kyBgYWh1amFzaWQvbWNwLWZvci1ibGVuZGVyYO+8jOWOn+WQjSBgYmxlbmRlci1tY3Bg77yJ5o6l5YWl6L276YeP6Z2Z5oCB5ri45oiP6LWE5Lqn55Sf5Lqn77yMCuS6p+WHuuS8mOWMluWQjueahOeyvueBteWbviAvIOWwgemdou+8jOS4iuS8oOWIsCBSMiDlrZjlgqjmobbvvIhgaDUtZ2FtZS1hc3NldHNg77yJ77yM5YaN5Zyo6Z2Z5oCB56uZ54K55Lit5byV55So44CCCgo+IOWumuS9je+8mkJsZW5kZXIgTUNQIOaYryoq6LWE5Lqn55Sf5Lqn5bel5YW3KirvvIzkuI3mmK/muLjmiI/ov5DooYzml7bkvp3otZbjgILmuLjmiI/mnKzouqvku43mmK/ml6DlkI7nq6/nuq/liY3nq6/jgIIKCiMjIDEuIOWuieijhSBCbGVuZGVyIE1DUO+8iOacrOWcsOS4gOasoeaAp++8iQoxLiDlronoo4UgYHV2YO+8iOS4jeimgeeUqCBwaXAg6KOFIHV277yJ77yaCiAgIC0gV2luZG93c++8mmBwb3dlcnNoZWxsIC1jICJpcm0gaHR0cHM6Ly9hc3RyYWwuc2gvdXYvaW5zdGFsbC5wczEgfCBpZXgiYAogICAtIExpbnV477yaYGN1cmwgLUxzU2YgaHR0cHM6Ly9hc3RyYWwuc2gvdXYvaW5zdGFsbC5zaCB8IHNoYAoyLiDlronoo4UgQmxlbmRlciDmj5Lku7bvvJpgdXZ4IG1jcC1mb3ItYmxlbmRlciBpbnN0YWxsLWFkZG9uYAozLiDlnKggQmxlbmRlciDkuK3vvJpgRWRpdCDihpIgUHJlZmVyZW5jZXMg4oaSIEFkZC1vbnNgIOWQr+eUqCAqKkludGVyZmFjZTogTUNQIGZvciBCbGVuZGVyKirvvJsKICAgM0Qg6KeG5Zu+5oyJIGBOYCDihpIgKipNQ1AgZm9yIEJsZW5kZXIqKiDmoIfnrb7pobUg4oaSICoqU3RhcnQgTUNQIFNlcnZlcioq44CCCgojIyAyLiDmjqXlhaUgQUkg5a6i5oi356uv77yI56S65L6L77yaQ2xhdWRlIERlc2t0b3DvvIkK57yW6L6RIGBjbGF1ZGVfZGVza3RvcF9jb25maWcuanNvbmDvvJoKYGBganNvbgp7CiAgIm1jcFNlcnZlcnMiOiB7CiAgICAiYmxlbmRlciI6IHsgImNvbW1hbmQiOiAidXZ4IiwgImFyZ3MiOiBbIm1jcC1mb3ItYmxlbmRlciJdIH0KICB9Cn0KYGBgCj4g5rOo5oSP77ya5ZCM5LiA5pe25Yi75Y+q6L+Q6KGM5LiA5LiqIE1DUCDmnI3liqHlmajlrp7kvovvvIjli7/lkIzml7blvIAgQ3Vyc29yIOS4jiBDbGF1ZGUgRGVza3RvcO+8ieOAggoKIyMgMy4g55So6Ieq54S26K+t6KiA55Sf5oiQ6LWE5Lqn77yIUHJvbXB0IOekuuS+i++8iQotIDJEIOeyvueBte+8mmAiQ3JlYXRlIGEgbG93LXBvbHkgaXNvbWV0cmljIGdhbWUgaWNvbjogYSBuZW9uIGJsdWUgZ2FtZSBjb250cm9sbGVyLCB0cmFuc3BhcmVudCBiYWNrZ3JvdW5kImAKLSDlsIHpnaLvvJpgIkJ1aWxkIGEgY3liZXJwdW5rIDEyMDB4NjMwIGNvdmVyIHdpdGggdGhlIHRleHQgSDUg5ri45oiP5ZCI6ZuGLCBuZW9uIGdyYWRpZW50ImAKLSDmnZDotKgv54Gv5YWJ77yaYCJNYWtlIGl0IG1ldGFsbGljIHJlZCJg44CBYCJTdHVkaW8gbGlnaHRpbmcsIGlzb21ldHJpYyBjYW1lcmEiYAoKIyMgNC4g5a+85Ye65Li65LyY5YyW6LWE5rqQCi0gM0Qg5qih5Z6L77ya55SoIGBleHBvcnRfc2NlbmVgIOWvvOWHuiAqKkdMQioq77yI6L276YeP44CBV2ViIOWPi+Wlve+8ieOAggotIDJEIOeyvueBte+8mumAmui/hyBgZXhlY3V0ZV9ibGVuZGVyX2NvZGVgIOWcqCBCbGVuZGVyIOWGhea4suafk+WIsCBQTkfvvIzlho3ovawgKipXZWJQKirvvIjkvZPnp6/mnoHlsI/vvInvvJoKYGBgcHl0aG9uCmltcG9ydCBicHkKYnB5LmNvbnRleHQuc2NlbmUucmVuZGVyLmZpbGVwYXRoID0gIi90bXAvc3ByaXRlLnBuZyIKYnB5Lm9wcy5yZW5kZXIucmVuZGVyKHdyaXRlX3N0aWxsPVRydWUpCmBgYArpmo/lkI7nlKggUGlsbG93IC8gc2hhcnAg6L2sIFdlYlDvvJpgcHl0aG9uIC1jICJmcm9tIFBJTCBpbXBvcnQgSW1hZ2U7IEltYWdlLm9wZW4oJy90bXAvc3ByaXRlLnBuZycpLnNhdmUoJ3Nwcml0ZS53ZWJwJywgJ1dFQlAnLCBxdWFsaXR5PTg1KSJgCgojIyA1LiDkuIrkvKDliLAgUjLvvIjlj6/lpI3nlKjohJrmnKwgYHVwbG9hZF9yMi5weWDvvIkKYGBgYmFzaApleHBvcnQgUjJfQUNDT1VOVF9JRD0i5L2g55qEQWNjb3VudElEIgpleHBvcnQgUjJfQUNDRVNTX0tFWT0i5L2g55qEUjJBY2Nlc3NLZXkiCmV4cG9ydCBSMl9TRUNSRVRfS0VZPSLkvaDnmoRSMlNlY3JldCIKZXhwb3J0IFIyX0JVQ0tFVD0iaDUtZ2FtZS1hc3NldHMiCnB5dGhvbiB1cGxvYWRfcjIucHkgYXNzZXRzL3Nwcml0ZS53ZWJwIGNvdmVycy9zcHJpdGUud2VicApgYGAK6ISa5pys5Z+65LqOIGBib3RvM2AgKyBSMiDnmoQgUzMg5YW85a6556uv54K577yIYGh0dHBzOi8vPEFDQ09VTlRfSUQ+LnIyLmNsb3VkZmxhcmVzdG9yYWdlLmNvbWDvvInjgIIKCiMjIyDnvZHnu5wv5Luj55CG562W55Wl77yI6YeN6KaB77yJCi0gKirpu5jorqTvvIjnlJ/kuqcv5q2j5bi4572R57uc77yJKirvvJrohJrmnKzkvJrmuIXnqbrooqvms6jlhaXnmoQgYEhUVFAoUylfUFJPWFlgIOW5tuWvuSBSMiDkuLvmnLrorr7nva4gYE5PX1BST1hZYO+8jAogIOS/neaMgSAqKuivgeS5puS4peagvOagoemqjCoq77yIYHZlcmlmeT1UcnVlYO+8ie+8jOebtOi/niBSMuOAggotICoq5Y+X6ZmQIC8g5rKZ566x572R57ucKirvvJroi6Xov5DooYznjq/looPlrZjlnKjpgI/mmI4gVExTIOaLpuaIquS7o+eQhu+8iOWFuOWei+ihqOeOsO+8mui/nuaOpSBgKi5yMi5jbG91ZGZsYXJlc3RvcmFnZS5jb21gCiAg5pe26L+U5ZueIGBTU0w6IFNTTFYzX0FMRVJUX0hBTkRTSEFLRV9GQUlMVVJFYO+8ie+8jOiuvue9riBgUjJfU1NMX1ZFUklGWT1mYWxzZWAg6K6p5rWB6YeP6LWw5pi+5byPIGVncmVzcyDku6PnkIblubYKICDlhbPpl63or4HkuabmoKHpqozvvIjku4XnlKjkuo7mvJTnpLov5Y+X6ZmQ546v5aKD77yM6Z2e55Sf5Lqn5bu66K6u77yJ77yaCiAgYGBgYmFzaAogIFIyX1NTTF9WRVJJRlk9ZmFsc2UgcHl0aG9uIHVwbG9hZF9yMi5weSBhc3NldHMvc3ByaXRlLndlYnAgY292ZXJzL3Nwcml0ZS53ZWJwCiAgYGBgCj4g5Yik5Zug5oqA5ben77ya6IulIGBodHRwczovL3d3dy5jbG91ZGZsYXJlLmNvbWAg5Y+v6YCa5L2GIFIyIOerr+eCuSBUTFMg5o+h5omL5aSx6LSl77yM6YCa5bi45piv5rKZ566x5Ye65Y+j5a+5IFIyIOWtmOWCqOWfn+WQjeeahAo+IOe9kee7nOmZkOWItu+8jOiAjOmdnuiEmuacrOmXrumimOKAlOKAlOivt+WcqOWPr+ebtOi/niBSMiDnmoTnnJ/lrp7njq/looPkuK3miafooYzkuIrkvKDjgIIKCiMjIDYuIOWcqOermeeCueS4reW8leeUqAotIOiLpSBSMiDmobblvIDlkK/lhazlvIDorr/pl67miJbnu5Hlrproh6rlrprkuYnln5/vvJpgPGltZyBzcmM9Imh0dHBzOi8vPHIyLXB1YmxpYy1kb21haW4+L2NvdmVycy9zcHJpdGUud2VicCI+YOOAggotIOS5n+WPr+WcqCBDbG91ZGZsYXJlIFBhZ2VzIOmhueebruWwhiBSMiDnu5HlrprkuLogYC9yMmAg6Lev5b6E77yM5pys5Zyw6Lev5b6E5byV55So77yM5peg6ZyA5YWs572R5Z+f5ZCN44CCCgojIyA3LiDlronlhagKLSBSMiBBY2Nlc3MgS2V5IC8gU2VjcmV0IOS7hemAmui/h+eOr+Wig+WPmOmHjyAvIFNlY3JldHMg5rOo5YWl77yM5LiN5YaZ5YWl5Luj56CB44CCCi0gQmxlbmRlciBNQ1Ag55qEIHNvY2tldCDml6DorqTor4HvvIwqKuWKoeW/hee7keWumiBsb2NhbGhvc3QqKu+8jOi/nOeoi+i/nuaOpemcgOiwqOaFjuOAggotIOaJp+ihjCBgZXhlY3V0ZV9ibGVuZGVyX2NvZGVgIOWJjeWFiOS/neWtmOW3peeoi+OAggo=
+# 资产生产流水线：Blender MCP → WebP → R2 → 站点
+
+本目录用于把 **Blender MCP**（仓库 `ahujasid/mcp-for-blender`，原名 `blender-mcp`）接入轻量静态游戏资产生产，
+产出优化后的精灵图 / 封面，上传到 R2 存储桶（`h5-game-assets`），再在静态站点中引用。
+
+> 定位：Blender MCP 是**资产生产工具**，不是游戏运行时依赖。游戏本身仍是无后端纯前端。
+
+## 1. 安装 Blender MCP（本地一次性）
+1. 安装 `uv`（不要用 pip 装 uv）：
+   - Windows：`powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
+   - Linux：`curl -LsSf https://astral.sh/uv/install.sh | sh`
+2. 安装 Blender 插件：`uvx mcp-for-blender install-addon`
+3. 在 Blender 中：`Edit → Preferences → Add-ons` 启用 **Interface: MCP for Blender**；
+   3D 视图按 `N` → **MCP for Blender** 标签页 → **Start MCP Server**。
+
+## 2. 接入 AI 客户端（示例：Claude Desktop）
+编辑 `claude_desktop_config.json`：
+```json
+{
+  "mcpServers": {
+    "blender": { "command": "uvx", "args": ["mcp-for-blender"] }
+  }
+}
+```
+> 注意：同一时刻只运行一个 MCP 服务器实例（勿同时开 Cursor 与 Claude Desktop）。
+
+## 3. 用自然语言生成资产（Prompt 示例）
+- 2D 精灵：`"Create a low-poly isometric game icon: a neon blue game controller, transparent background"`
+- 封面：`"Build a cyberpunk 1200x630 cover with the text H5 游戏合集, neon gradient"`
+- 材质/灯光：`"Make it metallic red"`、`"Studio lighting, isometric camera"`
+
+## 4. 导出为优化资源
+- 3D 模型：用 `export_scene` 导出 **GLB**（轻量、Web 友好）。
+- 2D 精灵：通过 `execute_blender_code` 在 Blender 内渲染到 PNG，再转 **WebP**（体积极小）：
+```python
+import bpy
+bpy.context.scene.render.filepath = "/tmp/sprite.png"
+bpy.ops.render.render(write_still=True)
+```
+随后用 Pillow / sharp 转 WebP：`python -c "from PIL import Image; Image.open('/tmp/sprite.png').save('sprite.webp', 'WEBP', quality=85)"`
+
+## 5. 上传到 R2（可复用脚本 `upload_r2.py`）
+```bash
+export R2_ACCOUNT_ID="你的AccountID"
+export R2_ACCESS_KEY="你的R2AccessKey"
+export R2_SECRET_KEY="你的R2Secret"
+export R2_BUCKET="h5-game-assets"
+python upload_r2.py assets/sprite.webp covers/sprite.webp
+```
+脚本基于 `boto3` + R2 的 S3 兼容端点（`https://<ACCOUNT_ID>.r2.cloudflarestorage.com`）。
+
+### 网络/代理策略（重要）
+- **默认（生产/正常网络）**：脚本会清空被注入的 `HTTP(S)_PROXY` 并对 R2 主机设置 `NO_PROXY`，
+  保持 **证书严格校验**（`verify=True`），直连 R2。
+- **受限 / 沙箱网络**：若运行环境存在透明 TLS 拦截代理（典型表现：连接 `*.r2.cloudflarestorage.com`
+  时返回 `SSL: SSLV3_ALERT_HANDSHAKE_FAILURE`），设置 `R2_SSL_VERIFY=false` 让流量走显式 egress 代理并
+  关闭证书校验（仅用于演示/受限环境，非生产建议）：
+  ```bash
+  R2_SSL_VERIFY=false python upload_r2.py assets/sprite.webp covers/sprite.webp
+  ```
+> 判因技巧：若 `https://www.cloudflare.com` 可通但 R2 端点 TLS 握手失败，通常是沙箱出口对 R2 存储域名的
+> 网络限制，而非脚本问题——请在可直连 R2 的真实环境中执行上传。
+
+## 6. 在站点中引用
+- 若 R2 桶开启公开访问或绑定自定义域：`<img src="https://<r2-public-domain>/covers/sprite.webp">`。
+- 也可在 Cloudflare Pages 项目将 R2 绑定为 `/r2` 路径，本地路径引用，无需公网域名。
+
+## 7. 安全
+- R2 Access Key / Secret 仅通过环境变量 / Secrets 注入，不写入代码。
+- Blender MCP 的 socket 无认证，**务必绑定 localhost**，远程连接需谨慎。
+- 执行 `execute_blender_code` 前先保存工程。
