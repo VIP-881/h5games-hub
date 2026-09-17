@@ -1,1 +1,18 @@
-IyBDbG91ZGZsYXJlIFBhZ2VzIOmHjeWumuWQkeinhOWImQojIOaWh+ahozogaHR0cHM6Ly9kZXZlbG9wZXJzLmNsb3VkZmxhcmUuY29tL3BhZ2VzL2NvbmZpZ3VyYXRpb24vcmVkaXJlY3RzLwoKIyDimqDvuI8g5bmz5Y+w6ZmQ5Yi277yaX3JlZGlyZWN0cyDkuI3mlK/mjIHln5/lkI3nuqfph43lrprlkJHvvIhEb21haW4tbGV2ZWwgcmVkaXJlY3RzIOKdjO+8ie+8jAojIOWboOatpOaXoOazleWcqOatpOaKiiBoNWdhbWVzLWh1Yi5wYWdlcy5kZXYgMzAxIOWIsOiHquWumuS5ieWfn+WQjeOAggojIOWPjOWfn+WQjeW5tuWtmOeahOmHjeWkjeWGheWuuemXrumimOeUsSBTRU8g5L+h5Y+35pS25pWb6Kej5Yaz77yaCiMgICBjYW5vbmljYWwgLyBvZzp1cmwgLyBzaXRlbWFwLnhtbCAvIHJvYm90cy50eHQgLyBKU09OLUxEIOWFqOmDqOaMh+WQkeinhOiMg+Wfn+WQjQojICAgaHR0cHM6Ly92aXAtODgxLmdpdGh1Yi5pby9oNWdhbWVzLWh1YiDvvIjmkJzntKLlvJXmk47kvJrku6UgY2Fub25pY2FsIOS4uuWHhu+8jOS4jeS8mumHjeWkjeaUtuW9le+8iQoKIyDplJrngrnlv6vmjbfot7PovawKL2dhbWVzICAvI2dhbWVzICAzMDIKL2ZhcSAgICAgLyNmYXEgICAgMzAyCgojIOW8gOWPkS/kuLTml7bohJrmnKzmrovnlZnmuIXnkIbvvJrov5nkupvmlofku7bmm77or6/lhaXpg6jnvbLkuqfnianvvIznu5/kuIAgMzAxIOWbnummlumhte+8jAojIOmBv+WFjeiiq+aQnOe0ouW8leaTjuaUtuW9leS4uumHjeWkjS/ml6DlhbPlhoXlrrnjgIIKL19jaGVjay5qcyAgIC8gIDMwMQovX2RpYWcucHkgICAgLyAgMzAxCi9fZGVwbG95LnB5ICAvICAzMDEK
+# Cloudflare Pages 重定向规则
+# 文档: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# ⚠️ 平台限制：_redirects 不支持域名级重定向（Domain-level redirects ❌），
+# 因此无法在此把 h5games-hub.pages.dev 301 到自定义域名。
+# 双域名并存的重复内容问题由 SEO 信号收敛解决：
+#   canonical / og:url / sitemap.xml / robots.txt / JSON-LD 全部指向规范域名
+#   https://vip-881.github.io/h5games-hub （搜索引擎会以 canonical 为准，不会重复收录）
+
+# 锚点快捷跳转
+/games  /#games  302
+/faq     /#faq    302
+
+# 开发/临时脚本残留清理：这些文件曾误入部署产物，统一 301 回首页，
+# 避免被搜索引擎收录为重复/无关内容。
+/_check.js   /  301
+/_diag.py    /  301
+/_deploy.py  /  301
