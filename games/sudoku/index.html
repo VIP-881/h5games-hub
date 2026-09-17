@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数独 Sudoku | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/sudoku/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="数独 Sudoku | H5 小游戏合集" />
+  <meta property="og:description" content="经典 9×9 数独：每行、每列、每个 3×3 宫 1–9 不重复；生成器保证唯一解，三档难度，错误即时标红、提示与计时，记录每档最佳成绩。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/sudoku/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="数独 Sudoku | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "数独 Sudoku",
+  "url": "https://h5games-hub.pages.dev/games/sudoku/",
+  "description": "经典 9×9 数独益智游戏：每行、每列、每个 3×3 宫内 1-9 各出现一次；生成器经唯一解校验，简单/中等/困难三档，错误即时标红、支持提示与计时，记录本地最佳。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+  <meta name="description" content="数独 Sudoku：在 9×9 棋盘填入 1-9，使每行、每列、每个 3×3 宫内数字不重复。唯一解生成器，简单/中等/困难三档，点击或键盘输入，错误即时标红、提示与计时，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    .diff { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; font-size: 14px; color: var(--muted); }
+    .diff button { min-width: 64px; padding: 6px 0; font-size: 14px; letter-spacing: 0; }
+    .diff button.on { background: var(--neon); color: #04121a; }
+    #board {
+      display: grid;
+      grid-template-columns: repeat(9, 44px);
+      grid-template-rows: repeat(9, 44px);
+      background: var(--panel);
+      border: 2px solid rgba(0, 229, 255, .55);
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      touch-action: manipulation;
+      user-select: none;
+    }
+    .cell {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 700;
+      border: 1px solid rgba(0, 229, 255, .12);
+      cursor: pointer;
+      color: var(--neon);
+      text-shadow: 0 0 8px rgba(0, 229, 255, .45);
+      transition: background .1s ease;
+    }
+    .cell.locked { color: var(--text); text-shadow: none; cursor: default; }
+    .cell.sel { background: rgba(0, 229, 255, .18); box-shadow: inset 0 0 0 2px var(--neon); }
+    .cell.same { background: rgba(0, 229, 255, .10); }
+    .cell.err { color: var(--neon2); text-shadow: 0 0 8px rgba(255, 47, 185, .6); }
+    .cell.br { border-right: 2px solid rgba(0, 229, 255, .45); }
+    .cell.bb { border-bottom: 2px solid rgba(0, 229, 255, .45); }
+    .numpad { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; justify-content: center; }
+    .numpad button {
+      width: 42px; height: 42px; padding: 0; font-size: 18px; letter-spacing: 0;
+    }
+    .numpad button.erase { width: 88px; color: var(--neon2); border-color: var(--neon2); }
+    .numpad button.erase:hover { background: var(--neon2); color: #04121a; }
+    .controls { display: flex; gap: 12px; margin-top: 14px; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 10px 20px; font-size: 15px; cursor: pointer;
+      letter-spacing: 2px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover { background: var(--neon); color: #04121a; }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: #58ffb1; text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+    @media (max-width: 460px) {
+      #board { grid-template-columns: repeat(9, 34px); grid-template-rows: repeat(9, 34px); padding: 5px; }
+      .cell { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🔢 数独 Sudoku</h1>
+  <p class="sub">每行、每列、每个 3×3 宫内 1–9 不重复 · 生成器保证唯一解 · 错误即时标红</p>
+
+  <div class="hud">
+    <span>用时 <b id="time">0:00</b></span>
+    <span>空格 <b id="blanks">--</b></span>
+    <span>本档最佳 <b id="best">--</b></span>
+  </div>
+
+  <div class="diff" role="group" aria-label="选择难度">
+    <span>难度：</span>
+    <button data-d="easy" class="on">简单</button>
+    <button data-d="medium">中等</button>
+    <button data-d="hard">困难</button>
+  </div>
+
+  <div id="board" aria-label="数独棋盘"></div>
+
+  <div class="numpad" aria-label="数字键盘">
+    <button data-n="1">1</button><button data-n="2">2</button><button data-n="3">3</button>
+    <button data-n="4">4</button><button data-n="5">5</button><button data-n="6">6</button>
+    <button data-n="7">7</button><button data-n="8">8</button><button data-n="9">9</button>
+    <button class="erase" data-n="0">擦除</button>
+  </div>
+
+  <div class="controls">
+    <button id="btnNew">新游戏</button>
+    <button id="btnHint">提示</button>
+  </div>
+
+  <div id="msg" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var solution = [], puzzle = [], given = [];
+      var sel = -1;                 // 当前选中格 0..80
+      var diff = "easy";
+      var HOLES = { easy: 35, medium: 45, hard: 52 };
+      var timerId = null, startTime = 0, playing = false;
+
+      var elBoard = document.getElementById("board");
+      var elTime = document.getElementById("time");
+      var elBlanks = document.getElementById("blanks");
+      var elBest = document.getElementById("best");
+      var elMsg = document.getElementById("msg");
+      var cells = [];
+
+      function bestKey() { return "sudoku_best_" + diff; }
+
+      function loadBest() {
+        var b = "--";
+        try { b = localStorage.getItem(bestKey()) || "--"; } catch (e) {}
+        elBest.textContent = b;
+      }
+
+      function fmt(sec) {
+        var m = Math.floor(sec / 60), s = sec % 60;
+        return m + ":" + (s < 10 ? "0" : "") + s;
+      }
+
+      /* ── 生成器 ─────────────────────────────── */
+      function candidates(b, i) {
+        var r = Math.floor(i / 9), c = i % 9, used = {}, out = [];
+        for (var k = 0; k < 9; k++) {
+          used[b[r * 9 + k]] = 1;          // 行
+          used[b[k * 9 + c]] = 1;          // 列
+        }
+        var r0 = Math.floor(r / 3) * 3, c0 = Math.floor(c / 3) * 3;
+        for (var dr = 0; dr < 3; dr++)
+          for (var dc = 0; dc < 3; dc++)
+            used[b[(r0 + dr) * 9 + c0 + dc]] = 1;   // 宫
+        for (var v = 1; v <= 9; v++) if (!used[v]) out.push(v);
+        return out;
+      }
+
+      function fill(b, i) {              // 回溯生成完整解
+        if (i === 81) return true;
+        var opts = candidates(b, i);
+        // 随机打乱候选，保证每盘不同
+        for (var j = opts.length - 1; j > 0; j--) {
+          var k = Math.floor(Math.random() * (j + 1));
+          var t = opts[j]; opts[j] = opts[k]; opts[k] = t;
+        }
+        for (var x = 0; x < opts.length; x++) {
+          b[i] = opts[x];
+          if (fill(b, i + 1)) return true;
+        }
+        b[i] = 0;
+        return false;
+      }
+
+      function countSolutions(b, i, cap) {   // 解数计数，达到 cap 提前退出
+        if (i === 81) return 1;
+        if (b[i] !== 0) return countSolutions(b, i + 1, cap);
+        var n = 0;
+        var opts = candidates(b, i);
+        for (var x = 0; x < opts.length; x++) {
+          b[i] = opts[x];
+          n += countSolutions(b, i + 1, cap - n);
+          if (n >= cap) { b[i] = 0; return n; }
+        }
+        b[i] = 0;
+        return n;
+      }
+
+      function generate() {
+        var full = new Array(81).fill(0);
+        fill(full, 0);
+        solution = full.slice();
+
+        puzzle = full.slice();
+        var order = [];
+        for (var i = 0; i < 81; i++) order.push(i);
+        for (var j = 80; j > 0; j--) {
+          var k = Math.floor(Math.random() * (j + 1));
+          var t = order[j]; order[j] = order[k]; order[k] = t;
+        }
+        var target = HOLES[diff], removed = 0;
+        for (var x = 0; x < order.length && removed < target; x++) {
+          var idx = order[x];
+          if (puzzle[idx] === 0) continue;
+          var save = puzzle[idx];
+          puzzle[idx] = 0;
+          var probe = puzzle.slice();
+          if (countSolutions(probe, 0, 2) === 1) removed++;
+          else puzzle[idx] = save;       // 破坏唯一解则回填
+        }
+        given = puzzle.map(function (v) { return v !== 0; });
+      }
+
+      /* ── 渲染与交互 ─────────────────────────── */
+      function render() {
+        var blanks = 0;
+        for (var i = 0; i < 81; i++) {
+          var el = cells[i], v = puzzle[i];
+          el.textContent = v === 0 ? "" : v;
+          el.className = "cell";
+          var r = Math.floor(i / 9), c = i % 9;
+          if (c === 2 || c === 5) el.className += " br";
+          if (r === 2 || r === 5) el.className += " bb";
+          if (given[i]) el.className += " locked";
+          if (v === 0) blanks++;
+          if (!given[i] && v !== 0 && v !== solution[i]) el.className += " err";
+          if (i === sel) el.className += " sel";
+          if (sel >= 0 && v !== 0 && puzzle[sel] !== 0 && v === puzzle[sel] && i !== sel) el.className += " same";
+        }
+        elBlanks.textContent = blanks;
+      }
+
+      function tick() {
+        elTime.textContent = fmt(Math.floor((Date.now() - startTime) / 1000));
+      }
+
+      function win() {
+        playing = false;
+        clearInterval(timerId);
+        var sec = Math.floor((Date.now() - startTime) / 1000);
+        try {
+          var b = parseInt(localStorage.getItem(bestKey()) || "99999", 10);
+          if (sec < b) localStorage.setItem(bestKey(), String(sec));
+        } catch (e) {}
+        loadBest();
+        elMsg.textContent = "🎉 完成 " + ({easy: "简单", medium: "中等", hard: "困难"}[diff]) +
+          "难度！用时 " + fmt(sec) + "。点击「新游戏」再来一局。";
+        elMsg.className = "win";
+      }
+
+      function put(v) {
+        if (!playing || sel < 0 || given[sel]) return;
+        puzzle[sel] = v === 0 ? 0 : v;
+        var done = true;
+        for (var i = 0; i < 81; i++) {
+          if (puzzle[i] === 0 || puzzle[i] !== solution[i]) { done = false; break; }
+        }
+        render();
+        if (done) win();
+      }
+
+      function hint() {
+        if (!playing) return;
+        var target = sel >= 0 && !given[sel] && puzzle[sel] !== solution[sel] ? sel : -1;
+        if (target < 0) {
+          for (var i = 0; i < 81; i++) if (!given[i] && puzzle[i] !== solution[i]) { target = i; break; }
+        }
+        if (target < 0) { elMsg.textContent = "没有需要提示的格子了"; elMsg.className = ""; return; }
+        sel = target;
+        put(solution[target]);
+      }
+
+      function start() {
+        generate();
+        sel = -1;
+        elMsg.textContent = "";
+        elMsg.className = "";
+        playing = true;
+        startTime = Date.now();
+        clearInterval(timerId);
+        timerId = setInterval(tick, 500);
+        elTime.textContent = "0:00";
+        loadBest();
+        render();
+      }
+
+      // 建格
+      for (var i = 0; i < 81; i++) {
+        var d = document.createElement("div");
+        d.className = "cell";
+        d.dataset.i = i;
+        elBoard.appendChild(d);
+        cells.push(d);
+      }
+
+      elBoard.addEventListener("click", function (ev) {
+        var t = ev.target;
+        if (!t.classList || !t.classList.contains("cell")) return;
+        var i = parseInt(t.dataset.i, 10);
+        sel = given[i] ? -1 : i;
+        render();
+      });
+
+      document.querySelectorAll(".numpad button").forEach(function (b) {
+        b.addEventListener("click", function () { put(parseInt(b.dataset.n, 10)); });
+      });
+
+      document.addEventListener("keydown", function (ev) {
+        if (ev.key >= "1" && ev.key <= "9") { put(parseInt(ev.key, 10)); }
+        else if (ev.key === "Backspace" || ev.key === "Delete" || ev.key === "0") { put(0); ev.preventDefault(); }
+        else if (ev.key === "ArrowUp" || ev.key === "ArrowDown" || ev.key === "ArrowLeft" || ev.key === "ArrowRight") {
+          if (sel < 0) sel = 40;
+          var r = Math.floor(sel / 9), c = sel % 9;
+          if (ev.key === "ArrowUp") r = Math.max(0, r - 1);
+          if (ev.key === "ArrowDown") r = Math.min(8, r + 1);
+          if (ev.key === "ArrowLeft") c = Math.max(0, c - 1);
+          if (ev.key === "ArrowRight") c = Math.min(8, c + 1);
+          sel = given[r * 9 + c] ? sel : r * 9 + c;
+          ev.preventDefault();
+          render();
+        }
+      });
+
+      document.querySelectorAll(".diff button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          document.querySelectorAll(".diff button").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          diff = b.dataset.d;
+          start();
+        });
+      });
+
+      document.getElementById("btnNew").addEventListener("click", start);
+      document.getElementById("btnHint").addEventListener("click", hint);
+
+      start();
+    })();
+  </script>
+</body>
+</html>
