@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>打地鼠 Whack-a-Mole | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/whackamole/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="打地鼠 Whack-a-Mole | H5 小游戏合集" />
+  <meta property="og:description" content="在 30 秒限时内敲击随机弹出的地鼠得分，连击每 5 次奖励加分，出现速度随时间越来越快，记录本地最高分。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/whackamole/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="打地鼠 Whack-a-Mole | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "打地鼠 Whack-a-Mole",
+  "url": "https://h5games-hub.pages.dev/games/whackamole/",
+  "description": "在 30 秒限时内敲击随机弹出的地鼠得分，连击每 5 次奖励加分，出现速度随时间越来越快，记录本地最高分。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "休闲",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+  <meta name="description" content="打地鼠 Whack-a-Mole：30 秒限时内敲击随机弹出的地鼠得分，连击可加倍，速度会越来越快。鼠标或触屏点击游玩，含本地最高分，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --good: #58ffb1;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(3, 110px);
+      grid-template-rows: repeat(3, 110px);
+      gap: 12px;
+      background: var(--panel);
+      border: 1px solid rgba(0, 229, 255, .35);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      touch-action: manipulation;
+    }
+    .hole {
+      position: relative;
+      border-radius: 12px;
+      background: radial-gradient(circle at 50% 30%, #1c2450 0%, #0d1128 70%);
+      border: 1px solid rgba(139, 155, 180, .25);
+      cursor: pointer;
+      overflow: hidden;
+      user-select: none;
+    }
+    .mole {
+      position: absolute;
+      inset: 12px 12px -4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 46px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 47, 185, .16), transparent);
+      opacity: 0;
+      transform: translateY(26px) scale(.85);
+      transition: opacity .1s ease, transform .12s ease;
+      pointer-events: none;
+    }
+    .hole.up .mole { opacity: 1; transform: translateY(0) scale(1); }
+    .hole.whacked { animation: shake .12s ease; }
+    .hole.whacked .mole { filter: hue-rotate(120deg) brightness(1.4); }
+    @keyframes shake { 50% { transform: scale(.94); } }
+    .controls { display: flex; gap: 12px; margin-top: 18px; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 10px 20px; font-size: 15px; cursor: pointer;
+      letter-spacing: 2px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover:enabled { background: var(--neon); color: #04121a; }
+    button:disabled { opacity: .4; cursor: not-allowed; }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: var(--good); text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+    @media (max-width: 420px) {
+      #grid { grid-template-columns: repeat(3, 88px); grid-template-rows: repeat(3, 88px); padding: 10px; gap: 8px; }
+      .mole { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🔨 打地鼠 Whack-a-Mole</h1>
+  <p class="sub">30 秒限时 · 敲中 +10 · 连击每 5 次额外 +20 · 速度越来越快</p>
+
+  <div class="hud">
+    <span>得分 <b id="score">0</b></span>
+    <span>剩余 <b id="time">30</b> 秒</span>
+    <span>连击 <b id="combo">0</b></span>
+    <span>最高分 <b id="best">0</b></span>
+  </div>
+
+  <div id="grid" aria-label="打地鼠 3×3 地洞"></div>
+
+  <div class="controls">
+    <button id="btnStart">开始</button>
+  </div>
+
+  <div id="msg" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var HOLES = 9;
+      var GAME_SECONDS = 30;
+      var score = 0, combo = 0, best = 0;
+      var upTimers = [], spawnTimer = null, clockTimer = null;
+      var playing = false, endAt = 0;
+      var currentUp = -1;              // 当前弹出的洞索引（同一时刻最多一只）
+      var baseInterval = 900;          // 出现间隔（毫秒），随时间加快
+
+      var elGrid = document.getElementById("grid");
+      var elScore = document.getElementById("score");
+      var elTime = document.getElementById("time");
+      var elCombo = document.getElementById("combo");
+      var elBest = document.getElementById("best");
+      var elMsg = document.getElementById("msg");
+      var btnStart = document.getElementById("btnStart");
+      var holes = [];
+
+      function loadBest() {
+        try { best = parseInt(localStorage.getItem("wam_best") || "0", 10); } catch (e) { best = 0; }
+        elBest.textContent = best;
+      }
+
+      function buildGrid() {
+        elGrid.innerHTML = "";
+        holes = [];
+        for (var i = 0; i < HOLES; i++) {
+          var h = document.createElement("div");
+          h.className = "hole";
+          h.dataset.i = i;
+          var m = document.createElement("div");
+          m.className = "mole";
+          m.textContent = "🐹";
+          h.appendChild(m);
+          elGrid.appendChild(h);
+          holes.push(h);
+        }
+      }
+
+      function popUp() {
+        if (!playing) return;
+        // 随机换一个洞弹出，停留时间随进度缩短
+        var i = Math.floor(Math.random() * HOLES);
+        if (i === currentUp) i = (i + 1 + Math.floor(Math.random() * (HOLES - 1))) % HOLES;
+        clearUp();
+        currentUp = i;
+        holes[i].classList.add("up");
+        var elapsed = (GAME_SECONDS * 1000 - (endAt - Date.now())) / 1000;
+        var stay = Math.max(420, 900 - elapsed * 14);   // 0.9s → 最低 0.42s
+        upTimers.push(setTimeout(clearUp, stay));
+        // 下一次出现间隔也随进度缩短
+        var gap = Math.max(380, baseInterval - elapsed * 16);
+        spawnTimer = setTimeout(popUp, gap);
+      }
+
+      function clearUp() {
+        if (currentUp >= 0) holes[currentUp].classList.remove("up");
+        currentUp = -1;
+        upTimers.forEach(clearTimeout);
+        upTimers = [];
+        if (spawnTimer) { clearTimeout(spawnTimer); spawnTimer = null; }
+      }
+
+      function whack(ev) {
+        var hole = ev.currentTarget;
+        if (!playing) return;
+        var i = parseInt(hole.dataset.i, 10);
+        if (i !== currentUp) {
+          combo = 0;                       // 敲空重置连击
+          elCombo.textContent = combo;
+          return;
+        }
+        combo++;
+        score += 10 + (combo % 5 === 0 ? 20 : 0);
+        elScore.textContent = score;
+        elCombo.textContent = combo;
+        hole.classList.remove("up");
+        hole.classList.add("whacked");
+        setTimeout(function () { hole.classList.remove("whacked"); }, 130);
+        clearUp();
+        popUp();                            // 立刻生成下一只，保持节奏
+      }
+
+      function tick() {
+        var left = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
+        elTime.textContent = left;
+        if (left <= 0) finish();
+      }
+
+      function finish() {
+        playing = false;
+        clearUp();
+        clearInterval(clockTimer);
+        btnStart.disabled = false;
+        if (score > best) {
+          best = score;
+          try { localStorage.setItem("wam_best", String(best)); } catch (e) { /* ignore */ }
+          loadBest();
+          elMsg.textContent = "🎉 时间到！本局 " + score + " 分，刷新最高纪录！";
+        } else {
+          elMsg.textContent = "时间到！本局 " + score + " 分，最高纪录 " + best + " 分。";
+        }
+        elMsg.className = "win";
+      }
+
+      function start() {
+        score = 0; combo = 0;
+        elScore.textContent = "0";
+        elCombo.textContent = "0";
+        elTime.textContent = GAME_SECONDS;
+        elMsg.textContent = "";
+        elMsg.className = "";
+        btnStart.disabled = true;
+        buildGrid();
+        holes.forEach(function (h) { h.addEventListener("pointerdown", whack); });
+        playing = true;
+        endAt = Date.now() + GAME_SECONDS * 1000;
+        clearInterval(clockTimer);
+        clockTimer = setInterval(tick, 100);
+        popUp();
+      }
+
+      btnStart.addEventListener("click", start);
+      loadBest();
+      buildGrid();
+    })();
+  </script>
+</body>
+</html>
