@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>打砖块 Breakout | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/breakout/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="打砖块 Breakout | H5 小游戏合集" />
+  <meta property="og:description" content="移动挡板反弹小球击碎全部砖块进入下一关，砖块行数随关卡增加，小球掉落损失生命。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/breakout/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="打砖块 Breakout | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "打砖块 Breakout",
+  "url": "https://h5games-hub.pages.dev/games/breakout/",
+  "description": "移动挡板反弹小球击碎全部砖块进入下一关，砖块行数随关卡增加，小球掉落损失生命。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "动作",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+<meta name="description" content="纯前端打砖块小游戏：移动挡板反弹小球消除砖块，含关卡递进与本地最高分，支持键盘与触屏。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧱</text></svg>" />
+<style>
+  :root { --bg:#0b0e1a; --panel:#161b3a; --grid:#1c2247; --neon:#00e5ff; --neon2:#ff2e88; --text:#e8ecff; --muted:#9aa3c7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { width:100%; padding:14px 20px; text-align:center; }
+  header a { color:var(--muted); text-decoration:none; font-size:.9rem; }
+  h1 { font-size:1.3rem; margin:6px 0; }
+  .hud { display:flex; gap:20px; margin:8px 0; font-variant-numeric:tabular-nums; }
+  .hud b { color:var(--neon); }
+  canvas { background:var(--grid); border-radius:12px; touch-action:none; max-width:92vw; height:auto; box-shadow:0 6px 30px rgba(0,0,0,.4); }
+  .controls { margin:14px 0; display:flex; gap:10px; }
+  button { background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); padding:9px 18px; border-radius:999px; cursor:pointer; font-size:.95rem; }
+  button:hover { border-color:var(--neon); }
+  .hint { color:var(--muted); font-size:.85rem; margin-bottom:24px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← 返回合集</a>
+  <h1>🧱 打砖块 Breakout</h1>
+</header>
+<div class="hud">
+  <div>得分 <b id="score">0</b></div>
+  <div>最高 <b id="best">0</b></div>
+  <div>关卡 <b id="level">1</b></div>
+</div>
+<canvas id="game" width="400" height="500"></canvas>
+<div class="controls">
+  <button id="start">开始 / 发射</button>
+  <button id="restart">重开</button>
+</div>
+<p class="hint">桌面：← → 或鼠标移动挡板，空格发射 · 手机：拖动挡板</p>
+
+<script>
+(function () {
+  'use strict';
+  var canvas = document.getElementById('game'), ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var scoreEl = document.getElementById('score'), bestEl = document.getElementById('best'), levelEl = document.getElementById('level');
+  var BEST_KEY = 'h5hub_breakout_best';
+  bestEl.textContent = localStorage.getItem(BEST_KEY) || 0;
+
+  var paddle, ball, bricks, score, level, running, raf, lives;
+  var PW = 80, PH = 12, BALL_R = 7;
+
+  function reset() {
+    paddle = { x: W/2 - PW/2, y: H - 30, w: PW, h: PH };
+    ball = { x: W/2, y: H - 42, vx: 0, vy: 0, stuck: true };
+    score = 0; level = 1; lives = 3;
+    buildBricks(); updateHud(); cancelAnimationFrame(raf); running = false; draw();
+  }
+
+  function buildBricks() {
+    bricks = [];
+    var cols = 8, rows = Math.min(3 + level, 7);
+    var pad = 6, top = 40, bw = (W - pad*(cols+1)) / cols, bh = 18;
+    var colors = ['#00e5ff','#36f1cd','#ffd166','#ff2e88','#b388ff'];
+    for (var r=0; r<rows; r++) for (var c=0; c<cols; c++) {
+      bricks.push({ x: pad + c*(bw+pad), y: top + r*(bh+pad), w: bw, h: bh, color: colors[r%colors.length], alive: true });
+    }
+  }
+
+  function updateHud() { scoreEl.textContent = score; levelEl.textContent = level; bestEl.textContent = Math.max(score, +bestEl.textContent); }
+
+  function launch() { if (ball.stuck) { ball.stuck = false; var a = (Math.random()*0.6-0.3); ball.vx = Math.sin(a)*4; ball.vy = -4.2; } }
+
+  function step() {
+    if (ball.stuck) { ball.x = paddle.x + paddle.w/2; ball.y = paddle.y - BALL_R - 1; }
+    else {
+      ball.x += ball.vx; ball.y += ball.vy;
+      if (ball.x < BALL_R || ball.x > W-BALL_R) { ball.vx *= -1; ball.x = Math.max(BALL_R, Math.min(W-BALL_R, ball.x)); }
+      if (ball.y < BALL_R) { ball.vy *= -1; ball.y = BALL_R; }
+      // 挡板碰撞
+      if (ball.vy > 0 && ball.y + BALL_R >= paddle.y && ball.y - BALL_R <= paddle.y + paddle.h &&
+          ball.x >= paddle.x && ball.x <= paddle.x + paddle.w) {
+        var hit = (ball.x - (paddle.x + paddle.w/2)) / (paddle.w/2); // -1..1
+        var sp = Math.hypot(ball.vx, ball.vy);
+        ball.vx = hit * sp * 0.8; ball.vy = -Math.abs(sp * 0.9);
+      }
+      // 砖块碰撞
+      for (var i=0; i<bricks.length; i++) {
+        var b = bricks[i];
+        if (!b.alive) continue;
+        if (ball.x+BALL_R > b.x && ball.x-BALL_R < b.x+b.w && ball.y+BALL_R > b.y && ball.y-BALL_R < b.y+b.h) {
+          b.alive = false; score += 10;
+          // 简单反弹：依据入射位置判断翻转轴
+          var fromSide = (ball.x < b.x || ball.x > b.x+b.w);
+          if (fromSide) ball.vx *= -1; else ball.vy *= -1;
+          break;
+        }
+      }
+      if (bricks.every(function (x){ return !x.alive; })) { level++; buildBricks(); ball.stuck = true; running=false; draw(); return; }
+      if (ball.y - BALL_R > H) { lives--; if (lives<=0) return gameOver(); ball.stuck = true; running=false; draw(); return; }
+    }
+    updateHud(); draw();
+    if (running) raf = requestAnimationFrame(step);
+  }
+
+  function draw() {
+    ctx.fillStyle = '#1c2247'; ctx.fillRect(0,0,W,H);
+    bricks.forEach(function (b){ if (b.alive){ ctx.fillStyle = b.color; ctx.fillRect(b.x,b.y,b.w,b.h); } });
+    ctx.fillStyle = '#00e5ff'; ctx.fillRect(paddle.x, paddle.y, paddle.w, paddle.h);
+    ctx.beginPath(); ctx.fillStyle = '#ff2e88'; ctx.arc(ball.x, ball.y, BALL_R, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#9aa3c7'; ctx.font = '14px system-ui'; ctx.fillText('❤'.repeat(Math.max(0,lives)), 8, 24);
+  }
+
+  function gameOver() {
+    running = false; cancelAnimationFrame(raf);
+    var best = Math.max(score, +(localStorage.getItem(BEST_KEY)||0));
+    localStorage.setItem(BEST_KEY, best); bestEl.textContent = best;
+    setTimeout(function(){ alert('游戏结束！得分：' + score); }, 30);
+  }
+
+  function toggle() { if (ball.stuck) { launch(); running = true; raf = requestAnimationFrame(step); } }
+
+  document.getElementById('start').addEventListener('click', toggle);
+  document.getElementById('restart').addEventListener('click', reset);
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (k===' ') { e.preventDefault(); toggle(); }
+    else if (k==='ArrowLeft') paddle.x = Math.max(0, paddle.x-28);
+    else if (k==='ArrowRight') paddle.x = Math.min(W-paddle.w, paddle.x+28);
+    draw();
+  });
+  canvas.addEventListener('mousemove', function (e){ var r=canvas.getBoundingClientRect(); var x=(e.clientX-r.left)*(W/r.width); paddle.x=Math.max(0,Math.min(W-paddle.w, x-paddle.w/2)); if(running)draw(); });
+  canvas.addEventListener('touchmove', function (e){ var r=canvas.getBoundingClientRect(); var x=e.touches[0].clientX; var px=(x-r.left)*(W/r.width); paddle.x=Math.max(0,Math.min(W-paddle.w, px-paddle.w/2)); if(running)draw(); e.preventDefault(); }, {passive:false});
+
+  reset();
+})();
+</script>
+</body>
+</html>
