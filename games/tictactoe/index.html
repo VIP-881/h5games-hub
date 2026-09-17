@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>井字棋 Tic-Tac-Toe | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/tictactoe/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="井字棋 Tic-Tac-Toe | H5 小游戏合集" />
+  <meta property="og:description" content="与内置 AI 轮流在 3×3 棋盘落子，先连成三点一线者获胜；AI 提供简单、普通、困难（不败）三档难度。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/tictactoe/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="井字棋 Tic-Tac-Toe | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "井字棋 Tic-Tac-Toe",
+  "url": "https://h5games-hub.pages.dev/games/tictactoe/",
+  "description": "与内置 AI 轮流在 3×3 棋盘落子，先连成三点一线者获胜；AI 提供简单、普通、困难（不败）三档难度。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+<meta name="description" content="纯前端井字棋小游戏，内置 Minimax 不败 AI，提供简单/普通/困难三档难度，记录对战战绩于本地。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭕</text></svg>" />
+<style>
+  :root { --bg:#0b0e1a; --panel:#161b3a; --grid:#1c2247; --neon:#00e5ff; --neon2:#ff2e88; --text:#e8ecff; --muted:#9aa3c7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { width:100%; padding:14px 20px; text-align:center; }
+  header a { color:var(--muted); text-decoration:none; font-size:.9rem; }
+  h1 { font-size:1.3rem; margin:6px 0; }
+  .hud { display:flex; gap:16px; margin:8px 0; font-variant-numeric:tabular-nums; }
+  .hud b { color:var(--neon); }
+  .opts { margin:6px 0 10px; display:flex; gap:8px; align-items:center; }
+  select { background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:6px 10px; }
+  .board { display:grid; grid-template-columns:repeat(3,92px); grid-template-rows:repeat(3,92px); gap:8px; margin:6px 0 14px; }
+  .cell { background:var(--grid); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:2.6rem; cursor:pointer; border:1px solid rgba(255,255,255,.06); transition:background .15s; }
+  .cell:hover { background:#222a52; }
+  .cell.x { color:var(--neon); }
+  .cell.o { color:var(--neon2); }
+  .cell.win { box-shadow:0 0 16px rgba(0,229,255,.6); }
+  .controls { margin:6px 0 24px; display:flex; gap:10px; }
+  button { background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); padding:9px 18px; border-radius:999px; cursor:pointer; font-size:.95rem; }
+  button:hover { border-color:var(--neon); }
+  .hint { color:var(--muted); font-size:.85rem; margin-bottom:24px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← 返回合集</a>
+  <h1>⭕ 井字棋 Tic-Tac-Toe</h1>
+</header>
+<div class="hud">
+  <div>胜 <b id="wins">0</b></div>
+  <div>负 <b id="loss">0</b></div>
+  <div>平 <b id="draw">0</b></div>
+</div>
+<div class="opts">
+  <label for="diff">难度</label>
+  <select id="diff">
+    <option value="easy">简单</option>
+    <option value="medium" selected>普通</option>
+    <option value="hard">困难（不败）</option>
+  </select>
+</div>
+<div class="board" id="board" aria-label="井字棋棋盘"></div>
+<div class="controls">
+  <button id="restart">重开</button>
+</div>
+<p class="hint">你执 X 先手，AI 执 O · 困难档 AI 走 Minimax 永不落败</p>
+
+<script>
+(function () {
+  'use strict';
+  var boardEl = document.getElementById('board');
+  var diffEl = document.getElementById('diff');
+  var winsEl = document.getElementById('wins'), lossEl = document.getElementById('loss'), drawEl = document.getElementById('draw');
+  var KEY = 'h5hub_ttt_record';
+  var rec = JSON.parse(localStorage.getItem(KEY) || '{"w":0,"l":0,"d":0}');
+  winsEl.textContent=rec.w; lossEl.textContent=rec.l; drawEl.textContent=rec.d;
+
+  var board, over, busy;
+  var LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+  function render() {
+    boardEl.innerHTML = '';
+    board.forEach(function (v, i) {
+      var c = document.createElement('div');
+      c.className = 'cell' + (v==='X'?' x':'') + (v==='O'?' o':'');
+      c.textContent = v;
+      c.addEventListener('click', function () { player(i); });
+      boardEl.appendChild(c);
+    });
+  }
+
+  function winner(b) {
+    for (var i=0;i<LINES.length;i++){ var [a,c,d]=LINES[i]; if (b[a]&&b[a]===b[c]&&b[a]===b[d]) return { p:b[a], line:LINES[i] }; }
+    if (b.every(function(x){return x;})) return { p:'draw' };
+    return null;
+  }
+
+  function emptyCells(b){ var r=[]; b.forEach(function(v,i){ if(!v) r.push(i); }); return r; }
+
+  // Minimax：AI=O 最大化，玩家=X 最小化
+  function minimax(b, aiTurn) {
+    var w = winner(b);
+    if (w) return w.p==='O' ? 10 : (w.p==='X' ? -10 : 0);
+    var cells = emptyCells(b);
+    if (!cells.length) return 0;
+    var best = aiTurn ? -Infinity : Infinity;
+    for (var i=0;i<cells.length;i++) {
+      b[cells[i]] = aiTurn ? 'O' : 'X';
+      var sc = minimax(b, !aiTurn);
+      b[cells[i]] = '';
+      best = aiTurn ? Math.max(best, sc) : Math.min(best, sc);
+    }
+    return best;
+  }
+
+  function aiMove() {
+    var cells = emptyCells(board);
+    var diff = diffEl.value;
+    var pick;
+    if (diff==='easy') {
+      pick = cells[(Math.random()*cells.length)|0];
+    } else if (diff==='medium') {
+      pick = (Math.random()<0.6) ? bestMove() : cells[(Math.random()*cells.length)|0];
+    } else {
+      pick = bestMove();
+    }
+    if (pick!=null) board[pick] = 'O';
+  }
+
+  function bestMove() {
+    var cells = emptyCells(board), best=-Infinity, move=null;
+    for (var i=0;i<cells.length;i++) {
+      board[cells[i]]='O';
+      var sc = minimax(board, false);
+      board[cells[i]]='';
+      if (sc>best){ best=sc; move=cells[i]; }
+    }
+    return move;
+  }
+
+  function finish(res) {
+    over = true;
+    if (res.p==='X') { rec.w++; winsEl.textContent=rec.w; }
+    else if (res.p==='O') { rec.l++; lossEl.textContent=rec.l; }
+    else { rec.d++; drawEl.textContent=rec.d; }
+    localStorage.setItem(KEY, JSON.stringify(rec));
+    if (res.line) res.line.forEach(function(i){ boardEl.children[i].classList.add('win'); });
+    setTimeout(function(){ alert(res.p==='draw'?'平局！':(res.p==='X'?'你赢了！':'AI 赢了！')); }, 40);
+  }
+
+  function player(i) {
+    if (over || busy || board[i]) return;
+    board[i] = 'X'; render();
+    var w = winner(board);
+    if (w) return finish(w);
+    busy = true;
+    setTimeout(function () {
+      aiMove(); render();
+      var w2 = winner(board);
+      if (w2) finish(w2);
+      busy = false;
+    }, 220);
+  }
+
+  function reset() { board = Array(9).fill(''); over=false; busy=false; render(); }
+
+  document.getElementById('restart').addEventListener('click', reset);
+  diffEl.addEventListener('change', reset);
+  reset();
+})();
+</script>
+</body>
+</html>
