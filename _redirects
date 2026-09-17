@@ -1,0 +1,18 @@
+# Cloudflare Pages 重定向规则
+# 文档: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# ⚠️ 平台限制：_redirects 不支持域名级重定向（Domain-level redirects ❌），
+# 因此无法在此把 h5games-hub.pages.dev 301 到自定义域名。
+# 双域名并存的重复内容问题由 SEO 信号收敛解决：
+#   canonical / og:url / sitemap.xml / robots.txt / JSON-LD 全部指向规范域名
+#   https://h5games-hub.pages.dev （搜索引擎会以 canonical 为准，不会重复收录）
+
+# 锚点快捷跳转
+/games  /#games  302
+/faq     /#faq    302
+
+# 开发/临时脚本残留清理：这些文件曾误入部署产物，统一 301 回首页，
+# 避免被搜索引擎收录为重复/无关内容。
+/_check.js   /  301
+/_diag.py    /  301
+/_deploy.py  /  301
