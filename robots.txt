@@ -1,0 +1,11 @@
+# 爬虫指引
+# 注意：Sitemap 必须使用「当前生效域名」。
+# 当前生效域名为 h5games-hub.pages.dev（Pages 默认域）。
+# 绑定自定义域名（如 game24.vip880.cc.cd）后，需同步把下面的 Sitemap 地址改成新域名。
+
+User-agent: *
+Allow: /
+Allow: /games/
+
+# 站点地图（绝对地址，指向当前生效域名）
+Sitemap: https://h5games-hub.pages.dev/sitemap.xml
