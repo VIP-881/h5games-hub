@@ -1,1 +1,11 @@
-bm9kZV9tb2R1bGVzLwoud3JhbmdsZXIvCioubG9nCl9kZXBsb3kucHkKZGVwbG95LmxvY2FsLioKLmVudgoKIyDlvIDlj5Ev5Li05pe26ISa5pys77ya56aB5q2i6L+b5YWl6YOo572y5Lqn54mpCl9jaGVjay5qcwpfZGlhZy5weQpfKi5sb2NhbC5odG1sCg==
+node_modules/
+.wrangler/
+*.log
+_deploy.py
+deploy.local.*
+.env
+
+# 开发/临时脚本：禁止进入部署产物
+_check.js
+_diag.py
+_*.local.html
