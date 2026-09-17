@@ -1,18 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b0e1a"/>
-      <stop offset="1" stop-color="#1b2350"/>
-    </linearGradient>
-    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#00e5ff"/>
-      <stop offset="1" stop-color="#ff2e88"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="40" y="40" width="1120" height="550" rx="24" fill="none" stroke="#00e5ff" stroke-opacity="0.25" stroke-width="2"/>
-  <text x="70" y="290" font-family="system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="96" font-weight="800" fill="url(#neon)">H5 小游戏合集</text>
-  <text x="72" y="370" font-family="system-ui, sans-serif" font-size="42" fill="#e8ecff">纯前端 · 即点即玩 · 无需后端</text>
-  <text x="72" y="560" font-family="system-ui, sans-serif" font-size="32" fill="#9aa3c7">2048 · 贪吃蛇 · 打砖块 · 更多轻量游戏</text>
-  <text x="1130" y="600" text-anchor="end" font-size="40" fill="#00e5ff">🎮</text>
-</svg>
+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjYzMCIgdmlld0JveD0iMCAwIDEyMDAgNjMwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMGIwZTFhIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFiMjM1MCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibmVvbiIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMGU1ZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmYyZTg4Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MzAiIGZpbGw9InVybCgjYmcpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjQwIiB3aWR0aD0iMTEyMCIgaGVpZ2h0PSI1NTAiIHJ4PSIyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBlNWZmIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHRleHQgeD0iNzAiIHk9IjI5MCIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwgLWFwcGxlLXN5c3RlbSwgJ1BpbmdGYW5nIFNDJywgJ01pY3Jvc29mdCBZYUhlaScsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOTYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9InVybCgjbmVvbikiPkg1IOWwj+a4uOaIj+WQiOmbhjwvdGV4dD4KICA8dGV4dCB4PSI3MiIgeT0iMzcwIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQyIiBmaWxsPSIjZThlY2ZmIj7nuq/liY3nq68gwrcg5Y2z54K55Y2z546pIMK3IOaXoOmcgOWQjuerrzwvdGV4dD4KICA8dGV4dCB4PSI3MiIgeT0iNTYwIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjMyIiBmaWxsPSIjOWFhM2M3Ij4yMDQ4IMK3IOi0quWQg+ibhyDCtyDmiZPnoJblnZcgwrcg5pu05aSa6L276YeP5ri45oiPPC90ZXh0PgogIDx0ZXh0IHg9IjExMzAiIHk9IjYwMCIgdGV4dC1hbmNob3I9ImVuZCIgZm9udC1zaXplPSI0MCIgZmlsbD0iIzAwZTVmZiI+8J+OrjwvdGV4dD4KPC9zdmc+Cg==
