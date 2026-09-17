@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>俄罗斯方块 Tetris | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/tetris/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="俄罗斯方块 Tetris | H5 小游戏合集" />
+  <meta property="og:description" content="旋转摆放不断下落的 7 种方块，填满一行即消除得分，随消行数关卡提升、下落加速。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/tetris/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="俄罗斯方块 Tetris | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "俄罗斯方块 Tetris",
+  "url": "https://h5games-hub.pages.dev/games/tetris/",
+  "description": "旋转摆放不断下落的 7 种方块，填满一行即消除得分，随消行数关卡提升、下落加速。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+<meta name="description" content="纯前端俄罗斯方块小游戏：7 种方块、旋转消行、随关卡加速，含本地最高分，支持键盘与触屏。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧊</text></svg>" />
+<style>
+  :root { --bg:#0b0e1a; --panel:#161b3a; --grid:#1c2247; --neon:#00e5ff; --neon2:#ff2e88; --text:#e8ecff; --muted:#9aa3c7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { width:100%; padding:14px 20px; text-align:center; }
+  header a { color:var(--muted); text-decoration:none; font-size:.9rem; }
+  h1 { font-size:1.3rem; margin:6px 0; }
+  .wrap2 { display:flex; gap:16px; margin:8px 0 14px; align-items:flex-start; }
+  .hud { display:flex; flex-direction:column; gap:10px; font-variant-numeric:tabular-nums; min-width:96px; }
+  .hud div { background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:8px 10px; font-size:.85rem; }
+  .hud b { color:var(--neon); display:block; font-size:1.1rem; }
+  canvas { background:var(--grid); border-radius:12px; touch-action:none; box-shadow:0 6px 30px rgba(0,0,0,.4); }
+  .controls { margin:6px 0 24px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+  button { background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); padding:9px 18px; border-radius:999px; cursor:pointer; font-size:.95rem; }
+  button:hover { border-color:var(--neon); }
+  .hint { color:var(--muted); font-size:.85rem; margin-bottom:24px; text-align:center; max-width:300px; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← 返回合集</a>
+  <h1>🧊 俄罗斯方块 Tetris</h1>
+</header>
+<div class="wrap2">
+  <div class="hud">
+    <div>得分 <b id="score">0</b></div>
+    <div>最高 <b id="best">0</b></div>
+    <div>关卡 <b id="level">1</b></div>
+    <div>消行 <b id="lines">0</b></div>
+  </div>
+  <canvas id="game" width="240" height="480"></canvas>
+</div>
+<div class="controls">
+  <button id="start">开始 / 暂停</button>
+  <button id="restart">重开</button>
+</div>
+<p class="hint">桌面：← → 移动，↑ 旋转，↓ 加速，空格直接落下 · 手机：左右滑动移动，上滑旋转，下滑速降</p>
+
+<script>
+(function () {
+  'use strict';
+  var canvas = document.getElementById('game'), ctx = canvas.getContext('2d');
+  var COLS=10, ROWS=20, CELL=24, scoreEl=document.getElementById('score'),
+      bestEl=document.getElementById('best'), levelEl=document.getElementById('level'), linesEl=document.getElementById('lines');
+  var BEST_KEY='h5hub_tetris_best';
+  bestEl.textContent = localStorage.getItem(BEST_KEY) || 0;
+
+  var COLORS=['#00e5ff','#ff2e88','#36f1cd','#ffd166','#b388ff','#ff7b54','#7cff6b'];
+  // 7 种方块，每个为 4x4 矩阵（1=实心）
+  var SHAPES=[
+    [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],          // I
+    [[1,1],[1,1]],                                        // O
+    [[0,1,0],[1,1,1],[0,0,0]],                            // T
+    [[0,1,1],[1,1,0],[0,0,0]],                            // S
+    [[1,1,0],[0,1,1],[0,0,0]],                            // Z
+    [[1,0,0],[1,1,1],[0,0,0]],                            // J
+    [[0,0,1],[1,1,1],[0,0,0]]                             // L
+  ];
+
+  var board, cur, next, score, level, lines, dropMs, acc, raf, running, over;
+
+  function emptyBoard(){ var b=[]; for(var r=0;r<ROWS;r++){ b.push(new Array(COLS).fill(0)); } return b; }
+  function rotate(m){ var n=m.length, res=[]; for(var c=0;c<n;c++){ res.push([]); for(var r=n-1;r>=0;r--){ res[c].push(m[r][c]); } } return res; }
+  function spawn(){ var s=SHAPES[(Math.random()*SHAPES.length)|0]; cur={ m:s, x:3, y:0, c:(Math.random()*COLORS.length)|0 }; if(collide(cur.m,cur.x,cur.y)) return gameOver(); }
+  function collide(m,x,y){ for(var r=0;r<m.length;r++)for(var c=0;c<m[r].length;c++){ if(!m[r][c])continue; var nx=x+c, ny=y+r; if(nx<0||nx>=COLS||ny>=ROWS) return true; if(ny>=0 && board[ny][nx]) return true; } return false; }
+
+  function reset(){ board=emptyBoard(); score=0; level=1; lines=0; dropMs=800; acc=0; running=false; over=false; next=SHAPES[(Math.random()*SHAPES.length)|0]; spawn(); updateHud(); draw(); }
+
+  function updateHud(){ scoreEl.textContent=score; levelEl.textContent=level; linesEl.textContent=lines; bestEl.textContent=Math.max(score,+bestEl.textContent); }
+
+  function step(){
+    if(!running) return;
+    acc+=dropMs; // 标记用，实际由 rAF 计时
+  }
+
+  var last=0;
+  function loop(ts){
+    if(!running){ return; }
+    if(!last) last=ts;
+    var dt=ts-last; last=ts;
+    acc+=dt;
+    if(acc>=dropMs){ acc=0; softDrop(false); }
+    draw();
+    if(running) raf=requestAnimationFrame(loop);
+  }
+
+  function softDrop(manual){
+    if(over) return;
+    if(!collide(cur.m,cur.x,cur.y+1)){ cur.y++; if(manual){ score+=1; updateHud(); } }
+    else lock();
+  }
+  function hardDrop(){ if(over) return; while(!collide(cur.m,cur.x,cur.y+1)){ cur.y++; score+=2; } updateHud(); lock(); }
+
+  function lock(){
+    for(var r=0;r<cur.m.length;r++)for(var c=0;c<cur.m[r].length;c++){ if(cur.m[r][c]){ var y=cur.y+r,x=cur.x+c; if(y<0) return gameOver(); board[y][x]=cur.c+1; } }
+    clearLines();
+    spawn(); draw();
+  }
+
+  function clearLines(){
+    var cleared=0;
+    for(var r=ROWS-1;r>=0;r--){ if(board[r].every(function(v){return v;})){ board.splice(r,1); board.unshift(new Array(COLS).fill(0)); cleared++; r++; } }
+    if(cleared){ lines+=cleared; score+= [0,100,300,500,800][cleared]*level; level=Math.floor(lines/10)+1; dropMs=Math.max(120, 800-level*70); updateHud(); }
+  }
+
+  function rotateCur(){
+    var r=rotate(cur.m);
+    var kicks=[0,-1,1,-2,2];
+    for(var i=0;i<kicks.length;i++){ if(!collide(r,cur.x+kicks[i],cur.y)){ cur.m=r; cur.x+=kicks[i]; draw(); return; } }
+  }
+  function move(dx){ if(!collide(cur.m,cur.x+dx,cur.y)){ cur.x+=dx; draw(); } }
+
+  function draw(){
+    ctx.fillStyle='#1c2247'; ctx.fillRect(0,0,canvas.width,canvas.height);
+    for(var r=0;r<ROWS;r++)for(var c=0;c<COLS;c++){ if(board[r][c]){ ctx.fillStyle=COLORS[(board[r][c]-1)%COLORS.length]; ctx.fillRect(c*CELL+1,r*CELL+1,CELL-2,CELL-2); } }
+    if(cur){ for(var r=0;r<cur.m.length;r++)for(var c=0;c<cur.m[r].length;c++){ if(cur.m[r][c]){ var y=cur.y+r,x=cur.x+c; if(y>=0){ ctx.fillStyle=COLORS[cur.c]; ctx.fillRect(x*CELL+1,y*CELL+1,CELL-2,CELL-2); } } } }
+  }
+
+  function gameOver(){ running=false; over=true; cancelAnimationFrame(raf); var best=Math.max(score,+(localStorage.getItem(BEST_KEY)||0)); localStorage.setItem(BEST_KEY,best); bestEl.textContent=best; setTimeout(function(){ alert('游戏结束！得分：'+score+'，消行：'+lines); },30); }
+
+  function toggle(){ if(over) return; running=!running; last=0; if(running) raf=requestAnimationFrame(loop); else cancelAnimationFrame(raf); }
+
+  document.getElementById('start').addEventListener('click', toggle);
+  document.getElementById('restart').addEventListener('click', function(){ reset(); });
+  document.addEventListener('keydown', function(e){
+    if(!running) { if(e.key===' '||e.key==='Enter'){ e.preventDefault(); toggle(); } return; }
+    var k=e.key;
+    if(k==='ArrowLeft') move(-1);
+    else if(k==='ArrowRight') move(1);
+    else if(k==='ArrowUp'){ e.preventDefault(); rotateCur(); }
+    else if(k==='ArrowDown'){ e.preventDefault(); softDrop(true); last=0; }
+    else if(k===' '){ e.preventDefault(); hardDrop(); last=0; }
+  });
+  // 触屏：滑动方向 + 点击旋转
+  var ts=null;
+  canvas.addEventListener('touchstart', function(e){ ts=e.touches[0]; }, {passive:true});
+  canvas.addEventListener('touchend', function(e){
+    if(!ts||!running){ ts=null; return; }
+    var t=e.changedTouches[0], dx=t.clientX-ts.clientX, dy=t.clientY-ts.clientY;
+    if(Math.abs(dx)<20 && Math.abs(dy)<20){ rotateCur(); }
+    else if(Math.abs(dx)>Math.abs(dy)){ move(dx>0?1:-1); }
+    else { if(dy>0) softDrop(true); else rotateCur(); }
+    ts=null; last=0;
+  }, {passive:true});
+
+  reset();
+})();
+</script>
+</body>
+</html>
