@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>点灯游戏 Lights Out | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/lightsout/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="点灯游戏 Lights Out | H5 小游戏合集" />
+  <meta property="og:description" content="经典点灯谜题：点击一格会翻转它自身与上下左右四格，把 5×5 棋盘全部熄灭即获胜；局面由随机点击生成、必然可解，记录步数与本地最佳。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/lightsout/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="点灯游戏 Lights Out | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "点灯游戏 Lights Out",
+  "url": "https://h5games-hub.pages.dev/games/lightsout/",
+  "description": "经典点灯 Lights Out 谜题：点击任意一格会同时翻转它自身与上下左右相邻格，目标是把 5x5 棋盘的灯全部熄灭；开局由随机点击生成因此必然可解，统计步数并记录本地最佳。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+  <meta name="description" content="点灯游戏 Lights Out：点击 5×5 棋盘上的一格，翻转它自身与上下左右四格的亮灭状态，把所有灯熄灭即获胜。开局从全灭态随机点击生成、必然可解，含步数统计与本地最佳，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    .diff { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; font-size: 14px; color: var(--muted); }
+    .diff button { min-width: 72px; padding: 6px 0; font-size: 14px; letter-spacing: 0; }
+    .diff button.on { background: var(--neon); color: #04121a; }
+    #board {
+      display: grid;
+      grid-template-columns: repeat(5, 64px);
+      grid-template-rows: repeat(5, 64px);
+      gap: 6px;
+      background: var(--panel);
+      border: 1px solid rgba(0, 229, 255, .35);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      touch-action: manipulation;
+    }
+    .lamp {
+      border-radius: 10px;
+      cursor: pointer;
+      background: rgba(0, 229, 255, .07);
+      border: 1px solid rgba(0, 229, 255, .18);
+      transition: background .12s ease, box-shadow .12s ease, transform .06s ease;
+    }
+    .lamp.on {
+      background: radial-gradient(circle at 35% 30%, #b8ffff 0%, var(--neon) 45%, #0a8fb0 100%);
+      box-shadow: 0 0 16px rgba(0, 229, 255, .75), inset 0 0 6px rgba(255, 255, 255, .5);
+      border-color: rgba(0, 229, 255, .8);
+    }
+    .lamp:active { transform: scale(.94); }
+    .controls { display: flex; gap: 12px; margin-top: 18px; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 10px 20px; font-size: 15px; cursor: pointer;
+      letter-spacing: 2px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover { background: var(--neon); color: #04121a; }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: #58ffb1; text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+    @media (max-width: 420px) {
+      #board { grid-template-columns: repeat(5, 52px); grid-template-rows: repeat(5, 52px); padding: 8px; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>💡 点灯游戏 Lights Out</h1>
+  <p class="sub">点击一格 = 翻转自身与上下左右 · 把全部灯熄灭即获胜</p>
+
+  <div class="hud">
+    <span>步数 <b id="moves">0</b></span>
+    <span>剩余亮灯 <b id="lit">--</b></span>
+    <span>最少步纪录 <b id="best">--</b></span>
+  </div>
+
+  <div class="diff" role="group" aria-label="选择初始难度">
+    <span>难度：</span>
+    <button data-k="5" class="on">新手 ×5</button>
+    <button data-k="8">进阶 ×8</button>
+    <button data-k="12">大师 ×12</button>
+  </div>
+
+  <div id="board" aria-label="点灯棋盘"></div>
+
+  <div class="controls">
+    <button id="btnNew">新游戏</button>
+  </div>
+
+  <div id="msg" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var N = 5;                        // 5×5 棋盘
+      var K = 5;                        // 生成时随机点击次数（难度）
+      var lit = [];                     // lit[i] = true 亮
+      var moves = 0, playing = false;
+
+      var elBoard = document.getElementById("board");
+      var elMoves = document.getElementById("moves");
+      var elLit = document.getElementById("lit");
+      var elBest = document.getElementById("best");
+      var elMsg = document.getElementById("msg");
+      var lamps = [];
+
+      function bestKey() { return "lightsout_best_" + K; }
+
+      function loadBest() {
+        var b = "--";
+        try { b = localStorage.getItem(bestKey()) || "--"; } catch (e) {}
+        elBest.textContent = b;
+      }
+
+      function flip(i) {
+        var r = Math.floor(i / N), c = i % N;
+        lit[i] = !lit[i];
+        if (r > 0) lit[i - N] = !lit[i - N];
+        if (r < N - 1) lit[i + N] = !lit[i + N];
+        if (c > 0) lit[i - 1] = !lit[i - 1];
+        if (c < N - 1) lit[i + 1] = !lit[i + 1];
+      }
+
+      function render() {
+        var on = 0;
+        for (var i = 0; i < N * N; i++) {
+          lamps[i].className = "lamp" + (lit[i] ? " on" : "");
+          if (lit[i]) on++;
+        }
+        elLit.textContent = on;
+        return on;
+      }
+
+      function win() {
+        playing = false;
+        try {
+          var b = parseInt(localStorage.getItem(bestKey()) || "99999", 10);
+          if (moves < b) localStorage.setItem(bestKey(), String(moves));
+        } catch (e) {}
+        loadBest();
+        elMsg.textContent = "🎉 全部熄灭！共 " + moves + " 步。点击「新游戏」再来一局。";
+        elMsg.className = "win";
+      }
+
+      function tap(i) {
+        if (!playing) return;
+        flip(i);
+        moves++;
+        elMoves.textContent = moves;
+        var on = render();
+        if (on === 0) win();
+      }
+
+      function start() {
+        lit = new Array(N * N).fill(false);
+        // 从全灭态随机点击 K 次 —— 逆操作对称，保证必然可解
+        var last = -1;
+        for (var k = 0; k < K; k++) {
+          var i = Math.floor(Math.random() * N * N);
+          if (i === last) { k--; continue; }        // 同格点两次 = 无操作，避免浪费
+          flip(i);
+          last = i;
+        }
+        // 兜底：若恰好回到全灭（概率极低）再点一次
+        if (lit.every(function (v) { return !v; })) flip(12);
+        moves = 0;
+        elMoves.textContent = "0";
+        elMsg.textContent = "";
+        elMsg.className = "";
+        playing = true;
+        loadBest();
+        render();
+      }
+
+      for (var i = 0; i < N * N; i++) {
+        (function (idx) {
+          var d = document.createElement("div");
+          d.className = "lamp";
+          d.addEventListener("click", function () { tap(idx); });
+          elBoard.appendChild(d);
+          lamps.push(d);
+        })(i);
+      }
+
+      document.querySelectorAll(".diff button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          document.querySelectorAll(".diff button").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          K = parseInt(b.dataset.k, 10);
+          start();
+        });
+      });
+
+      document.getElementById("btnNew").addEventListener("click", start);
+
+      start();
+    })();
+  </script>
+</body>
+</html>
