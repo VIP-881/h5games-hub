@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24 点算式 Game 24 | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/game24/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="24 点算式 Game 24 | H5 小游戏合集" />
+  <meta property="og:description" content="经典 24 点算术谜题：用加、减、乘、除把 4 张数字牌算成 24；题目由逆推构造生成、保证有解，支持两数合并交互、撤销与胜场统计。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/game24/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="24 点算式 Game 24 | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "24 点算式 Game 24",
+  "url": "https://h5games-hub.pages.dev/games/game24/",
+  "description": "经典 24 点算术游戏：对 4 张 1-13 的数字牌使用加、减、乘、除两两合并（每步消耗两张牌生成一张结果牌），最终只剩一个 24 即获胜；题目由逆推构造生成保证有解，支持撤销与胜场统计。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+  <meta name="description" content="24 点算式：对 4 张 1-13 数字牌用加、减、乘、除两两合并，最终算出 24 即获胜。题目由逆推构造生成、保证有解，点选两数与运算符交互、可撤销、胜场统计，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    #hand {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 18px; min-height: 96px;
+    }
+    .card24 {
+      width: 78px; height: 96px;
+      border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #16204a 0%, var(--panel) 100%);
+      border: 1px solid rgba(0, 229, 255, .35);
+      box-shadow: 0 0 12px rgba(0, 229, 255, .18);
+      cursor: pointer; user-select: none;
+      font-weight: 700;
+      transition: transform .1s ease, box-shadow .12s ease;
+    }
+    .card24 .v { font-size: 30px; color: var(--neon); text-shadow: 0 0 10px rgba(0, 229, 255, .5); }
+    .card24 .tag { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; }
+    .card24.sel {
+      transform: translateY(-8px);
+      box-shadow: 0 0 18px rgba(255, 47, 185, .6);
+      border-color: var(--neon2);
+    }
+    .card24.sel .v { color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .6); }
+    .card24.dead { opacity: .25; cursor: default; }
+    .ops { display: flex; gap: 10px; margin-bottom: 16px; }
+    .ops button { width: 56px; font-size: 24px; letter-spacing: 0; padding: 8px 0; }
+    .ops button.on { background: var(--neon2); border-color: var(--neon2); color: #04121a; }
+    .controls { display: flex; gap: 12px; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 10px 20px; font-size: 15px; cursor: pointer;
+      letter-spacing: 2px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover { background: var(--neon); color: #04121a; }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: #58ffb1; text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+    #log { margin-top: 10px; font-size: 13px; color: var(--muted); min-height: 20px; }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🎲 24 点算式 Game 24</h1>
+  <p class="sub">点两张牌 → 选一个运算符合并 → 最终只剩 24 即获胜 · 本题必有解</p>
+
+  <div class="hud">
+    <span>当前牌数 <b id="cnt">4</b></span>
+    <span>步数 <b id="moves">0</b></span>
+    <span>胜场 <b id="wins">0</b></span>
+  </div>
+
+  <div id="hand" aria-label="数字牌"></div>
+
+  <div class="ops" role="group" aria-label="选择运算符">
+    <button data-op="+" aria-label="加">+</button>
+    <button data-op="-" aria-label="减">−</button>
+    <button data-op="*" aria-label="乘">×</button>
+    <button data-op="/" aria-label="除">÷</button>
+  </div>
+
+  <div class="controls">
+    <button id="btnUndo">撤销</button>
+    <button id="btnNew">换一题</button>
+  </div>
+
+  <div id="msg" aria-live="polite"></div>
+  <div id="log" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var nums = [];           // 当前数字 {v: 值, dead: false}
+      var sel = [];            // 已选牌下标
+      var op = null;
+      var stack = [];          // 撤销栈
+      var moves = 0, wins = 0;
+
+      var elHand = document.getElementById("hand");
+      var elCnt = document.getElementById("cnt");
+      var elMoves = document.getElementById("moves");
+      var elWins = document.getElementById("wins");
+      var elMsg = document.getElementById("msg");
+      var elLog = document.getElementById("log");
+
+      try { wins = parseInt(localStorage.getItem("game24_wins") || "0", 10) || 0; } catch (e) {}
+      elWins.textContent = wins;
+
+      /* ── 逆推构造：从 24 出发拆 3 次，保证必有解 ── */
+      function ri(n) { return Math.floor(Math.random() * n); }
+
+      function deal() {
+        var list = [24];
+        var guard = 0;
+        while (list.length < 4 && guard < 500) {
+          guard++;
+          var idx = ri(list.length);
+          if (list[idx] === 24 && idx === 0 && list.length === 1) {
+            // 第一步必须拆 24
+          }
+          var x = list[idx];
+          var ops = ["+", "-", "*", "/"].sort(function () { return Math.random() - 0.5; });
+          var done = false;
+          for (var oi = 0; oi < ops.length && !done; oi++) {
+            var o = ops[oi], a, b;
+            if (o === "+" && x >= 3) { a = 1 + ri(x - 2); b = x - a; }
+            else if (o === "-" && x + 1 <= 13) { b = 1 + ri(13 - x); a = x + b; }
+            else if (o === "*" && x >= 2 && x <= 13) {
+              var divs = [];
+              for (var d = 2; d <= 12; d++) if (x % d === 0 && x / d <= 13 && x / d >= 1) divs.push(d);
+              if (divs.length) { b = divs[ri(divs.length)]; a = x / b; }
+            }
+            else if (o === "/" && x >= 1 && x <= 12) { b = 2 + ri(11); if (x * b <= 13) { a = x * b; } else b = 0; if (!b) continue; }
+            if (a === undefined || b === undefined) continue;
+            if (a < 1 || a > 13 || b < 1 || b > 13) continue;
+            list.splice(idx, 1, a, b);
+            done = true;
+          }
+        }
+        if (list.length !== 4) list = [6, 6, 6, 1];   // 兜底（(6/(1-(6/6))) 也有解）
+        nums = list.map(function (v) { return { v: v, dead: false }; });
+        sel = []; op = null; stack = []; moves = 0;
+        elMoves.textContent = "0";
+        elMsg.textContent = "";
+        elMsg.className = "";
+        elLog.textContent = "";
+        document.querySelectorAll(".ops button").forEach(function (b) { b.classList.remove("on"); });
+        render();
+      }
+
+      function render() {
+        elHand.innerHTML = "";
+        var alive = 0;
+        nums.forEach(function (n, i) {
+          var d = document.createElement("div");
+          d.className = "card24" + (n.dead ? " dead" : (sel.indexOf(i) >= 0 ? " sel" : ""));
+          d.innerHTML = '<span class="v">' + n.v + "</span>" + (n.dead ? "" : '<span class="tag">牌 ' + (i + 1) + "</span>");
+          if (!n.dead) {
+            alive++;
+            d.addEventListener("click", function () { pick(i); });
+          }
+          elHand.appendChild(d);
+        });
+        elCnt.textContent = alive;
+      }
+
+      function pick(i) {
+        var at = sel.indexOf(i);
+        if (at >= 0) { sel.splice(at, 1); render(); return; }
+        if (sel.length >= 2) { sel.shift(); }        // 最多选两张，超出挤掉最早的
+        sel.push(i);
+        render();
+        tryMerge();
+      }
+
+      function tryMerge() {
+        if (sel.length < 2 || !op) return;
+        var a = nums[sel[0]], b = nums[sel[1]];
+        var va = a.v, vb = b.v;
+        var r;
+        if (op === "+") r = va + vb;
+        else if (op === "-") r = va - vb;
+        else if (op === "*") r = va * vb;
+        else { if (vb === 0 || va % vb !== 0) { flash("÷ 需要整除（不能有小数）"); return; } r = va / vb; }
+        if (r < -99 || r > 999) { flash("结果超出范围，换一种组合"); return; }
+
+        stack.push({ idx: sel[1], back: { v: b.v, dead: false }, log: elLog.textContent });
+        b.v = r; b.dead = false;
+        a.dead = true;
+        moves++;
+        elMoves.textContent = moves;
+        var expr = va + " " + ({"+": "+", "-": "−", "*": "×", "/": "÷"}[op]) + " " + vb + " = " + r;
+        elLog.textContent = elLog.textContent ? elLog.textContent + " ｜ " + expr : expr;
+
+        sel = []; op = null;
+        document.querySelectorAll(".ops button").forEach(function (b2) { b2.classList.remove("on"); });
+
+        var alive = nums.filter(function (n) { return !n.dead; });
+        if (alive.length === 1) {
+          if (alive[0].v === 24) {
+            wins++;
+            try { localStorage.setItem("game24_wins", String(wins)); } catch (e) {}
+            elWins.textContent = wins;
+            elMsg.textContent = "🎉 算出 24！共 " + moves + " 步。点击「换一题」继续。";
+            elMsg.className = "win";
+          } else {
+            elMsg.textContent = "最终结果是 " + alive[0].v + "，不是 24 —— 点「撤销」回退或「换一题」。";
+            elMsg.className = "";
+          }
+        }
+        render();
+      }
+
+      function flash(t) { elMsg.textContent = t; elMsg.className = ""; }
+
+      document.querySelectorAll(".ops button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          if (op === b.dataset.op) { op = null; b.classList.remove("on"); }
+          else {
+            document.querySelectorAll(".ops button").forEach(function (x) { x.classList.remove("on"); });
+            op = b.dataset.op; b.classList.add("on");
+          }
+          tryMerge();
+        });
+      });
+
+      document.getElementById("btnUndo").addEventListener("click", function () {
+        var last = stack.pop();
+        if (!last) { flash("没有可撤销的步骤"); return; }
+        nums[last.idx] = last.back;                 // 恢复被合并的牌
+        // 被标记 dead 的来源牌复活：找最后一个 dead 复活
+        for (var i = nums.length - 1; i >= 0; i--) {
+          if (nums[i].dead) { nums[i].dead = false; break; }
+        }
+        elLog.textContent = last.log;
+        moves = Math.max(0, moves - 1);
+        elMoves.textContent = moves;
+        elMsg.textContent = "";
+        elMsg.className = "";
+        sel = []; op = null;
+        document.querySelectorAll(".ops button").forEach(function (x) { x.classList.remove("on"); });
+        render();
+      });
+
+      document.getElementById("btnNew").addEventListener("click", deal);
+
+      deal();
+    })();
+  </script>
+</body>
+</html>
