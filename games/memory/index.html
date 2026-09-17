@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>记忆翻牌 Memory | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/memory/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="记忆翻牌 Memory | H5 小游戏合集" />
+  <meta property="og:description" content="翻开卡片找出相同的 emoji 完成配对，全部配对即通关，记录用时、步数与本地最佳成绩。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/memory/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="记忆翻牌 Memory | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "记忆翻牌 Memory",
+  "url": "https://h5games-hub.pages.dev/games/memory/",
+  "description": "翻开卡片找出相同的 emoji 完成配对，全部配对即通关，记录用时、步数与本地最佳成绩。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "休闲",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+<meta name="description" content="纯前端记忆翻牌小游戏：翻开卡片配对 emoji，考验短时记忆力，含计时与本地最佳成绩。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+<style>
+  :root { --bg:#0b0e1a; --panel:#161b3a; --grid:#1c2247; --neon:#00e5ff; --neon2:#ff2e88; --text:#e8ecff; --muted:#9aa3c7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { width:100%; padding:14px 20px; text-align:center; }
+  header a { color:var(--muted); text-decoration:none; font-size:.9rem; }
+  h1 { font-size:1.3rem; margin:6px 0; }
+  .hud { display:flex; gap:18px; margin:8px 0; font-variant-numeric:tabular-nums; font-size:.95rem; }
+  .hud b { color:var(--neon); }
+  .board { display:grid; grid-template-columns:repeat(4,72px); gap:10px; margin:6px 0 14px; }
+  .card { width:72px; height:72px; perspective:600px; cursor:pointer; }
+  .inner { position:relative; width:100%; height:100%; transition:transform .35s; transform-style:preserve-3d; }
+  .card.flipped .inner, .card.matched .inner { transform:rotateY(180deg); }
+  .face { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; border-radius:12px; font-size:2rem; backface-visibility:hidden; box-shadow:0 4px 16px rgba(0,0,0,.35); }
+  .front { background:var(--grid); color:var(--neon); border:1px solid rgba(0,229,255,.25); }
+  .back { background:linear-gradient(135deg,#10162e,#1c2247); transform:rotateY(180deg); }
+  .card.matched .back { border:1px solid var(--neon2); box-shadow:0 0 14px rgba(255,46,136,.5); }
+  .controls { margin:6px 0 24px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+  button { background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); padding:9px 18px; border-radius:999px; cursor:pointer; font-size:.95rem; }
+  button:hover { border-color:var(--neon); }
+  .hint { color:var(--muted); font-size:.85rem; margin-bottom:24px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← 返回合集</a>
+  <h1>🧠 记忆翻牌 Memory</h1>
+</header>
+<div class="hud">
+  <div>用时 <b id="time">0.0s</b></div>
+  <div>步数 <b id="moves">0</b></div>
+  <div>最佳 <b id="best">—</b></div>
+</div>
+<div class="board" id="board" aria-label="记忆翻牌棋盘"></div>
+<div class="controls">
+  <button id="restart">重开</button>
+  <button id="shuffle">换一批</button>
+</div>
+<p class="hint">点击卡片翻开，找出两两相同的 emoji 配对 · 用时越短越好</p>
+
+<script>
+(function () {
+  'use strict';
+  var EMOJI = ['🚀','🌟','🔥','💎','🍎','⚡','🎲','🌈','👾','🍩','🐱','🍉'];
+  var board = document.getElementById('board');
+  var timeEl = document.getElementById('time');
+  var movesEl = document.getElementById('moves');
+  var bestEl = document.getElementById('best');
+  var BEST_KEY = 'h5hub_memory_best';
+
+  var first = null, lock = false, moves = 0, matched = 0, pairs = 8, startTs = 0, timer = null;
+
+  function fmt(ms){ return (ms/1000).toFixed(1) + 's'; }
+  bestEl.textContent = localStorage.getItem(BEST_KEY) ? fmt(+localStorage.getItem(BEST_KEY)) : '—';
+
+  function shuffle(a){ for (var i=a.length-1;i>0;i--){ var j=(Math.random()*(i+1))|0; var t=a[i];a[i]=a[j];a[j]=t; } return a; }
+
+  function build() {
+    board.innerHTML = '';
+    var picks = shuffle(EMOJI.slice()).slice(0, pairs);
+    var deck = shuffle(picks.concat(picks));
+    deck.forEach(function (e) {
+      var card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = '<div class="inner"><div class="face front">?</div><div class="face back">'+e+'</div></div>';
+      card.addEventListener('click', function () { flip(card, e); });
+      board.appendChild(card);
+    });
+  }
+
+  function flip(card, val) {
+    if (lock || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    if (!startTs) { startTs = Date.now(); timer = setInterval(tick, 100); }
+    card.classList.add('flipped');
+    if (!first) { first = { card: card, val: val }; return; }
+    moves++; movesEl.textContent = moves;
+    if (first.val === val) {
+      first.card.classList.add('matched'); card.classList.add('matched');
+      first = null; matched++;
+      if (matched === pairs) win();
+    } else {
+      lock = true;
+      var a = first.card; first = null;
+      setTimeout(function () { a.classList.remove('flipped'); card.classList.remove('flipped'); lock = false; }, 700);
+    }
+  }
+
+  function tick(){ timeEl.textContent = fmt(Date.now() - startTs); }
+
+  function win() {
+    clearInterval(timer);
+    var cost = Date.now() - startTs;
+    timeEl.textContent = fmt(cost);
+    var prev = +(localStorage.getItem(BEST_KEY) || Infinity);
+    if (cost < prev) { localStorage.setItem(BEST_KEY, cost); bestEl.textContent = fmt(cost); }
+    setTimeout(function(){ alert('全部配对完成！用时 ' + fmt(cost) + '，步数 ' + moves); }, 60);
+  }
+
+  function reset() { clearInterval(timer); first=null; lock=false; moves=0; matched=0; startTs=0; movesEl.textContent='0'; timeEl.textContent='0.0s'; build(); }
+
+  document.getElementById('restart').addEventListener('click', reset);
+  document.getElementById('shuffle').addEventListener('click', reset);
+  reset();
+})();
+</script>
+</body>
+</html>
