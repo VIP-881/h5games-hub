@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数字华容道 15-Puzzle | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/puzzle15/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="数字华容道 15-Puzzle | H5 小游戏合集" />
+  <meta property="og:description" content="滑动数字方块，把打乱的 1–15 恢复成顺序排列；洗牌算法保证每局必然可解，记录步数、用时与本地最佳。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/puzzle15/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="数字华容道 15-Puzzle | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "数字华容道 15-Puzzle",
+  "url": "https://h5games-hub.pages.dev/games/puzzle15/",
+  "description": "滑动数字方块，把打乱的 1–15 恢复成顺序排列；洗牌算法保证每局必然可解，记录步数、用时与本地最佳。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+  <meta name="description" content="数字华容道（15-Puzzle）：滑动数字方块，将 1-15 按顺序排列复原。方向键或点击移动，含步数与计时、可解洗牌与本地最佳成绩，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    #board {
+      display: grid;
+      grid-template-columns: repeat(4, 72px);
+      grid-template-rows: repeat(4, 72px);
+      gap: 8px;
+      background: var(--panel);
+      border: 1px solid rgba(0, 229, 255, .35);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      touch-action: manipulation;
+    }
+    .tile {
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 10px;
+      font-size: 22px; font-weight: 700;
+      color: #04121a;
+      background: linear-gradient(160deg, var(--neon) 0%, #17b6ff 100%);
+      box-shadow: 0 0 10px rgba(0, 229, 255, .45);
+      cursor: pointer;
+      user-select: none;
+      transition: transform .08s ease, filter .15s ease;
+    }
+    .tile:hover { filter: brightness(1.12); }
+    .tile.correct { background: linear-gradient(160deg, #58ffb1 0%, #00e58a 100%); box-shadow: 0 0 12px rgba(0, 229, 138, .5); }
+    .tile.empty { visibility: hidden; cursor: default; }
+    .tile.pop { animation: pop .12s ease; }
+    @keyframes pop { 50% { transform: scale(1.08); } }
+    .controls { display: flex; gap: 12px; margin-top: 18px; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 10px 20px; font-size: 15px; cursor: pointer;
+      letter-spacing: 2px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover { background: var(--neon); color: #04121a; }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: #58ffb1; text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+    @media (max-width: 420px) {
+      #board { grid-template-columns: repeat(4, 64px); grid-template-rows: repeat(4, 64px); padding: 8px; gap: 6px; }
+      .tile { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🔢 数字华容道 15-Puzzle</h1>
+  <p class="sub">滑动方块使 1–15 依序排列（空格留在右下角）· 绿色表示已归位</p>
+
+  <div class="hud">
+    <span>步数 <b id="moves">0</b></span>
+    <span>用时 <b id="time">0.0</b> 秒</span>
+    <span>最佳步数 <b id="bestMoves">--</b></span>
+    <span>最佳用时 <b id="bestTime">--</b></span>
+  </div>
+
+  <div id="board" aria-label="数字华容道棋盘"></div>
+
+  <div class="controls">
+    <button id="btnStart">开始</button>
+    <button id="btnReset">重新打乱</button>
+  </div>
+
+  <div id="msg" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var N = 4;                       // 4×4
+      var TOTAL = N * N;               // 16 格
+      var board = [];                  // board[row][col] = 1..15 或 0（空）
+      var emptyR = 3, emptyC = 3;
+      var moves = 0, timerId = null, startTime = 0, playing = false;
+
+      var elBoard = document.getElementById("board");
+      var elMoves = document.getElementById("moves");
+      var elTime = document.getElementById("time");
+      var elBestMoves = document.getElementById("bestMoves");
+      var elBestTime = document.getElementById("bestTime");
+      var elMsg = document.getElementById("msg");
+
+      function loadBest() {
+        try {
+          elBestMoves.textContent = localStorage.getItem("p15_bestMoves") || "--";
+          elBestTime.textContent = localStorage.getItem("p15_bestTime") || "--";
+        } catch (e) { /* 隐私模式下忽略 */ }
+      }
+
+      function solved() {
+        for (var r = 0; r < N; r++) {
+          for (var c = 0; c < N; c++) {
+            var expect = (r === N - 1 && c === N - 1) ? 0 : r * N + c + 1;
+            if (board[r][c] !== expect) return false;
+          }
+        }
+        return true;
+      }
+
+      function shuffle() {
+        // 从完成态出发随机做 400 次合法移动 —— 保证必然可解，且不会出现「只差两块」的死局
+        var last = null;
+        for (var i = 0; i < 400; i++) {
+          var opts = [];
+          if (emptyR > 0) opts.push([emptyR - 1, emptyC]);
+          if (emptyR < N - 1) opts.push([emptyR + 1, emptyC]);
+          if (emptyC > 0) opts.push([emptyR, emptyC - 1]);
+          if (emptyC < N - 1) opts.push([emptyR, emptyC + 1]);
+          var pick = opts[Math.floor(Math.random() * opts.length)];
+          if (last && pick[0] === last[0] && pick[1] === last[1]) continue; // 避免来回抖动
+          board[emptyR][emptyC] = board[pick[0]][pick[1]];
+          board[pick[0]][pick[1]] = 0;
+          last = [emptyR, emptyC];
+          emptyR = pick[0]; emptyC = pick[1];
+        }
+      }
+
+      function render() {
+        elBoard.innerHTML = "";
+        for (var r = 0; r < N; r++) {
+          for (var c = 0; c < N; c++) {
+            var v = board[r][c];
+            var d = document.createElement("div");
+            if (v === 0) {
+              d.className = "tile empty";
+            } else {
+              d.className = "tile";
+              d.textContent = v;
+              if (v === r * N + c + 1) d.className += " correct";
+              d.dataset.r = r; d.dataset.c = c;
+            }
+            elBoard.appendChild(d);
+          }
+        }
+      }
+
+      function tryMove(r, c) {
+        if (!playing) return;
+        var adj = (Math.abs(r - emptyR) + Math.abs(c - emptyC)) === 1;
+        if (!adj) return;
+        board[emptyR][emptyC] = board[r][c];
+        board[r][c] = 0;
+        emptyR = r; emptyC = c;
+        moves++;
+        elMoves.textContent = moves;
+        render();
+        if (solved()) win();
+      }
+
+      function tick() {
+        var t = (Date.now() - startTime) / 1000;
+        elTime.textContent = t.toFixed(1);
+      }
+
+      function win() {
+        playing = false;
+        clearInterval(timerId);
+        var t = (Date.now() - startTime) / 1000;
+        elTime.textContent = t.toFixed(1);
+        try {
+          var bm = parseInt(localStorage.getItem("p15_bestMoves") || "9999", 10);
+          var bt = parseFloat(localStorage.getItem("p15_bestTime") || "9999");
+          if (moves < bm) localStorage.setItem("p15_bestMoves", String(moves));
+          if (t < bt) localStorage.setItem("p15_bestTime", t.toFixed(1));
+        } catch (e) { /* ignore */ }
+        loadBest();
+        elMsg.textContent = "🎉 复原成功！用时 " + t.toFixed(1) + " 秒、共 " + moves + " 步。点击「重新打乱」再来一局。";
+        elMsg.className = "win";
+      }
+
+      function start() {
+        board = [];
+        for (var r = 0; r < N; r++) {
+          board.push([]);
+          for (var c = 0; c < N; c++) board[r].push(r * N + c + 1);
+        }
+        board[N - 1][N - 1] = 0;
+        emptyR = N - 1; emptyC = N - 1;
+        shuffle();
+        moves = 0;
+        elMoves.textContent = "0";
+        elTime.textContent = "0.0";
+        elMsg.textContent = "";
+        elMsg.className = "";
+        playing = true;
+        startTime = Date.now();
+        clearInterval(timerId);
+        timerId = setInterval(tick, 100);
+        render();
+      }
+
+      elBoard.addEventListener("click", function (ev) {
+        var t = ev.target;
+        if (!t.classList || !t.classList.contains("tile") || t.classList.contains("empty")) return;
+        tryMove(parseInt(t.dataset.r, 10), parseInt(t.dataset.c, 10));
+      });
+
+      document.addEventListener("keydown", function (ev) {
+        if (!playing) return;
+        var map = {
+          ArrowUp: [emptyR + 1, emptyC],    // 空格上方的块向下滑入空位
+          ArrowDown: [emptyR - 1, emptyC],
+          ArrowLeft: [emptyR, emptyC + 1],
+          ArrowRight: [emptyR, emptyC - 1],
+          w: [emptyR + 1, emptyC], s: [emptyR - 1, emptyC],
+          a: [emptyR, emptyC + 1], d: [emptyR, emptyC - 1]
+        };
+        var m = map[ev.key] || map[ev.key.toLowerCase && ev.key.toLowerCase()];
+        if (m) { ev.preventDefault(); tryMove(m[0], m[1]); }
+      });
+
+      document.getElementById("btnStart").addEventListener("click", start);
+      document.getElementById("btnReset").addEventListener("click", start);
+
+      loadBest();
+      start(); // 打开即先摆好一盘，可直接游玩
+    })();
+  </script>
+</body>
+</html>
