@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>康威生命游戏 Game of Life | H5 小游戏合集</title>
+  <meta name="description" content="康威生命游戏（Conway's Game of Life）：零玩家细胞自动机，点击绘制初始细胞后按三条简单规则演化，观察滑翔机与振荡器等涌现图案。可调速度、单步执行、随机播种，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/life/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="康威生命游戏 Game of Life | H5 小游戏合集" />
+  <meta property="og:description" content="零玩家细胞自动机，点击绘制初始细胞后按三条简单规则演化，观察滑翔机与振荡器等涌现图案。可调速度、单步执行、随机播种。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/life/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="康威生命游戏 Game of Life | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "康威生命游戏 Game of Life",
+    "url": "https://h5games-hub.pages.dev/games/life/",
+    "description": "零玩家细胞自动机，点击绘制初始细胞后按三条简单规则演化，观察滑翔机与振荡器等涌现图案。可调速度、单步执行、随机播种，纯前端即点即玩。",
+    "gamePlatform": "Web",
+    "applicationCategory": "Game",
+    "genre": "益智",
+    "playMode": "SinglePlayer",
+    "inLanguage": "zh-CN",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "H5 Games Hub",
+      "url": "https://h5games-hub.pages.dev/"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --good: #58ffb1;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 14px; text-align: center; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 14px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    #board {
+      background: var(--panel);
+      border: 1px solid rgba(0, 229, 255, .35);
+      border-radius: 14px;
+      padding: 10px;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      touch-action: none;                 /* 绘制时阻止页面滚动 */
+      cursor: crosshair;
+      max-width: 100%;
+    }
+    .controls { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; justify-content: center; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 9px 16px; font-size: 14px; cursor: pointer;
+      letter-spacing: 1px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover:enabled { background: var(--neon); color: #04121a; }
+    button.primary { color: var(--neon2); border-color: var(--neon2); }
+    button.primary:hover:enabled { background: var(--neon2); color: #1a0410; }
+    button:disabled { opacity: .4; cursor: not-allowed; }
+    .speed { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 13px; color: var(--muted); }
+    input[type="range"] { accent-color: var(--neon); width: 200px; }
+    #msg { margin-top: 14px; min-height: 22px; font-size: 14px; color: var(--muted); text-align: center; }
+    @media (max-width: 480px) {
+      button { padding: 8px 12px; font-size: 13px; }
+      input[type="range"] { width: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🦠 康威生命游戏 Game of Life</h1>
+  <p class="sub">零玩家细胞自动机 · 在画布上点出初始细胞，按三条规则观察生命的涌现</p>
+
+  <div class="hud">
+    <span>世代 <b id="gen">0</b></span>
+    <span>存活 <b id="pop">0</b></span>
+    <span>速度 <b id="speedLabel">10</b> 代/秒</span>
+  </div>
+
+  <canvas id="board" width="480" height="480" aria-label="生命游戏棋盘：点击绘制细胞"></canvas>
+
+  <div class="controls">
+    <button id="btnPlay" class="primary">▶ 开始演化</button>
+    <button id="btnStep">单步</button>
+    <button id="btnRandom">随机播种</button>
+    <button id="btnGlider">放置滑翔机</button>
+    <button id="btnClear">清空</button>
+  </div>
+
+  <div class="speed">
+    <label for="speed">速度</label>
+    <input id="speed" type="range" min="2" max="60" value="10" aria-label="演化速度（代每秒）" />
+  </div>
+
+  <div id="msg" aria-live="polite">提示：在棋盘上点击或拖动绘制细胞，再点「开始演化」。</div>
+
+  <script>
+    (function () {
+      "use strict";
+      var COLS = 96, ROWS = 96;          // 画布 480×480 → 每格 5px
+      var CELL = 5;
+      var grid, running = false, timerId = null, generation = 0;
+      var painting = false, paintValue = 1;
+
+      var canvas = document.getElementById("board");
+      var ctx = canvas.getContext("2d");
+      var elGen = document.getElementById("gen");
+      var elPop = document.getElementById("pop");
+      var elSpeedLabel = document.getElementById("speedLabel");
+      var elMsg = document.getElementById("msg");
+      var btnPlay = document.getElementById("btnPlay");
+
+      function makeGrid() {
+        var g = [];
+        for (var r = 0; r < ROWS; r++) {
+          g.push(new Array(COLS).fill(0));
+        }
+        return g;
+      }
+
+      function countPop() {
+        var n = 0;
+        for (var r = 0; r < ROWS; r++)
+          for (var c = 0; c < COLS; c++) n += grid[r][c];
+        return n;
+      }
+
+      function draw() {
+        ctx.fillStyle = "#0d1128";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // 网格线（低透明度，兼顾视觉与性能）
+        ctx.strokeStyle = "rgba(0, 229, 255, .06)";
+        ctx.beginPath();
+        for (var x = 0; x <= COLS; x += 8) { ctx.moveTo(x * CELL, 0); ctx.lineTo(x * CELL, canvas.height); }
+        for (var y = 0; y <= ROWS; y += 8) { ctx.moveTo(0, y * CELL); ctx.lineTo(canvas.width, y * CELL); }
+        ctx.stroke();
+        // 细胞
+        ctx.fillStyle = "#00e5ff";
+        for (var r = 0; r < ROWS; r++) {
+          for (var c = 0; c < COLS; c++) {
+            if (grid[r][c]) {
+              ctx.fillRect(c * CELL, r * CELL, CELL - 1, CELL - 1);
+            }
+          }
+        }
+        elGen.textContent = generation;
+        elPop.textContent = countPop();
+      }
+
+      // 康威规则：B3/S23 —— 出生需 3 邻，存活需 2 或 3 邻
+      function step() {
+        var next = makeGrid();
+        for (var r = 0; r < ROWS; r++) {
+          var up = (r - 1 + ROWS) % ROWS, dn = (r + 1) % ROWS;   // 环面边界
+          for (var c = 0; c < COLS; c++) {
+            var lf = (c - 1 + COLS) % COLS, rt = (c + 1) % COLS;
+            var n = grid[up][lf] + grid[up][c] + grid[up][rt]
+                  + grid[r][lf] + grid[r][rt]
+                  + grid[dn][lf] + grid[dn][c] + grid[dn][rt];
+            next[r][c] = grid[r][c] ? (n === 2 || n === 3 ? 1 : 0) : (n === 3 ? 1 : 0);
+          }
+        }
+        grid = next;
+        generation++;
+        draw();
+      }
+
+      function tick() {
+        step();
+        if (countPop() === 0) {
+          stop();
+          elMsg.textContent = "所有细胞消亡。点「随机播种」或手动绘制重新开始。";
+        }
+      }
+
+      function start() {
+        running = true;
+        btnPlay.textContent = "⏸ 暂停";
+        var fps = parseInt(document.getElementById("speed").value, 10);
+        clearInterval(timerId);
+        timerId = setInterval(tick, Math.round(1000 / fps));
+      }
+
+      function stop() {
+        running = false;
+        btnPlay.textContent = "▶ 开始演化";
+        clearInterval(timerId);
+        timerId = null;
+      }
+
+      function cellFromEvent(ev) {
+        var rect = canvas.getBoundingClientRect();
+        var scale = canvas.width / rect.width;      // 兼容 CSS 缩放
+        var x = (ev.clientX - rect.left) * scale;
+        var y = (ev.clientY - rect.top) * scale;
+        var c = Math.floor(x / CELL), r = Math.floor(y / CELL);
+        if (r < 0 || r >= ROWS || c < 0 || c >= COLS) return null;
+        return [r, c];
+      }
+
+      function paint(r, c) {
+        grid[r][c] = paintValue;
+        draw();
+      }
+
+      canvas.addEventListener("pointerdown", function (ev) {
+        var rc = cellFromEvent(ev);
+        if (!rc) return;
+        painting = true;
+        paintValue = grid[rc[0]][rc[1]] ? 0 : 1;    // 起笔翻转：有则擦除，无则绘制
+        paint(rc[0], rc[1]);
+        canvas.setPointerCapture(ev.pointerId);
+      });
+      canvas.addEventListener("pointermove", function (ev) {
+        if (!painting) return;
+        var rc = cellFromEvent(ev);
+        if (rc) paint(rc[0], rc[1]);
+      });
+      canvas.addEventListener("pointerup", function () { painting = false; });
+      canvas.addEventListener("pointercancel", function () { painting = false; });
+
+      btnPlay.addEventListener("click", function () { running ? stop() : start(); });
+      document.getElementById("btnStep").addEventListener("click", function () { stop(); step(); });
+      document.getElementById("btnClear").addEventListener("click", function () {
+        stop(); grid = makeGrid(); generation = 0; draw();
+        elMsg.textContent = "已清空。绘制初始细胞后开始演化。";
+      });
+      document.getElementById("btnRandom").addEventListener("click", function () {
+        stop(); grid = makeGrid(); generation = 0;
+        for (var r = 0; r < ROWS; r++)
+          for (var c = 0; c < COLS; c++) grid[r][c] = Math.random() < 0.22 ? 1 : 0;
+        draw();
+        elMsg.textContent = "已随机播种（约 22% 密度）。点「开始演化」。";
+      });
+      document.getElementById("btnGlider").addEventListener("click", function () {
+        // 在随机位置放置一队滑翔机（向右下移动的经典图样）
+        stop();
+        var glider = [[0, 1], [1, 2], [2, 0], [2, 1], [2, 2]];
+        for (var k = 0; k < 6; k++) {
+          var br = 8 + Math.floor(Math.random() * (ROWS - 20));
+          var bc = 8 + Math.floor(Math.random() * (COLS - 20));
+          for (var i = 0; i < glider.length; i++) {
+            grid[br + glider[i][0]][bc + glider[i][1]] = 1;
+          }
+        }
+        generation = 0;
+        draw();
+        elMsg.textContent = "已放置 6 架滑翔机。点「开始演化」观察它们飞行、碰撞与消亡。";
+      });
+      document.getElementById("speed").addEventListener("input", function () {
+        elSpeedLabel.textContent = this.value;
+        if (running) start();                        // 热更新速度
+      });
+      elSpeedLabel.textContent = document.getElementById("speed").value;
+
+      grid = makeGrid();
+      // 初始播种：中央一个滑翔机 + 少量随机细胞，打开即可直接演化
+      var g0 = [[0, 1], [1, 2], [2, 0], [2, 1], [2, 2]];
+      for (var i = 0; i < g0.length; i++) grid[48 + g0[i][0]][48 + g0[i][1]] = 1;
+      for (var r2 = 20; r2 < 76; r2++)
+        for (var c2 = 20; c2 < 76; c2++) if (Math.random() < 0.08) grid[r2][c2] = 1;
+      draw();
+    })();
+  </script>
+</body>
+</html>
