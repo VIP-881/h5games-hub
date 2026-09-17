@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>扫雷 Minesweeper | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/minesweeper/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="扫雷 Minesweeper | H5 小游戏合集" />
+  <meta property="og:description" content="在 9×9 棋盘（10 颗雷）上翻开安全格，数字表示周围雷数；首次点击必安全，点开空白自动展开。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/minesweeper/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="扫雷 Minesweeper | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "扫雷 Minesweeper",
+  "url": "https://h5games-hub.pages.dev/games/minesweeper/",
+  "description": "在 9×9 棋盘（10 颗雷）上翻开安全格，数字表示周围雷数；首次点击必安全，点开空白自动展开。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+<meta name="description" content="纯前端扫雷小游戏：9×9 经典扫雷，首点安全、空白自动展开、右键插旗，含计时与本地最佳成绩。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💣</text></svg>" />
+<style>
+  :root { --bg:#0b0e1a; --panel:#161b3a; --grid:#1c2247; --neon:#00e5ff; --neon2:#ff2e88; --text:#e8ecff; --muted:#9aa3c7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { width:100%; padding:14px 20px; text-align:center; }
+  header a { color:var(--muted); text-decoration:none; font-size:.9rem; }
+  h1 { font-size:1.3rem; margin:6px 0; }
+  .hud { display:flex; gap:18px; margin:8px 0 12px; font-variant-numeric:tabular-nums; }
+  .hud b { color:var(--neon); }
+  .board { display:grid; grid-template-columns:repeat(9,36px); grid-template-rows:repeat(9,36px); gap:4px; margin-bottom:14px; }
+  .cell { background:var(--grid); border:1px solid rgba(255,255,255,.06); border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.05rem; user-select:none; }
+  .cell:hover { background:#232b57; }
+  .cell.open { background:#10162e; cursor:default; }
+  .cell.flag { color:var(--neon2); }
+  .cell.mine { background:#3a1030; }
+  .cell.n1 { color:#00e5ff; } .cell.n2 { color:#36f1cd; } .cell.n3 { color:#ffd166; }
+  .cell.n4 { color:#b388ff; } .cell.n5 { color:#ff7b54; } .cell.n6 { color:#7cff6b; }
+  .cell.n7 { color:#ff2e88; } .cell.n8 { color:#9aa3c7; }
+  .controls { margin:6px 0 24px; display:flex; gap:10px; }
+  button { background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); padding:9px 18px; border-radius:999px; cursor:pointer; font-size:.95rem; }
+  button:hover { border-color:var(--neon); }
+  .hint { color:var(--muted); font-size:.85rem; margin-bottom:24px; text-align:center; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← 返回合集</a>
+  <h1>💣 扫雷 Minesweeper</h1>
+</header>
+<div class="hud">
+  <div>剩余雷 <b id="mines">10</b></div>
+  <div>用时 <b id="time">0s</b></div>
+  <div>最佳 <b id="best">—</b></div>
+</div>
+<div class="board" id="board" aria-label="扫雷棋盘"></div>
+<div class="controls">
+  <button id="restart">重开</button>
+</div>
+<p class="hint">点击翻开格子 · 右键（或长按）插旗 · 首次点击必定安全</p>
+
+<script>
+(function () {
+  'use strict';
+  var SIZE=9, MINES=10;
+  var cells, board, revealed, flagged, started, timer, t0, over;
+  var boardEl=document.getElementById('board');
+  var minesEl=document.getElementById('mines'), timeEl=document.getElementById('time'), bestEl=document.getElementById('best');
+  var BEST_KEY='h5hub_mines_best';
+  bestEl.textContent = localStorage.getItem(BEST_KEY) ? (+localStorage.getItem(BEST_KEY)/1000).toFixed(1)+'s' : '—';
+
+  function idx(r,c){ return r*SIZE+c; }
+  function neighbors(r,c){ var out=[]; for(var dr=-1;dr<=1;dr++)for(var dc=-1;dc<=1;dc++){ if(!dr&&!dc) continue; var nr=r+dr,nc=c+dc; if(nr>=0&&nr<SIZE&&nc>=0&&nc<SIZE) out.push([nr,nc]); } return out; }
+
+  function placeMines(sr,sc){
+    board = new Array(SIZE*SIZE).fill(0);
+    var placed=0, safe={}; safe[idx(sr,sc)]=1;
+    neighbors(sr,sc).forEach(function(n){ safe[idx(n[0],n[1])]=1; });
+    while(placed<MINES){
+      var i=(Math.random()*SIZE*SIZE)|0;
+      if(safe[i] || board[i]===-1) continue;
+      board[i]=-1; placed++;
+    }
+    for(var r=0;r<SIZE;r++)for(var c=0;c<SIZE;c++){
+      var i2=idx(r,c); if(board[i2]===-1) continue;
+      board[i2]=neighbors(r,c).filter(function(p){ return board[idx(p[0],p[1])]===-1; }).length;
+    }
+  }
+
+  function build(){
+    boardEl.innerHTML='';
+    cells=[]; revealed=new Array(SIZE*SIZE).fill(false); flagged=new Array(SIZE*SIZE).fill(false);
+    for(var r=0;r<SIZE;r++)for(var c=0;c<SIZE;c++){
+      var el=document.createElement('div');
+      el.className='cell';
+      (function(rr,cc,elem){
+        elem.addEventListener('click', function(){ open(rr,cc); });
+        elem.addEventListener('contextmenu', function(ev){ ev.preventDefault(); flag(rr,cc); });
+        var press=null;
+        elem.addEventListener('touchstart', function(){ press=setTimeout(function(){ flag(rr,cc); },450); },{passive:true});
+        elem.addEventListener('touchend', function(){ if(press) clearTimeout(press); },{passive:true});
+      })(r,c,el);
+      cells.push(el); boardEl.appendChild(el);
+    }
+    started=false; over=false; minesEl.textContent=MINES; timeEl.textContent='0s';
+    clearInterval(timer); timer=null;
+  }
+
+  function flag(r,c){
+    if(over) return;
+    var i=idx(r,c); if(revealed[i]) return;
+    flagged[i]=!flagged[i];
+    cells[i].textContent = flagged[i] ? '🚩' : '';
+    cells[i].classList.toggle('flag', flagged[i]);
+    updateMines();
+  }
+  function updateMines(){ minesEl.textContent = Math.max(0, MINES-flagged.filter(Boolean).length); }
+
+  function open(r,c){
+    if(over) return;
+    var i=idx(r,c);
+    if(flagged[i]||revealed[i]) return;
+    if(!started){ placeMines(r,c); started=true; t0=Date.now(); timer=setInterval(function(){ timeEl.textContent=Math.floor((Date.now()-t0)/1000)+'s'; },250); }
+    if(board[i]===-1){ revealAll(); lose(); return; }
+    flood(r,c); render(); checkWin();
+  }
+
+  function flood(r,c){
+    var stack=[[r,c]];
+    while(stack.length){
+      var p=stack.pop(), pr=p[0], pc=p[1], pi=idx(pr,pc);
+      if(revealed[pi]||flagged[pi]) continue;
+      revealed[pi]=true;
+      if(board[pi]===0) neighbors(pr,pc).forEach(function(n){ if(!revealed[idx(n[0],n[1])]) stack.push(n); });
+    }
+  }
+
+  function render(){
+    for(var i=0;i<cells.length;i++){
+      if(revealed[i]){
+        cells[i].classList.add('open');
+        cells[i].textContent = board[i]>0 ? String(board[i]) : '';
+        if(board[i]>0) cells[i].classList.add('n'+board[i]);
+      }
+    }
+  }
+  function revealAll(){ for(var i=0;i<cells.length;i++){ if(board[i]===-1){ cells[i].textContent='💣'; cells[i].classList.add('mine'); } } }
+
+  function checkWin(){ if(revealed.filter(Boolean).length===SIZE*SIZE-MINES) win(); }
+  function stop(){ clearInterval(timer); timer=null; }
+
+  function win(){
+    over=true; stop();
+    var cost=Date.now()-t0; timeEl.textContent=Math.floor(cost/1000)+'s';
+    var prev=+(localStorage.getItem(BEST_KEY)||Infinity);
+    if(cost<prev){ localStorage.setItem(BEST_KEY,cost); bestEl.textContent=(cost/1000).toFixed(1)+'s'; }
+    setTimeout(function(){ alert('扫雷成功！用时 '+Math.floor(cost/1000)+' 秒'); },40);
+  }
+  function lose(){ over=true; stop(); setTimeout(function(){ alert('踩到雷了！再试一次 💥'); },40); }
+
+  document.getElementById('restart').addEventListener('click', build);
+  build();
+})();
+</script>
+</body>
+</html>
