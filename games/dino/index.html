@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>恐龙跳跃 Dino Run | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/dino/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="恐龙跳跃 Dino Run | H5 小游戏合集" />
+  <meta property="og:description" content="像素恐龙无尽跑酷：跳跃躲避仙人掌，速度随距离递增，霓虹夜色风格；距离即分数，本地最高分记录，支持键盘与触屏。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/dino/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="恐龙跳跃 Dino Run | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "恐龙跳跃 Dino Run",
+  "url": "https://h5games-hub.pages.dev/games/dino/",
+  "description": "像素恐龙无尽跑酷游戏：控制小恐龙跳跃躲避仙人掌，奔跑距离即分数，速度随距离递增；霓虹夜色风格，支持空格键/方向键上/触屏点击起跳，本地最高分记录。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "街机",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+  <meta name="description" content="恐龙跳跃 Dino Run：像素小恐龙无尽跑酷，跳跃躲避仙人掌，速度随距离递增，距离即分数；空格/↑/点击起跳，霓虹夜色风格与本地最高分，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    #court {
+      background: var(--panel);
+      border: 1px solid rgba(0, 229, 255, .35);
+      border-radius: 12px;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      touch-action: manipulation;
+      max-width: 100%;
+    }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: #58ffb1; text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🦖 恐龙跳跃 Dino Run</h1>
+  <p class="sub">空格 / ↑ / 点击起跳 · 跳过仙人掌 · 距离就是分数</p>
+
+  <div class="hud">
+    <span>分数 <b id="score">0</b></span>
+    <span>最高分 <b id="best">0</b></span>
+    <span>速度 <b id="speed">1.0</b>×</span>
+  </div>
+
+  <canvas id="court" width="640" height="240" aria-label="恐龙跑酷"></canvas>
+
+  <div id="msg" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var W = 640, H = 240, GROUND = 200;
+      var cv = document.getElementById("court");
+      var ctx = cv.getContext("2d");
+      var elScore = document.getElementById("score");
+      var elBest = document.getElementById("best");
+      var elSpeed = document.getElementById("speed");
+      var elMsg = document.getElementById("msg");
+
+      var dino = { x: 60, y: GROUND, vy: 0, w: 34, h: 44, run: 0 };
+      var obstacles = [], speed = 4, score = 0, best = 0;
+      var playing = false, dead = false, spawnIn = 60;
+      var clouds = [{x: 500, y: 50}, {x: 260, y: 80}, {x: 720, y: 35}];
+
+      try { best = parseInt(localStorage.getItem("dino_best") || "0", 10) || 0; } catch (e) {}
+      elBest.textContent = best;
+
+      function reset() {
+        obstacles = [];
+        dino.y = GROUND; dino.vy = 0;
+        speed = 4; score = 0; spawnIn = 50;
+        dead = false;
+        elScore.textContent = "0";
+        elSpeed.textContent = "1.0";
+        elMsg.textContent = "";
+        elMsg.className = "";
+      }
+
+      function start() {
+        reset();
+        playing = true;
+      }
+
+      function jump() {
+        if (!playing) { start(); return; }
+        if (dino.y >= GROUND && !dead) dino.vy = -11.5;
+      }
+
+      function die() {
+        playing = false;
+        dead = true;
+        if (score > best) {
+          best = score;
+          try { localStorage.setItem("dino_best", String(best)); } catch (e) {}
+          elBest.textContent = best;
+          elMsg.textContent = "💥 撞到仙人掌！新纪录 " + best + " 分。按空格或点击重新开始。";
+        } else {
+          elMsg.textContent = "💥 撞到仙人掌！得分 " + score + "。按空格或点击重新开始。";
+        }
+        elMsg.className = "";
+      }
+
+      function step() {
+        // 世界更新
+        if (playing) {
+          score += 1;
+          var sp = 4 + Math.min(6, score / 400);      // 速度上限 10
+          speed = sp;
+          var sDisp = Math.floor(score / 10);
+          if (String(sDisp) !== elScore.textContent) elScore.textContent = sDisp;
+          elSpeed.textContent = (sp / 4).toFixed(1) + "";
+
+          // 恐龙物理
+          dino.vy += 0.55;
+          dino.y += dino.vy;
+          if (dino.y > GROUND) { dino.y = GROUND; dino.vy = 0; }
+          dino.run += 0.25;
+
+          // 生成障碍
+          spawnIn--;
+          if (spawnIn <= 0) {
+            var h = 24 + Math.floor(Math.random() * 22);      // 24–45
+            obstacles.push({ x: W + 20, w: 14 + Math.floor(Math.random() * 12), h: h });
+            spawnIn = Math.max(38, 110 - score / 60) + Math.floor(Math.random() * 40);
+          }
+          for (var i = obstacles.length - 1; i >= 0; i--) {
+            obstacles[i].x -= speed;
+            if (obstacles[i].x + obstacles[i].w < -10) obstacles.splice(i, 1);
+          }
+
+          // 碰撞（AABB，略缩小判定盒更宽容）
+          for (var k = 0; k < obstacles.length; k++) {
+            var o = obstacles[k];
+            if (dino.x + 6 < o.x + o.w && dino.x + dino.w - 6 > o.x &&
+                dino.y - dino.h + 4 < GROUND && dino.y - 4 > GROUND - o.h) { die(); break; }
+          }
+        }
+
+        // ── 渲染 ──
+        ctx.clearRect(0, 0, W, H);
+        // 云
+        ctx.fillStyle = "rgba(139,155,180,.35)";
+        clouds.forEach(function (c, idx) {
+          if (playing) { c.x -= speed * 0.25; if (c.x < -60) c.x = W + 40; }
+          ctx.beginPath();
+          ctx.ellipse(c.x, c.y, 26, 9, 0, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        // 地面
+        ctx.strokeStyle = "rgba(0,229,255,.5)";
+        ctx.beginPath(); ctx.moveTo(0, GROUND + 1); ctx.lineTo(W, GROUND + 1); ctx.stroke();
+        // 地面纹理
+        ctx.fillStyle = "rgba(0,229,255,.18)";
+        for (var g = 0; g < 20; g++) {
+          var gx = (g * 40 - (playing ? (score * speed) % 40 : 0) + W) % (W + 40) - 20;
+          ctx.fillRect(gx, GROUND + 8, 14, 2);
+        }
+        // 恐龙（像素块拼装）
+        var dy = dino.y - dino.h;
+        var legUp = playing && dino.y >= GROUND ? Math.sin(dino.run) * 5 : 0;
+        ctx.fillStyle = "#00e5ff";
+        ctx.shadowColor = "#00e5ff"; ctx.shadowBlur = 10;
+        ctx.fillRect(dino.x, dy + 6, 24, 26);                  // 身体
+        ctx.fillRect(dino.x + 16, dy, 16, 16);                 // 头
+        ctx.fillRect(dino.x + 26, dy + 4, 8, 5);               // 嘴
+        ctx.fillStyle = "#04121a";
+        ctx.fillRect(dino.x + 24, dy + 3, 3, 3);               // 眼
+        ctx.fillStyle = "#00e5ff";
+        ctx.fillRect(dino.x - 8, dy + 12, 10, 6);              // 尾巴
+        ctx.fillRect(dino.x + 2, dy + 30 - Math.max(0, legUp), 6, 12 + Math.max(0, legUp) * 0.4);   // 后腿
+        ctx.fillRect(dino.x + 14, dy + 30 - Math.max(0, -legUp), 6, 12 + Math.max(0, -legUp) * 0.4); // 前腿
+        // 仙人掌
+        ctx.fillStyle = "#58ffb1";
+        ctx.shadowColor = "#58ffb1"; ctx.shadowBlur = 8;
+        obstacles.forEach(function (o) {
+          ctx.fillRect(o.x, GROUND - o.h, o.w, o.h);
+          ctx.fillRect(o.x - 5, GROUND - o.h + o.h * 0.3, 5, 8);   // 左刺
+          ctx.fillRect(o.x + o.w, GROUND - o.h + o.h * 0.45, 5, 8);// 右刺
+        });
+        ctx.shadowBlur = 0;
+
+        requestAnimationFrame(step);
+      }
+
+      document.addEventListener("keydown", function (ev) {
+        if (ev.code === "Space" || ev.code === "ArrowUp" || ev.key === "w") {
+          ev.preventDefault();
+          jump();
+        }
+      });
+      cv.addEventListener("pointerdown", function (ev) { ev.preventDefault(); jump(); });
+
+      step();
+    })();
+  </script>
+</body>
+</html>
