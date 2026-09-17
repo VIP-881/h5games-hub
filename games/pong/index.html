@@ -1,1 +1,317 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9InpoLUNOIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiIC8+CiAgPHRpdGxlPlBvbmcg5by555CD5a+55oiYIHwgSDUg5bCP5ri45oiP5ZCI6ZuGPC90aXRsZT4KCiAgPGxpbmsgcmVsPSJjYW5vbmljYWwiIGhyZWY9Imh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvcG9uZy8iIC8+CiAgPG1ldGEgcHJvcGVydHk9Im9nOnR5cGUiIGNvbnRlbnQ9IndlYnNpdGUiIC8+CiAgPG1ldGEgcHJvcGVydHk9Im9nOnRpdGxlIiBjb250ZW50PSJQb25nIOW8ueeQg+WvueaImCB8IEg1IOWwj+a4uOaIj+WQiOmbhiIgLz4KICA8bWV0YSBwcm9wZXJ0eT0ib2c6ZGVzY3JpcHRpb24iIGNvbnRlbnQ9IjE5NzIg5bm057uP5YW4IFBvbmcg55qE6LWb5Y2a5pyL5YWL5aSN5Yi777ya5bem5Y+z56e75Yqo5oyh5p2/5o6l55CD77yM5YWI5b6XIDcg5YiG6I636IOc77ybQUkg5LiJ5qGj6Zq+5bqm77yM5pSv5oyB6ZSu55uY5LiO6Kem5pG45ouW5Yqo77yM6K6w5b2V5pys5Zyw5pyA5L2z6L+e6IOc44CCIiAvPgogIDxtZXRhIHByb3BlcnR5PSJvZzp1cmwiIGNvbnRlbnQ9Imh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvcG9uZy8iIC8+CiAgPG1ldGEgcHJvcGVydHk9Im9nOmltYWdlIiBjb250ZW50PSJodHRwczovL3ZpcC04ODEuZ2l0aHViLmlvL2g1Z2FtZXMtaHViL2Fzc2V0cy9vZy1jb3Zlci5zdmciIC8+CiAgPG1ldGEgbmFtZT0idHdpdHRlcjpjYXJkIiBjb250ZW50PSJzdW1tYXJ5X2xhcmdlX2ltYWdlIiAvPgogIDxtZXRhIG5hbWU9InR3aXR0ZXI6dGl0bGUiIGNvbnRlbnQ9IlBvbmcg5by555CD5a+55oiYIHwgSDUg5bCP5ri45oiP5ZCI6ZuGIiAvPgogIDxzY3JpcHQgdHlwZT0iYXBwbGljYXRpb24vbGQranNvbiI+CiAgewogICJAY29udGV4dCI6ICJodHRwczovL3NjaGVtYS5vcmciLAogICJAdHlwZSI6ICJWaWRlb0dhbWUiLAogICJuYW1lIjogIlBvbmcg5by555CD5a+55oiYIiwKICAidXJsIjogImh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvZ2FtZXMvcG9uZy8iLAogICJkZXNjcmlwdGlvbiI6ICLnu4/lhbggUG9uZyDlvLnnkIPlr7nmiJjmuLjmiI/vvJrlt6blj7Pnp7vliqjmjKHmnb/mjqXnkIPvvIznkIPnorDliLDmjKHmnb/lj43lvLnliqDpgJ/vvIzlhYjlvpcgNyDliIbojrfog5zvvJtBSSDkuInmoaPpmr7luqbvvIzmlK/mjIHplK7nm5jkuI7op6bmkbjvvIznuq/liY3nq6/ljbPngrnljbPnjqnjgIIiLAogICJnYW1lUGxhdGZvcm0iOiAiV2ViIiwKICAiYXBwbGljYXRpb25DYXRlZ29yeSI6ICJHYW1lIiwKICAiZ2VucmUiOiAi6KGX5py6IiwKICAicGxheU1vZGUiOiAiU2luZ2xlUGxheWVyIiwKICAiaW5MYW5ndWFnZSI6ICJ6aC1DTiIsCiAgImlzQWNjZXNzaWJsZUZvckZyZWUiOiB0cnVlLAogICJwdWJsaXNoZXIiOiB7CiAgICAiQHR5cGUiOiAiT3JnYW5pemF0aW9uIiwKICAgICJuYW1lIjogIkg1IEdhbWVzIEh1YiIsCiAgICAidXJsIjogImh0dHBzOi8vdmlwLTg4MS5naXRodWIuaW8vaDVnYW1lcy1odWIvIgogIH0KfQogIDwvc2NyaXB0PgogIDxtZXRhIG5hbWU9ImRlc2NyaXB0aW9uIiBjb250ZW50PSJQb25nIOW8ueeQg+WvueaImO+8muaOp+WItuW3puS+p+aMoeadv+aOpeeQg++8jOWFiOW+lyA3IOWIhuiOt+iDnOOAgkFJIOS4ieaho+mavuW6puWPr+mAie+8jOmUruebmCBXL1Mg5oiW5pa55ZCR6ZSu44CB6Kem5pG45ouW5Yqo5Z2H5Y+v5pON5L2c77yM5ZCr6ZyT6Jm55o+P6L655LiO5pys5Zyw5pyA5L2z5oiY57up77yM57qv5YmN56uv5Y2z54K55Y2z546p44CCIiAvPgogIDxtZXRhIG5hbWU9InJvYm90cyIgY29udGVudD0iaW5kZXgsIGZvbGxvdyIgLz4KICA8c3R5bGU+CiAgICA6cm9vdCB7CiAgICAgIC0tYmc6ICMwYjBlMWE7CiAgICAgIC0tcGFuZWw6ICMxMjE2Mjk7CiAgICAgIC0tbmVvbjogIzAwZTVmZjsKICAgICAgLS1uZW9uMjogI2ZmMmZiOTsKICAgICAgLS10ZXh0OiAjZTZmMWZmOwogICAgICAtLW11dGVkOiAjOGI5YmI0OwogICAgfQogICAgKiB7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IG1hcmdpbjogMDsgcGFkZGluZzogMDsgfQogICAgYm9keSB7CiAgICAgIGJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudCgxMjAwcHggNjAwcHggYXQgNTAlIC0xMCUsICMxNjIwNGEgMCUsIHZhcigtLWJnKSA2MCUpOwogICAgICBjb2xvcjogdmFyKC0tdGV4dCk7CiAgICAgIGZvbnQtZmFtaWx5OiAiU2Vnb2UgVUkiLCAiUGluZ0ZhbmcgU0MiLCAiTWljcm9zb2Z0IFlhSGVpIiwgc2Fucy1zZXJpZjsKICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgIHBhZGRpbmc6IDI0cHggMTZweCA0OHB4OwogICAgfQogICAgYS5iYWNrIHsgY29sb3I6IHZhcigtLW5lb24pOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGZvbnQtc2l6ZTogMTRweDsgYWxpZ24tc2VsZjogZmxleC1zdGFydDsgbWFyZ2luLWJvdHRvbTogMTJweDsgfQogICAgYS5iYWNrOmhvdmVyIHsgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7IH0KICAgIGgxIHsgZm9udC1zaXplOiAyNnB4OyBsZXR0ZXItc3BhY2luZzogMnB4OyB0ZXh0LXNoYWRvdzogMCAwIDEycHggcmdiYSgwLCAyMjksIDI1NSwgLjYpOyB9CiAgICAuc3ViIHsgY29sb3I6IHZhcigtLW11dGVkKTsgZm9udC1zaXplOiAxM3B4OyBtYXJnaW46IDZweCAwIDE4cHg7IH0KICAgIC5odWQgewogICAgICBkaXNwbGF5OiBmbGV4OyBnYXA6IDE0cHg7IGZsZXgtd3JhcDogd3JhcDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgIG1hcmdpbi1ib3R0b206IDE2cHg7IGZvbnQtc2l6ZTogMTRweDsKICAgIH0KICAgIC5odWQgc3BhbiB7CiAgICAgIGJhY2tncm91bmQ6IHZhcigtLXBhbmVsKTsgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLCAyMjksIDI1NSwgLjI1KTsKICAgICAgYm9yZGVyLXJhZGl1czogOHB4OyBwYWRkaW5nOiA2cHggMTJweDsKICAgIH0KICAgIC5odWQgYiB7IGNvbG9yOiB2YXIoLS1uZW9uKTsgfQogICAgLmRpZmYgeyBkaXNwbGF5OiBmbGV4OyBnYXA6IDhweDsgYWxpZ24taXRlbXM6IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTZweDsgZm9udC1zaXplOiAxNHB4OyBjb2xvcjogdmFyKC0tbXV0ZWQpOyB9CiAgICAuZGlmZiBidXR0b24geyBtaW4td2lkdGg6IDY0cHg7IHBhZGRpbmc6IDZweCAwOyBmb250LXNpemU6IDE0cHg7IGxldHRlci1zcGFjaW5nOiAwOyB9CiAgICAuZGlmZiBidXR0b24ub24geyBiYWNrZ3JvdW5kOiB2YXIoLS1uZW9uKTsgY29sb3I6ICMwNDEyMWE7IH0KICAgICNjb3VydCB7CiAgICAgIGJhY2tncm91bmQ6IHZhcigtLXBhbmVsKTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLCAyMjksIDI1NSwgLjM1KTsKICAgICAgYm9yZGVyLXJhZGl1czogMTRweDsKICAgICAgYm94LXNoYWRvdzogMCAwIDI0cHggcmdiYSgwLCAyMjksIDI1NSwgLjE4KSwgaW5zZXQgMCAwIDEycHggcmdiYSgwLCAwLCAwLCAuNSk7CiAgICAgIGRpc3BsYXk6IGJsb2NrOwogICAgICB0b3VjaC1hY3Rpb246IG5vbmU7CiAgICAgIG1heC13aWR0aDogMTAwJTsKICAgIH0KICAgIC5jb250cm9scyB7IGRpc3BsYXk6IGZsZXg7IGdhcDogMTJweDsgbWFyZ2luLXRvcDogMThweDsgfQogICAgYnV0dG9uIHsKICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IGNvbG9yOiB2YXIoLS1uZW9uKTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbmVvbik7IGJvcmRlci1yYWRpdXM6IDhweDsKICAgICAgcGFkZGluZzogMTBweCAyMHB4OyBmb250LXNpemU6IDE1cHg7IGN1cnNvcjogcG9pbnRlcjsKICAgICAgbGV0dGVyLXNwYWNpbmc6IDJweDsKICAgICAgdHJhbnNpdGlvbjogYmFja2dyb3VuZCAuMTVzIGVhc2UsIGNvbG9yIC4xNXMgZWFzZTsKICAgIH0KICAgIGJ1dHRvbjpob3ZlciB7IGJhY2tncm91bmQ6IHZhcigtLW5lb24pOyBjb2xvcjogIzA0MTIxYTsgfQogICAgI21zZyB7CiAgICAgIG1hcmdpbi10b3A6IDE2cHg7IG1pbi1oZWlnaHQ6IDI0cHg7IGZvbnQtc2l6ZTogMTVweDsKICAgICAgY29sb3I6IHZhcigtLW5lb24yKTsgdGV4dC1zaGFkb3c6IDAgMCAxMHB4IHJnYmEoMjU1LCA0NywgMTg1LCAuNSk7CiAgICB9CiAgICAjbXNnLndpbiB7IGNvbG9yOiAjNThmZmIxOyB0ZXh0LXNoYWRvdzogMCAwIDEwcHggcmdiYSg4OCwgMjU1LCAxNzcsIC41KTsgfQogIDwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CiAgPGEgY2xhc3M9ImJhY2siIGhyZWY9Ii8iPuKGkCDov5Tlm57muLjmiI/lkIjpm4Y8L2E+CiAgPGgxPvCfj5MgUG9uZyDlvLnnkIPlr7nmiJg8L2gxPgogIDxwIGNsYXNzPSJzdWIiPlcvUyDmiJYg4oaRL+KGkyDnp7vliqjmjKHmnb/vvIjmiYvmnLrmi5bliqjlsY/luZXvvInCtyDlhYjlvpcgNyDliIbojrfog5wgwrcg55CD6LaK5omT6LaK5b+rPC9wPgoKICA8ZGl2IGNsYXNzPSJodWQiPgogICAgPHNwYW4+5L2gIDxiIGlkPSJwcyI+MDwvYj48L3NwYW4+CiAgICA8c3Bhbj5BSSA8YiBpZD0iYXMiPjA8L2I+PC9zcGFuPgogICAgPHNwYW4+5pyA6auY6L+e6IOcIDxiIGlkPSJzdHJlYWsiPjA8L2I+PC9zcGFuPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJkaWZmIiByb2xlPSJncm91cCIgYXJpYS1sYWJlbD0i6YCJ5oupIEFJIOmavuW6piI+CiAgICA8c3Bhbj7pmr7luqbvvJo8L3NwYW4+CiAgICA8YnV0dG9uIGRhdGEtZD0iMCI+566A5Y2VPC9idXR0b24+CiAgICA8YnV0dG9uIGRhdGEtZD0iMSIgY2xhc3M9Im9uIj7mma7pgJo8L2J1dHRvbj4KICAgIDxidXR0b24gZGF0YS1kPSIyIj7lm7Dpmr48L2J1dHRvbj4KICA8L2Rpdj4KCiAgPGNhbnZhcyBpZD0iY291cnQiIHdpZHRoPSI2NDAiIGhlaWdodD0iNDAwIiBhcmlhLWxhYmVsPSJQb25nIOeQg+WcuiI+PC9jYW52YXM+CgogIDxkaXYgY2xhc3M9ImNvbnRyb2xzIj4KICAgIDxidXR0b24gaWQ9ImJ0blN0YXJ0Ij7lvIDlp4sgLyDph43mlrDlvIDlp4s8L2J1dHRvbj4KICA8L2Rpdj4KCiAgPGRpdiBpZD0ibXNnIiBhcmlhLWxpdmU9InBvbGl0ZSI+PC9kaXY+CgogIDxzY3JpcHQ+CiAgICAoZnVuY3Rpb24gKCkgewogICAgICAidXNlIHN0cmljdCI7CiAgICAgIHZhciBXID0gNjQwLCBIID0gNDAwOwogICAgICB2YXIgUEFEX0ggPSA3MiwgUEFEX1cgPSAxMCwgVEFSR0VUID0gNzsKICAgICAgdmFyIGN2ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImNvdXJ0Iik7CiAgICAgIHZhciBjdHggPSBjdi5nZXRDb250ZXh0KCIyZCIpOwogICAgICB2YXIgZWxQcyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJwcyIpOwogICAgICB2YXIgZWxBcyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJhcyIpOwogICAgICB2YXIgZWxTdHJlYWsgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgic3RyZWFrIik7CiAgICAgIHZhciBlbE1zZyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJtc2ciKTsKCiAgICAgIHZhciBkaWZmSWR4ID0gMTsgICAgICAgICAgICAgICAgICAgICAgIC8vIDAg566A5Y2VIDEg5pmu6YCaIDIg5Zuw6Zq+CiAgICAgIHZhciBESUZGID0gWwogICAgICAgIHsgc3BlZWQ6IDMuNCwgZXJyOiA0NiB9LCAgICAgICAgICAgICAvLyBBSSDov73nkIPpgJ/luqYgLyDnnoTlh4bor6/lt64KICAgICAgICB7IHNwZWVkOiA0LjYsIGVycjogMjYgfSwKICAgICAgICB7IHNwZWVkOiA2LjAsIGVycjogMTAgfQogICAgICBdOwoKICAgICAgdmFyIHB5ID0gSCAvIDIgLSBQQURfSCAvIDI7ICAgICAgICAgICAgLy8g546p5a625oyh5p2/IHkKICAgICAgdmFyIGF5ID0gSCAvIDIgLSBQQURfSCAvIDI7ICAgICAgICAgICAgLy8gQUkg5oyh5p2/IHkKICAgICAgdmFyIGJhbGwgPSB7IHg6IFcgLyAyLCB5OiBIIC8gMiwgdng6IDQsIHZ5OiAyLCByOiA3IH07CiAgICAgIHZhciBwcyA9IDAsIGFzID0gMCwgc3RyZWFrID0gMCwgcnVuID0gMDsKICAgICAgdmFyIHBsYXlpbmcgPSBmYWxzZSwga2V5cyA9IHt9LCBhaVRhcmdldCA9IEggLyAyOwoKICAgICAgZnVuY3Rpb24gbG9hZFN0cmVhaygpIHsKICAgICAgICB0cnkgeyBzdHJlYWsgPSBwYXJzZUludChsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgicG9uZ19zdHJlYWsiKSB8fCAiMCIsIDEwKSB8fCAwOyB9IGNhdGNoIChlKSB7IHN0cmVhayA9IDA7IH0KICAgICAgICBlbFN0cmVhay50ZXh0Q29udGVudCA9IHN0cmVhazsKICAgICAgfQoKICAgICAgZnVuY3Rpb24gc2VydmUoZGlyKSB7ICAgICAgICAgICAgICAgICAgLy8gZGlyOiAxIOeQg+mjnuWQkSBBSe+8jC0xIOmjnuWQkeeOqeWutgogICAgICAgIGJhbGwueCA9IFcgLyAyOyBiYWxsLnkgPSBIIC8gMjsKICAgICAgICB2YXIgc3AgPSA0ICsgZGlmZklkeCAqIDAuNjsKICAgICAgICB2YXIgYW5nID0gKE1hdGgucmFuZG9tKCkgKiAwLjggLSAwLjQpOyAgIC8vIMKxMC40IOW8p+W6pgogICAgICAgIGJhbGwudnggPSBkaXIgKiBzcCAqIE1hdGguY29zKGFuZyk7CiAgICAgICAgYmFsbC52eSA9IHNwICogTWF0aC5zaW4oYW5nKSB8fCAyOwogICAgICB9CgogICAgICBmdW5jdGlvbiBkcmF3KCkgewogICAgICAgIC8vIOWcuuWcsAogICAgICAgIGN0eC5jbGVhclJlY3QoMCwgMCwgVywgSCk7CiAgICAgICAgY3R4LnN0cm9rZVN0eWxlID0gInJnYmEoMCwyMjksMjU1LC4zNSkiOwogICAgICAgIGN0eC5zZXRMaW5lRGFzaChbOCwgMTJdKTsKICAgICAgICBjdHguYmVnaW5QYXRoKCk7IGN0eC5tb3ZlVG8oVyAvIDIsIDApOyBjdHgubGluZVRvKFcgLyAyLCBIKTsgY3R4LnN0cm9rZSgpOwogICAgICAgIGN0eC5zZXRMaW5lRGFzaChbXSk7CgogICAgICAgIC8vIOaMoeadvwogICAgICAgIGN0eC5zaGFkb3dCbHVyID0gMTI7CiAgICAgICAgY3R4LnNoYWRvd0NvbG9yID0gIiMwMGU1ZmYiOwogICAgICAgIGN0eC5maWxsU3R5bGUgPSAiIzAwZTVmZiI7CiAgICAgICAgY3R4LmZpbGxSZWN0KDE4LCBweSwgUEFEX1csIFBBRF9IKTsKICAgICAgICBjdHguc2hhZG93Q29sb3IgPSAiI2ZmMmZiOSI7CiAgICAgICAgY3R4LmZpbGxTdHlsZSA9ICIjZmYyZmI5IjsKICAgICAgICBjdHguZmlsbFJlY3QoVyAtIDE4IC0gUEFEX1csIGF5LCBQQURfVywgUEFEX0gpOwoKICAgICAgICAvLyDnkIMKICAgICAgICBjdHguc2hhZG93Q29sb3IgPSAiI2ZmZmZmZiI7CiAgICAgICAgY3R4LmZpbGxTdHlsZSA9ICIjZmZmZmZmIjsKICAgICAgICBjdHguYmVnaW5QYXRoKCk7CiAgICAgICAgY3R4LmFyYyhiYWxsLngsIGJhbGwueSwgYmFsbC5yLCAwLCBNYXRoLlBJICogMik7CiAgICAgICAgY3R4LmZpbGwoKTsKCiAgICAgICAgLy8g5q+U5YiGCiAgICAgICAgY3R4LnNoYWRvd0JsdXIgPSAwOwogICAgICAgIGN0eC5mb250ID0gImJvbGQgMzRweCBtb25vc3BhY2UiOwogICAgICAgIGN0eC5maWxsU3R5bGUgPSAicmdiYSgyMzAsMjQxLDI1NSwuMzUpIjsKICAgICAgICBjdHgudGV4dEFsaWduID0gImNlbnRlciI7CiAgICAgICAgY3R4LmZpbGxUZXh0KHBzLCBXIC8gMiAtIDUwLCA0OCk7CiAgICAgICAgY3R4LmZpbGxUZXh0KGFzLCBXIC8gMiArIDUwLCA0OCk7CiAgICAgIH0KCiAgICAgIGZ1bmN0aW9uIHBvaW50KHdobykgewogICAgICAgIGlmICh3aG8gPT09ICJwIikgcHMrKzsgZWxzZSB7IGFzKys7IH0KICAgICAgICBlbFBzLnRleHRDb250ZW50ID0gcHM7CiAgICAgICAgZWxBcy50ZXh0Q29udGVudCA9IGFzOwogICAgICAgIGlmIChwcyA+PSBUQVJHRVQgfHwgYXMgPj0gVEFSR0VUKSB7CiAgICAgICAgICBwbGF5aW5nID0gZmFsc2U7CiAgICAgICAgICBpZiAocHMgPj0gVEFSR0VUKSB7CiAgICAgICAgICAgIHJ1bisrOwogICAgICAgICAgICBpZiAocnVuID4gc3RyZWFrKSB7CiAgICAgICAgICAgICAgc3RyZWFrID0gcnVuOwogICAgICAgICAgICAgIHRyeSB7IGxvY2FsU3RvcmFnZS5zZXRJdGVtKCJwb25nX3N0cmVhayIsIFN0cmluZyhzdHJlYWspKTsgfSBjYXRjaCAoZSkge30KICAgICAgICAgICAgICBlbFN0cmVhay50ZXh0Q29udGVudCA9IHN0cmVhazsKICAgICAgICAgICAgfQogICAgICAgICAgICBlbE1zZy50ZXh0Q29udGVudCA9ICLwn46JIOS9oOi1ouS6hiAiICsgcHMgKyAiOiIgKyBhcyArICLvvIHov57og5wgIiArIHJ1biArICIg5bGA44CC54K55Ye744CM5byA5aeL44CN5YaN5p2l5LiA5bGA44CCIjsKICAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHJ1biA9IDA7CiAgICAgICAgICAgIGVsTXNnLnRleHRDb250ZW50ID0gIvCfkqUgQUkg5LulICIgKyBhcyArICI6IiArIHBzICsgIiDojrfog5zjgILosIPmlbTpmr7luqblho3miJjvvIEiOwogICAgICAgICAgfQogICAgICAgICAgZWxNc2cuY2xhc3NOYW1lID0gcHMgPj0gVEFSR0VUID8gIndpbiIgOiAiIjsKICAgICAgICAgIHJldHVybjsKICAgICAgICB9CiAgICAgICAgc2VydmUod2hvID09PSAicCIgPyAxIDogLTEpOyAgICAgICAvLyDlvpfliIbmlrnlj5HnkIPvvJ/igJTigJTlpLHliIbmlrnmjqXlj5HvvIznkIPpo57lkJHlpLHliIbmlrkKICAgICAgfQoKICAgICAgZnVuY3Rpb24gc3RlcCgpIHsKICAgICAgICBpZiAocGxheWluZykgewogICAgICAgICAgLy8g546p5a625oyh5p2/CiAgICAgICAgICB2YXIgc3AgPSA2OwogICAgICAgICAgaWYgKGtleXMuQXJyb3dVcCB8fCBrZXlzLncpIHB5IC09IHNwOwogICAgICAgICAgaWYgKGtleXMuQXJyb3dEb3duIHx8IGtleXMucykgcHkgKz0gc3A7CiAgICAgICAgICBweSA9IE1hdGgubWF4KDAsIE1hdGgubWluKEggLSBQQURfSCwgcHkpKTsKCiAgICAgICAgICAvLyBBSe+8muW5s+a7kei/vei4quebruagh++8iOW4puivr+W3ru+8ie+8jOi2iueVjOWbnuS4rQogICAgICAgICAgYWlUYXJnZXQgKz0gKERJRkZbZGlmZklkeF0uZXJyIC8gNjApICogKE1hdGgucmFuZG9tKCkgLSAwLjUpOwogICAgICAgICAgYWlUYXJnZXQgPSBNYXRoLm1heCgwLCBNYXRoLm1pbihIIC0gUEFEX0gsIGFpVGFyZ2V0KSk7CiAgICAgICAgICB2YXIgZHkgPSAoYWlUYXJnZXQgKyBQQURfSCAvIDIpIC0gKGJhbGwueSk7CiAgICAgICAgICB2YXIgZGlyID0gTWF0aC5zaWduKGR5KTsKICAgICAgICAgIHZhciBjYXAgPSBNYXRoLmFicyhkeSkgPiBESUZGW2RpZmZJZHhdLnNwZWVkID8gRElGRltkaWZmSWR4XS5zcGVlZCA6IE1hdGguYWJzKGR5KTsKICAgICAgICAgIGlmIChiYWxsLnZ4ID4gMCkgYXkgKz0gZGlyICogY2FwOwogICAgICAgICAgZWxzZSBheSArPSAoSCAvIDIgLSBQQURfSCAvIDIgLSBheSkgKiAwLjA4OwogICAgICAgICAgYXkgPSBNYXRoLm1heCgwLCBNYXRoLm1pbihIIC0gUEFEX0gsIGF5KSk7CgogICAgICAgICAgLy8g55CDCiAgICAgICAgICBiYWxsLnggKz0gYmFsbC52eDsgYmFsbC55ICs9IGJhbGwudnk7CiAgICAgICAgICBpZiAoYmFsbC55IC0gYmFsbC5yIDwgMCkgeyBiYWxsLnkgPSBiYWxsLnI7IGJhbGwudnkgPSAtYmFsbC52eTsgfQogICAgICAgICAgaWYgKGJhbGwueSArIGJhbGwuciA+IEgpIHsgYmFsbC55ID0gSCAtIGJhbGwucjsgYmFsbC52eSA9IC1iYWxsLnZ5OyB9CgogICAgICAgICAgLy8g546p5a625oyh5p2/56Kw5pKeCiAgICAgICAgICBpZiAoYmFsbC52eCA8IDAgJiYgYmFsbC54IC0gYmFsbC5yIDwgMTggKyBQQURfVyAmJiBiYWxsLnggLSBiYWxsLnIgPiA4ICYmCiAgICAgICAgICAgICAgYmFsbC55ID4gcHkgLSA2ICYmIGJhbGwueSA8IHB5ICsgUEFEX0ggKyA2KSB7CiAgICAgICAgICAgIGJhbGwueCA9IDE4ICsgUEFEX1cgKyBiYWxsLnI7CiAgICAgICAgICAgIHZhciBvZmYgPSAoYmFsbC55IC0gKHB5ICsgUEFEX0ggLyAyKSkgLyAoUEFEX0ggLyAyKTsgICAvLyAtMS4uMSDlh7vngrnlgY/np7sKICAgICAgICAgICAgdmFyIHNwZCA9IE1hdGgubWluKE1hdGguYWJzKGJhbGwudngpICogMS4wNiArIDAuMiwgMTIpOwogICAgICAgICAgICB2YXIgYW5nMiA9IG9mZiAqIDAuOTsKICAgICAgICAgICAgYmFsbC52eCA9IHNwZCAqIE1hdGguY29zKGFuZzIpOwogICAgICAgICAgICBiYWxsLnZ5ID0gc3BkICogTWF0aC5zaW4oYW5nMik7CiAgICAgICAgICB9CiAgICAgICAgICAvLyBBSSDmjKHmnb/norDmkp4KICAgICAgICAgIGlmIChiYWxsLnZ4ID4gMCAmJiBiYWxsLnggKyBiYWxsLnIgPiBXIC0gMTggLSBQQURfVyAmJiBiYWxsLnggKyBiYWxsLnIgPCBXIC0gOCAmJgogICAgICAgICAgICAgIGJhbGwueSA+IGF5IC0gNiAmJiBiYWxsLnkgPCBheSArIFBBRF9IICsgNikgewogICAgICAgICAgICBiYWxsLnggPSBXIC0gMTggLSBQQURfVyAtIGJhbGwucjsKICAgICAgICAgICAgdmFyIG9mZjIgPSAoYmFsbC55IC0gKGF5ICsgUEFEX0ggLyAyKSkgLyAoUEFEX0ggLyAyKTsKICAgICAgICAgICAgdmFyIHNwZDIgPSBNYXRoLm1pbihNYXRoLmFicyhiYWxsLnZ4KSAqIDEuMDYgKyAwLjIsIDEyKTsKICAgICAgICAgICAgdmFyIGFuZzMgPSBNYXRoLlBJIC0gb2ZmMiAqIDAuOTsKICAgICAgICAgICAgYmFsbC52eCA9IHNwZDIgKiBNYXRoLmNvcyhhbmczKTsKICAgICAgICAgICAgYmFsbC52eSA9IHNwZDIgKiBNYXRoLnNpbigtYW5nMykgKiAtMTsKICAgICAgICAgIH0KCiAgICAgICAgICAvLyDlh7rnlYzlvpfliIYKICAgICAgICAgIGlmIChiYWxsLnggPCAtMTApIHBvaW50KCJhIik7CiAgICAgICAgICBlbHNlIGlmIChiYWxsLnggPiBXICsgMTApIHBvaW50KCJwIik7CiAgICAgICAgfQogICAgICAgIGRyYXcoKTsKICAgICAgICByZXF1ZXN0QW5pbWF0aW9uRnJhbWUoc3RlcCk7CiAgICAgIH0KCiAgICAgIGZ1bmN0aW9uIHN0YXJ0KCkgewogICAgICAgIHBzID0gMDsgYXMgPSAwOwogICAgICAgIHB5ID0gSCAvIDIgLSBQQURfSCAvIDI7CiAgICAgICAgYXkgPSBIIC8gMiAtIFBBRF9IIC8gMjsKICAgICAgICBlbFBzLnRleHRDb250ZW50ID0gIjAiOwogICAgICAgIGVsQXMudGV4dENvbnRlbnQgPSAiMCI7CiAgICAgICAgZWxNc2cudGV4dENvbnRlbnQgPSAiIjsKICAgICAgICBlbE1zZy5jbGFzc05hbWUgPSAiIjsKICAgICAgICBwbGF5aW5nID0gdHJ1ZTsKICAgICAgICBzZXJ2ZShNYXRoLnJhbmRvbSgpIDwgMC41ID8gMSA6IC0xKTsKICAgICAgfQoKICAgICAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigia2V5ZG93biIsIGZ1bmN0aW9uIChldikgewogICAgICAgIGtleXNbZXYua2V5XSA9IHRydWU7CiAgICAgICAgaWYgKFsiQXJyb3dVcCIsICJBcnJvd0Rvd24iXS5pbmRleE9mKGV2LmtleSkgPj0gMCkgZXYucHJldmVudERlZmF1bHQoKTsKICAgICAgfSk7CiAgICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoImtleXVwIiwgZnVuY3Rpb24gKGV2KSB7IGtleXNbZXYua2V5XSA9IGZhbHNlOyB9KTsKCiAgICAgIC8vIOinpuaRuC/pvKDmoIfmi5bliqjmjqfliLbmjKHmnb8KICAgICAgZnVuY3Rpb24gcG9pbnRlclkoZXYpIHsKICAgICAgICB2YXIgcmVjdCA9IGN2LmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpOwogICAgICAgIHZhciB5ID0gKGV2LnRvdWNoZXMgPyBldi50b3VjaGVzWzBdLmNsaWVudFkgOiBldi5jbGllbnRZKSAtIHJlY3QudG9wOwogICAgICAgIHJldHVybiB5ICogKEggLyByZWN0LmhlaWdodCk7CiAgICAgIH0KICAgICAgY3YuYWRkRXZlbnRMaXN0ZW5lcigicG9pbnRlcmRvd24iLCBmdW5jdGlvbiAoZXYpIHsgcHkgPSBwb2ludGVyWShldikgLSBQQURfSCAvIDI7IGV2LnByZXZlbnREZWZhdWx0KCk7IH0pOwogICAgICBjdi5hZGRFdmVudExpc3RlbmVyKCJwb2ludGVybW92ZSIsIGZ1bmN0aW9uIChldikgewogICAgICAgIGlmIChldi5idXR0b25zIHx8IGV2LnBvaW50ZXJUeXBlID09PSAidG91Y2giKSBweSA9IHBvaW50ZXJZKGV2KSAtIFBBRF9IIC8gMjsKICAgICAgfSk7CgogICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCIuZGlmZiBidXR0b24iKS5mb3JFYWNoKGZ1bmN0aW9uIChiKSB7CiAgICAgICAgYi5hZGRFdmVudExpc3RlbmVyKCJjbGljayIsIGZ1bmN0aW9uICgpIHsKICAgICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoIi5kaWZmIGJ1dHRvbiIpLmZvckVhY2goZnVuY3Rpb24gKHgpIHsgeC5jbGFzc0xpc3QucmVtb3ZlKCJvbiIpOyB9KTsKICAgICAgICAgIGIuY2xhc3NMaXN0LmFkZCgib24iKTsKICAgICAgICAgIGRpZmZJZHggPSBwYXJzZUludChiLmRhdGFzZXQuZCwgMTApOwogICAgICAgIH0pOwogICAgICB9KTsKCiAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJidG5TdGFydCIpLmFkZEV2ZW50TGlzdGVuZXIoImNsaWNrIiwgc3RhcnQpOwoKICAgICAgbG9hZFN0cmVhaygpOwogICAgICBzdGFydCgpOwogICAgICBzdGVwKCk7CiAgICB9KSgpOwogIDwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pong 弹球对战 | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://vip-881.github.io/h5games-hub/games/pong/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pong 弹球对战 | H5 小游戏合集" />
+  <meta property="og:description" content="1972 年经典 Pong 的赛博朋克复刻：左右移动挡板接球，先得 7 分获胜；AI 三档难度，支持键盘与触摸拖动，记录本地最佳连胜。" />
+  <meta property="og:url" content="https://vip-881.github.io/h5games-hub/games/pong/" />
+  <meta property="og:image" content="https://vip-881.github.io/h5games-hub/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pong 弹球对战 | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Pong 弹球对战",
+  "url": "https://vip-881.github.io/h5games-hub/games/pong/",
+  "description": "经典 Pong 弹球对战游戏：左右移动挡板接球，球碰到挡板反弹加速，先得 7 分获胜；AI 三档难度，支持键盘与触摸，纯前端即点即玩。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "街机",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://vip-881.github.io/h5games-hub/"
+  }
+}
+  </script>
+  <meta name="description" content="Pong 弹球对战：控制左侧挡板接球，先得 7 分获胜。AI 三档难度可选，键盘 W/S 或方向键、触摸拖动均可操作，含霓虹描边与本地最佳战绩，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    .diff { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; font-size: 14px; color: var(--muted); }
+    .diff button { min-width: 64px; padding: 6px 0; font-size: 14px; letter-spacing: 0; }
+    .diff button.on { background: var(--neon); color: #04121a; }
+    #court {
+      background: var(--panel);
+      border: 1px solid rgba(0, 229, 255, .35);
+      border-radius: 14px;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      display: block;
+      touch-action: none;
+      max-width: 100%;
+    }
+    .controls { display: flex; gap: 12px; margin-top: 18px; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 10px 20px; font-size: 15px; cursor: pointer;
+      letter-spacing: 2px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover { background: var(--neon); color: #04121a; }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: #58ffb1; text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🏓 Pong 弹球对战</h1>
+  <p class="sub">W/S 或 ↑/↓ 移动挡板（手机拖动屏幕）· 先得 7 分获胜 · 球越打越快</p>
+
+  <div class="hud">
+    <span>你 <b id="ps">0</b></span>
+    <span>AI <b id="as">0</b></span>
+    <span>最高连胜 <b id="streak">0</b></span>
+  </div>
+
+  <div class="diff" role="group" aria-label="选择 AI 难度">
+    <span>难度：</span>
+    <button data-d="0">简单</button>
+    <button data-d="1" class="on">普通</button>
+    <button data-d="2">困难</button>
+  </div>
+
+  <canvas id="court" width="640" height="400" aria-label="Pong 球场"></canvas>
+
+  <div class="controls">
+    <button id="btnStart">开始 / 重新开始</button>
+  </div>
+
+  <div id="msg" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var W = 640, H = 400;
+      var PAD_H = 72, PAD_W = 10, TARGET = 7;
+      var cv = document.getElementById("court");
+      var ctx = cv.getContext("2d");
+      var elPs = document.getElementById("ps");
+      var elAs = document.getElementById("as");
+      var elStreak = document.getElementById("streak");
+      var elMsg = document.getElementById("msg");
+
+      var diffIdx = 1;                       // 0 简单 1 普通 2 困难
+      var DIFF = [
+        { speed: 3.4, err: 46 },             // AI 追球速度 / 瞄准误差
+        { speed: 4.6, err: 26 },
+        { speed: 6.0, err: 10 }
+      ];
+
+      var py = H / 2 - PAD_H / 2;            // 玩家挡板 y
+      var ay = H / 2 - PAD_H / 2;            // AI 挡板 y
+      var ball = { x: W / 2, y: H / 2, vx: 4, vy: 2, r: 7 };
+      var ps = 0, as = 0, streak = 0, run = 0;
+      var playing = false, keys = {}, aiTarget = H / 2;
+
+      function loadStreak() {
+        try { streak = parseInt(localStorage.getItem("pong_streak") || "0", 10) || 0; } catch (e) { streak = 0; }
+        elStreak.textContent = streak;
+      }
+
+      function serve(dir) {                  // dir: 1 球飞向 AI，-1 飞向玩家
+        ball.x = W / 2; ball.y = H / 2;
+        var sp = 4 + diffIdx * 0.6;
+        var ang = (Math.random() * 0.8 - 0.4);   // ±0.4 弧度
+        ball.vx = dir * sp * Math.cos(ang);
+        ball.vy = sp * Math.sin(ang) || 2;
+      }
+
+      function draw() {
+        // 场地
+        ctx.clearRect(0, 0, W, H);
+        ctx.strokeStyle = "rgba(0,229,255,.35)";
+        ctx.setLineDash([8, 12]);
+        ctx.beginPath(); ctx.moveTo(W / 2, 0); ctx.lineTo(W / 2, H); ctx.stroke();
+        ctx.setLineDash([]);
+
+        // 挡板
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = "#00e5ff";
+        ctx.fillStyle = "#00e5ff";
+        ctx.fillRect(18, py, PAD_W, PAD_H);
+        ctx.shadowColor = "#ff2fb9";
+        ctx.fillStyle = "#ff2fb9";
+        ctx.fillRect(W - 18 - PAD_W, ay, PAD_W, PAD_H);
+
+        // 球
+        ctx.shadowColor = "#ffffff";
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 比分
+        ctx.shadowBlur = 0;
+        ctx.font = "bold 34px monospace";
+        ctx.fillStyle = "rgba(230,241,255,.35)";
+        ctx.textAlign = "center";
+        ctx.fillText(ps, W / 2 - 50, 48);
+        ctx.fillText(as, W / 2 + 50, 48);
+      }
+
+      function point(who) {
+        if (who === "p") ps++; else { as++; }
+        elPs.textContent = ps;
+        elAs.textContent = as;
+        if (ps >= TARGET || as >= TARGET) {
+          playing = false;
+          if (ps >= TARGET) {
+            run++;
+            if (run > streak) {
+              streak = run;
+              try { localStorage.setItem("pong_streak", String(streak)); } catch (e) {}
+              elStreak.textContent = streak;
+            }
+            elMsg.textContent = "🎉 你赢了 " + ps + ":" + as + "！连胜 " + run + " 局。点击「开始」再来一局。";
+          } else {
+            run = 0;
+            elMsg.textContent = "💥 AI 以 " + as + ":" + ps + " 获胜。调整难度再战！";
+          }
+          elMsg.className = ps >= TARGET ? "win" : "";
+          return;
+        }
+        serve(who === "p" ? 1 : -1);       // 得分方发球？——失分方接发，球飞向失分方
+      }
+
+      function step() {
+        if (playing) {
+          // 玩家挡板
+          var sp = 6;
+          if (keys.ArrowUp || keys.w) py -= sp;
+          if (keys.ArrowDown || keys.s) py += sp;
+          py = Math.max(0, Math.min(H - PAD_H, py));
+
+          // AI：平滑追踪目标（带误差），越界回中
+          aiTarget += (DIFF[diffIdx].err / 60) * (Math.random() - 0.5);
+          aiTarget = Math.max(0, Math.min(H - PAD_H, aiTarget));
+          var dy = (aiTarget + PAD_H / 2) - (ball.y);
+          var dir = Math.sign(dy);
+          var cap = Math.abs(dy) > DIFF[diffIdx].speed ? DIFF[diffIdx].speed : Math.abs(dy);
+          if (ball.vx > 0) ay += dir * cap;
+          else ay += (H / 2 - PAD_H / 2 - ay) * 0.08;
+          ay = Math.max(0, Math.min(H - PAD_H, ay));
+
+          // 球
+          ball.x += ball.vx; ball.y += ball.vy;
+          if (ball.y - ball.r < 0) { ball.y = ball.r; ball.vy = -ball.vy; }
+          if (ball.y + ball.r > H) { ball.y = H - ball.r; ball.vy = -ball.vy; }
+
+          // 玩家挡板碰撞
+          if (ball.vx < 0 && ball.x - ball.r < 18 + PAD_W && ball.x - ball.r > 8 &&
+              ball.y > py - 6 && ball.y < py + PAD_H + 6) {
+            ball.x = 18 + PAD_W + ball.r;
+            var off = (ball.y - (py + PAD_H / 2)) / (PAD_H / 2);   // -1..1 击点偏移
+            var spd = Math.min(Math.abs(ball.vx) * 1.06 + 0.2, 12);
+            var ang2 = off * 0.9;
+            ball.vx = spd * Math.cos(ang2);
+            ball.vy = spd * Math.sin(ang2);
+          }
+          // AI 挡板碰撞
+          if (ball.vx > 0 && ball.x + ball.r > W - 18 - PAD_W && ball.x + ball.r < W - 8 &&
+              ball.y > ay - 6 && ball.y < ay + PAD_H + 6) {
+            ball.x = W - 18 - PAD_W - ball.r;
+            var off2 = (ball.y - (ay + PAD_H / 2)) / (PAD_H / 2);
+            var spd2 = Math.min(Math.abs(ball.vx) * 1.06 + 0.2, 12);
+            var ang3 = Math.PI - off2 * 0.9;
+            ball.vx = spd2 * Math.cos(ang3);
+            ball.vy = spd2 * Math.sin(-ang3) * -1;
+          }
+
+          // 出界得分
+          if (ball.x < -10) point("a");
+          else if (ball.x > W + 10) point("p");
+        }
+        draw();
+        requestAnimationFrame(step);
+      }
+
+      function start() {
+        ps = 0; as = 0;
+        py = H / 2 - PAD_H / 2;
+        ay = H / 2 - PAD_H / 2;
+        elPs.textContent = "0";
+        elAs.textContent = "0";
+        elMsg.textContent = "";
+        elMsg.className = "";
+        playing = true;
+        serve(Math.random() < 0.5 ? 1 : -1);
+      }
+
+      document.addEventListener("keydown", function (ev) {
+        keys[ev.key] = true;
+        if (["ArrowUp", "ArrowDown"].indexOf(ev.key) >= 0) ev.preventDefault();
+      });
+      document.addEventListener("keyup", function (ev) { keys[ev.key] = false; });
+
+      // 触摸/鼠标拖动控制挡板
+      function pointerY(ev) {
+        var rect = cv.getBoundingClientRect();
+        var y = (ev.touches ? ev.touches[0].clientY : ev.clientY) - rect.top;
+        return y * (H / rect.height);
+      }
+      cv.addEventListener("pointerdown", function (ev) { py = pointerY(ev) - PAD_H / 2; ev.preventDefault(); });
+      cv.addEventListener("pointermove", function (ev) {
+        if (ev.buttons || ev.pointerType === "touch") py = pointerY(ev) - PAD_H / 2;
+      });
+
+      document.querySelectorAll(".diff button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          document.querySelectorAll(".diff button").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          diffIdx = parseInt(b.dataset.d, 10);
+        });
+      });
+
+      document.getElementById("btnStart").addEventListener("click", start);
+
+      loadStreak();
+      start();
+      step();
+    })();
+  </script>
+</body>
+</html>
