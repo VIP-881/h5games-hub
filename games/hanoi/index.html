@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>汉诺塔 Tower of Hanoi | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/hanoi/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="汉诺塔 Tower of Hanoi | H5 小游戏合集" />
+  <meta property="og:description" content="经典汉诺塔：把整叠圆盘从左柱移到右柱，大盘不许压小盘；3–8 盘可选，实时对比最优步数 2ⁿ−1，记录每档盘数的本地最佳。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/hanoi/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="汉诺塔 Tower of Hanoi | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "汉诺塔 Tower of Hanoi",
+  "url": "https://h5games-hub.pages.dev/games/hanoi/",
+  "description": "经典汉诺塔益智游戏：把整叠圆盘从左柱移到右柱，每次移动一盘且大盘不能压小盘；3-8 盘可选，实时对比最优步数 2ⁿ−1，记录本地最佳成绩。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+  <meta name="description" content="汉诺塔（Tower of Hanoi）：把整叠圆盘从左柱移到右柱，大盘不许压小盘。3-8 盘难度可选，点击或按 1/2/3 键移动，步数实时对比最优解 2ⁿ−1，纯前端即点即玩。" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #0b0e1a;
+      --panel: #121629;
+      --neon: #00e5ff;
+      --neon2: #ff2fb9;
+      --text: #e6f1ff;
+      --muted: #8b9bb4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 600px at 50% -10%, #16204a 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    a.back { color: var(--neon); text-decoration: none; font-size: 14px; align-self: flex-start; margin-bottom: 12px; }
+    a.back:hover { text-decoration: underline; }
+    h1 { font-size: 26px; letter-spacing: 2px; text-shadow: 0 0 12px rgba(0, 229, 255, .6); }
+    .sub { color: var(--muted); font-size: 13px; margin: 6px 0 18px; }
+    .hud {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; font-size: 14px;
+    }
+    .hud span {
+      background: var(--panel); border: 1px solid rgba(0, 229, 255, .25);
+      border-radius: 8px; padding: 6px 12px;
+    }
+    .hud b { color: var(--neon); }
+    .diff { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; font-size: 14px; color: var(--muted); }
+    .diff button {
+      min-width: 44px; padding: 6px 0; font-size: 14px; letter-spacing: 0;
+    }
+    .diff button.on { background: var(--neon); color: #04121a; }
+    #board {
+      display: flex; gap: 18px; align-items: flex-end;
+      background: var(--panel);
+      border: 1px solid rgba(0, 229, 255, .35);
+      border-radius: 14px;
+      padding: 18px 14px 0;
+      box-shadow: 0 0 24px rgba(0, 229, 255, .18), inset 0 0 12px rgba(0, 0, 0, .5);
+      touch-action: manipulation;
+    }
+    .peg {
+      width: 150px; height: 240px;
+      position: relative;
+      display: flex; flex-direction: column-reverse;
+      align-items: center; justify-content: flex-start;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+    }
+    .peg::before {           /* 柱杆 */
+      content: "";
+      position: absolute; left: 50%; bottom: 0;
+      width: 8px; height: 100%;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(0, 229, 255, .8), rgba(0, 229, 255, .2));
+      box-shadow: 0 0 10px rgba(0, 229, 255, .5);
+      border-radius: 4px 4px 0 0;
+    }
+    .peg::after {            /* 底座 */
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+      background: linear-gradient(90deg, rgba(0, 229, 255, .15), rgba(0, 229, 255, .7), rgba(0, 229, 255, .15));
+      box-shadow: 0 0 12px rgba(0, 229, 255, .4);
+      border-radius: 5px;
+    }
+    .peg.sel { background: rgba(255, 47, 185, .12); box-shadow: 0 0 18px rgba(255, 47, 185, .35); }
+    .peg.hot { background: rgba(0, 229, 255, .10); }
+    .peg .label {
+      position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+      font-size: 12px; color: var(--muted); letter-spacing: 2px;
+    }
+    .disc {
+      position: relative; z-index: 1;
+      height: 24px; margin-bottom: 4px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #04121a;
+      transition: transform .1s ease;
+    }
+    .disc.lift { transform: translateY(-8px); box-shadow: 0 0 14px currentColor; }
+    .controls { display: flex; gap: 12px; margin-top: 18px; }
+    button {
+      background: transparent; color: var(--neon);
+      border: 1px solid var(--neon); border-radius: 8px;
+      padding: 10px 20px; font-size: 15px; cursor: pointer;
+      letter-spacing: 2px;
+      transition: background .15s ease, color .15s ease;
+    }
+    button:hover { background: var(--neon); color: #04121a; }
+    #msg {
+      margin-top: 16px; min-height: 24px; font-size: 15px;
+      color: var(--neon2); text-shadow: 0 0 10px rgba(255, 47, 185, .5);
+    }
+    #msg.win { color: #58ffb1; text-shadow: 0 0 10px rgba(88, 255, 177, .5); }
+    @media (max-width: 560px) {
+      .peg { width: 100px; height: 200px; }
+      .disc { height: 20px; }
+      #board { gap: 8px; padding: 14px 8px 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="/">← 返回游戏合集</a>
+  <h1>🗼 汉诺塔 Tower of Hanoi</h1>
+  <p class="sub">把整叠圆盘移到第 3 柱 · 大盘不许压小盘 · 点柱子选/放，或按 1/2/3</p>
+
+  <div class="hud">
+    <span>步数 <b id="moves">0</b></span>
+    <span>最优 <b id="optimal">--</b></span>
+    <span>最佳步数（本档） <b id="best">--</b></span>
+  </div>
+
+  <div class="diff" role="group" aria-label="选择盘数">
+    <span>盘数：</span>
+    <button data-n="3">3</button>
+    <button data-n="4" class="on">4</button>
+    <button data-n="5">5</button>
+    <button data-n="6">6</button>
+    <button data-n="7">7</button>
+    <button data-n="8">8</button>
+  </div>
+
+  <div id="board" aria-label="汉诺塔棋盘">
+    <div class="peg" data-p="0"><span class="label">1</span></div>
+    <div class="peg" data-p="1"><span class="label">2</span></div>
+    <div class="peg" data-p="2"><span class="label">3</span></div>
+  </div>
+
+  <div class="controls">
+    <button id="btnStart">重新开始</button>
+  </div>
+
+  <div id="msg" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+      var N = 4;                       // 当前盘数（3–8）
+      var pegs = [[], [], []];         // 每根柱子自底向上存盘号 1..N（1 最小）
+      var sel = -1;                    // 当前选中的柱子，-1 未选
+      var moves = 0, playing = false;
+
+      var elPegs = document.querySelectorAll(".peg");
+      var elMoves = document.getElementById("moves");
+      var elOptimal = document.getElementById("optimal");
+      var elBest = document.getElementById("best");
+      var elMsg = document.getElementById("msg");
+
+      // 盘号 1..N → 宽度与霓虹配色
+      function discStyle(v) {
+        var w = 40 + (v - 1) * (N === 8 ? 13 : 17);   // 越大盘越宽
+        var hue = 190 + (v - 1) * (N === 8 ? 14 : 20);
+        return "width:" + Math.min(w, 140) + "px;background:linear-gradient(160deg,hsl(" + hue + ",100%,65%),hsl(" + (hue + 30) + ",100%,55%));box-shadow:0 0 8px hsla(" + hue + ",100%,60%,.55)";
+      }
+
+      function bestKey() { return "hanoi_best_" + N; }
+
+      function loadBest() {
+        var b = "--";
+        try { b = localStorage.getItem(bestKey()) || "--"; } catch (e) {}
+        elBest.textContent = b;
+      }
+
+      function render() {
+        for (var p = 0; p < 3; p++) {
+          var el = elPegs[p];
+          // 清掉旧盘（保留 label）
+          var label = el.querySelector(".label");
+          el.innerHTML = "";
+          el.appendChild(label);
+          pegs[p].forEach(function (v, i) {
+            var d = document.createElement("div");
+            d.className = "disc";
+            d.style.cssText = discStyle(v);
+            d.textContent = v;
+            if (sel === p && i === pegs[p].length - 1) d.className += " lift";
+            el.appendChild(d);
+          });
+          el.classList.toggle("sel", sel === p);
+        }
+      }
+
+      function won() {
+        return pegs[2].length === N;
+      }
+
+      function win() {
+        playing = false;
+        try {
+          var b = parseInt(localStorage.getItem(bestKey()) || "99999", 10);
+          if (moves < b) localStorage.setItem(bestKey(), String(moves));
+        } catch (e) {}
+        loadBest();
+        elMsg.textContent = "🎉 完成！" + N + " 盘共 " + moves + " 步（最优 " + optimal() + " 步）。点击「重新开始」再来一局。";
+        elMsg.className = "win";
+      }
+
+      function optimal() {
+        return Math.pow(2, N) - 1;
+      }
+
+      function tap(p) {
+        if (!playing) return;
+        if (sel === -1) {
+          if (pegs[p].length === 0) return;   // 空柱没有可拿的盘
+          sel = p;
+        } else if (sel === p) {
+          sel = -1;                            // 再点同柱取消
+        } else {
+          var from = pegs[sel], to = pegs[p];
+          var top = from[from.length - 1];
+          var dst = to[to.length - 1] || Infinity;
+          if (top < dst) {                     // 合法：小盘压大盘 / 空柱
+            from.pop();
+            to.push(top);
+            moves++;
+            elMoves.textContent = moves;
+            sel = -1;
+            render();
+            if (won()) win();
+            return;
+          }
+          elMsg.className = "";
+          elMsg.textContent = "⛔ 大盘不能压小盘，换个目标柱试试";
+          sel = -1;
+        }
+        render();
+      }
+
+      function start() {
+        pegs = [[], [], []];
+        for (var v = N; v >= 1; v--) pegs[0].push(v);
+        sel = -1;
+        moves = 0;
+        elMoves.textContent = "0";
+        elOptimal.textContent = optimal();
+        elMsg.textContent = "";
+        elMsg.className = "";
+        playing = true;
+        loadBest();
+        render();
+      }
+
+      elPegs.forEach(function (el) {
+        el.addEventListener("click", function () { tap(parseInt(el.dataset.p, 10)); });
+        el.addEventListener("pointerenter", function () { el.classList.add("hot"); });
+        el.addEventListener("pointerleave", function () { el.classList.remove("hot"); });
+      });
+
+      document.addEventListener("keydown", function (ev) {
+        if (ev.key === "1") tap(0);
+        else if (ev.key === "2") tap(1);
+        else if (ev.key === "3") tap(2);
+      });
+
+      document.querySelectorAll(".diff button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          document.querySelectorAll(".diff button").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          N = parseInt(b.dataset.n, 10);
+          start();
+        });
+      });
+
+      document.getElementById("btnStart").addEventListener("click", start);
+
+      start(); // 打开即摆好 4 盘，可直接游玩
+    })();
+  </script>
+</body>
+</html>
