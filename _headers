@@ -1,1 +1,33 @@
-IyBDbG91ZGZsYXJlIFBhZ2VzIOWTjeW6lOWktOmFjee9rgojIOaWh+ahozogaHR0cHM6Ly9kZXZlbG9wZXJzLmNsb3VkZmxhcmUuY29tL3BhZ2VzL2NvbmZpZ3VyYXRpb24vaGVhZGVycy8KIwojIOmHjeimge+8muWkmuadoeinhOWImeWRveS4reWQjOS4gOi3r+W+hOaXtu+8jOWTjeW6lOWktOS8muOAjOWPoOWKoOOAjeOAggojIOWboOatpCBDYWNoZS1Db250cm9sIOW/hemhu+S/neivgeavj+S4qui3r+W+hOWPquWRveS4reS4gOadoeinhOWIme+8jOWQpuWImeS8muWHuueOsAojIOmHjeWkjeeahCBtYXgtYWdl77yI5aaCICJtYXgtYWdlPTMwMCwgbWF4LWFnZT04NjQwMCLvvInvvIzmtY/op4jlmajooYzkuLrkuI3kuIDoh7TjgIIKIyDmnKzmlofku7bnmoTlgZrms5XvvJovKiDlj6rmlL7lronlhajlpLTvvIxDYWNoZS1Db250cm9sIOeUseS4i+aWueS6kuS4jemHjeWPoOeahOWFt+S9k+inhOWImeaPkOS+m+OAggoKIyDilIDilIAg5YWo5bGA77ya5LuF5a6J5YWo5aS077yI5Yi75oSP5LiN5pS+IENhY2hlLUNvbnRyb2zvvIzpgb/lhY3kuI7kuIvmlrnop4TliJnlj6DliqDvvInilIDilIAKLyoKICBYLUNvbnRlbnQtVHlwZS1PcHRpb25zOiBub3NuaWZmCiAgWC1GcmFtZS1PcHRpb25zOiBERU5ZCiAgUmVmZXJyZXItUG9saWN5OiBzdHJpY3Qtb3JpZ2luLXdoZW4tY3Jvc3Mtb3JpZ2luCiAgUGVybWlzc2lvbnMtUG9saWN5OiBnZW9sb2NhdGlvbj0oKSwgbWljcm9waG9uZT0oKSwgY2FtZXJhPSgpCiAgU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eTogbWF4LWFnZT02MzA3MjAwMDsgaW5jbHVkZVN1YkRvbWFpbnM7IHByZWxvYWQKCiMg4pSA4pSAIOmmlumhte+8iOebruW9leaguei3r+W+hO+8jOS4jeS8muiiqyAvKi5odG1sIOWRveS4re+8ieKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgAovCiAgQ2FjaGUtQ29udHJvbDogcHVibGljLCBtYXgtYWdlPTMwMCwgbXVzdC1yZXZhbGlkYXRlCgojIOKUgOKUgCDmuLjmiI/pobXpnaLvvJrkuIDlpKnnvJPlrZgg4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACi9nYW1lcy8qCiAgQ2FjaGUtQ29udHJvbDogcHVibGljLCBtYXgtYWdlPTg2NDAwCgojIOKUgOKUgCDmoLflvI8gLyDohJrmnKzvvJrplb/mnJ/nvJPlrZgg4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACi9hc3NldHMvY3NzLyoKICBDYWNoZS1Db250cm9sOiBwdWJsaWMsIG1heC1hZ2U9MzE1MzYwMDAsIGltbXV0YWJsZQovYXNzZXRzL2pzLyoKICBDYWNoZS1Db250cm9sOiBwdWJsaWMsIG1heC1hZ2U9MzE1MzYwMDAsIGltbXV0YWJsZQoKIyDilIDilIAg5Zu+54mH6LWE5rqQ77yI5ZCr56S+5Lqk5bCB6Z2iIG9nLWNvdmVyLnN2Z++8ie+8muS4gOWRqOe8k+WtmCDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKL2Fzc2V0cy8qLnN2ZwogIENhY2hlLUNvbnRyb2w6IHB1YmxpYywgbWF4LWFnZT02MDQ4MDAK
+# Cloudflare Pages 响应头配置
+# 文档: https://developers.cloudflare.com/pages/configuration/headers/
+#
+# 重要：多条规则命中同一路径时，响应头会「叠加」。
+# 因此 Cache-Control 必须保证每个路径只命中一条规则，否则会出现
+# 重复的 max-age（如 "max-age=300, max-age=86400"），浏览器行为不一致。
+# 本文件的做法：/* 只放安全头，Cache-Control 由下方互不重叠的具体规则提供。
+
+# ── 全局：仅安全头（刻意不放 Cache-Control，避免与下方规则叠加）──
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# ── 首页（目录根路径，不会被 /*.html 命中）─────────────────────
+/
+  Cache-Control: public, max-age=300, must-revalidate
+
+# ── 游戏页面：一天缓存 ───────────────────────────────────────
+/games/*
+  Cache-Control: public, max-age=86400
+
+# ── 样式 / 脚本：长期缓存 ────────────────────────────────────
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── 图片资源（含社交封面 og-cover.svg）：一周缓存 ──────────────
+/assets/*.svg
+  Cache-Control: public, max-age=604800
