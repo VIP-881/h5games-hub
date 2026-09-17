@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0e1a"/>
+      <stop offset="1" stop-color="#1b2350"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="1" stop-color="#ff2e88"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="none" stroke="#00e5ff" stroke-opacity="0.25" stroke-width="2"/>
+  <text x="70" y="290" font-family="system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="96" font-weight="800" fill="url(#neon)">H5 小游戏合集</text>
+  <text x="72" y="370" font-family="system-ui, sans-serif" font-size="42" fill="#e8ecff">纯前端 · 即点即玩 · 无需后端</text>
+  <text x="72" y="560" font-family="system-ui, sans-serif" font-size="32" fill="#9aa3c7">2048 · 贪吃蛇 · 打砖块 · 更多轻量游戏</text>
+  <text x="1130" y="600" text-anchor="end" font-size="40" fill="#00e5ff">🎮</text>
+</svg>
