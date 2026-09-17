@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>2048 | H5 小游戏合集</title>
+
+  <link rel="canonical" href="https://h5games-hub.pages.dev/games/2048/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="2048 | H5 小游戏合集" />
+  <meta property="og:description" content="在 4×4 棋盘上滑动合并相同数字方块，目标是凑出 2048，支持撤销一步。" />
+  <meta property="og:url" content="https://h5games-hub.pages.dev/games/2048/" />
+  <meta property="og:image" content="https://h5games-hub.pages.dev/assets/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="2048 | H5 小游戏合集" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "2048",
+  "url": "https://h5games-hub.pages.dev/games/2048/",
+  "description": "在 4×4 棋盘上滑动合并相同数字方块，目标是凑出 2048，支持撤销一步。",
+  "gamePlatform": "Web",
+  "applicationCategory": "Game",
+  "genre": "益智",
+  "playMode": "SinglePlayer",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "H5 Games Hub",
+    "url": "https://h5games-hub.pages.dev/"
+  }
+}
+  </script>
+<meta name="description" content="纯前端 2048 数字合并游戏：方向键或滑动操作，带撤销与本地最高分保存。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔢</text></svg>" />
+<style>
+  :root { --bg:#0b0e1a; --board:#161b3a; --cell:#1c2247; --text:#e8ecff; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+  header { width:100%; padding:14px 20px; text-align:center; }
+  header a { color:#9aa3c7; text-decoration:none; font-size:.9rem; }
+  h1 { font-size:1.3rem; margin:6px 0; }
+  .hud { display:flex; gap:18px; align-items:center; margin:8px 0; }
+  .hud b { color:#00e5ff; font-variant-numeric:tabular-nums; }
+  .board { position:relative; width:300px; height:300px; background:var(--board); border-radius:12px; padding:10px; touch-action:none; }
+  .tile { position:absolute; width:65px; height:65px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.5rem; transition:all .12s ease; }
+  .controls { margin:14px 0 24px; display:flex; gap:10px; }
+  button { background:var(--board); color:var(--text); border:1px solid rgba(255,255,255,.12); padding:9px 18px; border-radius:999px; cursor:pointer; }
+  button:hover { border-color:#00e5ff; }
+  .hint { color:#9aa3c7; font-size:.85rem; margin-bottom:24px; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">← 返回合集</a>
+  <h1>🔢 2048</h1>
+</header>
+<div class="hud">
+  <div>分数 <b id="score">0</b></div>
+  <div>最高 <b id="best">0</b></div>
+</div>
+<div class="board" id="board"></div>
+<div class="controls">
+  <button id="undo">撤销</button>
+  <button id="restart">重开</button>
+</div>
+<p class="hint">方向键 / WASD 或滑动屏幕移动方块</p>
+
+<script>
+(function () {
+  'use strict';
+  var SIZE = 4, board = document.getElementById('board');
+  var scoreEl = document.getElementById('score'), bestEl = document.getElementById('best');
+  var grid, score, prev = null, prevScore = 0;
+  var BEST_KEY = 'h5hub_2048_best';
+  bestEl.textContent = localStorage.getItem(BEST_KEY) || 0;
+  var COLORS = {2:'#3a4a8a',4:'#3f5bc0',8:'#00b3cc',16:'#00d2b8',32:'#ffb300',64:'#ff8a00',128:'#ff5e8a',256:'#ff2e88',512:'#c44bff',1024:'#8a5cff',2048:'#00e5ff'};
+
+  function init() {
+    grid = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+    score = 0; prev = null;
+    addRandom(); addRandom(); render();
+  }
+
+  function addRandom() {
+    var empty = [];
+    for (var r=0;r<SIZE;r++) for (var c=0;c<SIZE;c++) if (!grid[r][c]) empty.push([r,c]);
+    if (!empty.length) return;
+    var p = empty[(Math.random()*empty.length)|0];
+    grid[p[0]][p[1]] = Math.random()<0.9 ? 2 : 4;
+  }
+
+  function rotate(g){ var n=[[],[],[],[]]; for(var r=0;r<SIZE;r++)for(var c=0;c<SIZE;c++) n[c][SIZE-1-r]=g[r][c]; return n; }
+
+  function slide(row) {
+    var arr = row.filter(function(v){return v;});
+    for (var i=0;i<arr.length-1;i++) if (arr[i]===arr[i+1]) { arr[i]*=2; score+=arr[i]; arr.splice(i+1,1); }
+    while (arr.length<SIZE) arr.push(0);
+    return arr;
+  }
+
+  function move(dir) {
+    var before = JSON.stringify(grid);
+    var g = grid;
+    for (var i=0;i<(dir==='right'||dir==='down'?2:0);i++) g = rotate(g);
+    if (dir==='down'||dir==='up') g = rotate(rotate(g));
+    for (var r=0;r<SIZE;r++) g[r] = slide(g[r]);
+    if (dir==='down'||dir==='up') g = rotate(rotate(g));
+    for (var j=0;j<(dir==='right'||dir==='down'?2:0);j++) g = rotate(g);
+    if (JSON.stringify(g)!==before) {
+      prev = grid; prevScore = score;
+      grid = g; addRandom(); render();
+      bestEl.textContent = Math.max(score, +bestEl.textContent);
+      localStorage.setItem(BEST_KEY, bestEl.textContent);
+    }
+  }
+
+  function render() {
+    scoreEl.textContent = score;
+    board.innerHTML = '';
+    var cell = 65, gap = 10, pad = 10;
+    for (var r=0;r<SIZE;r++) for (var c=0;c<SIZE;c++) {
+      var v = grid[r][c];
+      var t = document.createElement('div');
+      t.className = 'tile';
+      t.style.left = (pad + c*(cell+gap)) + 'px';
+      t.style.top  = (pad + r*(cell+gap)) + 'px';
+      if (v) { t.textContent = v; t.style.background = COLORS[v]||'#00e5ff'; t.style.color = v<=8?'#e8ecff':'#0b0e1a'; }
+      else { t.style.background = 'var(--cell)'; }
+      board.appendChild(t);
+    }
+  }
+
+  document.getElementById('undo').addEventListener('click', function(){
+    if (prev) { grid = prev; score = prevScore; render(); }
+  });
+  document.getElementById('restart').addEventListener('click', init);
+
+  document.addEventListener('keydown', function(e){
+    var k = e.key.toLowerCase();
+    if (k==='arrowup'||k==='w') move('up');
+    else if (k==='arrowdown'||k==='s') move('down');
+    else if (k==='arrowleft'||k==='a') move('left');
+    else if (k==='arrowright'||k==='d') move('right');
+  });
+
+  var sx=0, sy=0;
+  board.addEventListener('touchstart', function(e){ sx=e.touches[0].clientX; sy=e.touches[0].clientY; }, {passive:true});
+  board.addEventListener('touchend', function(e){
+    var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if (Math.abs(dx)>Math.abs(dy)) move(dx>0?'right':'left'); else move(dy>0?'down':'up');
+  }, {passive:true});
+
+  init();
+})();
+</script>
+</body>
+</html>
